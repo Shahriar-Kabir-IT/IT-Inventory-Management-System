@@ -5,7 +5,7 @@ require_once 'db_connect.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $location = $_POST['location']; // Added location selection
+    $location = $_POST['location'];
 
     try {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND factory = ?");
@@ -18,23 +18,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_type'] = $user['user_type'];
             $_SESSION['factory'] = $user['factory'];
             
-            // Redirect to appropriate dashboard based on location
+            // Redirect to location-specific dashboard
             switch ($user['factory']) {
                 case 'agl':
-                    header('Location: dashboard_agl.php');
+                    $dashboard = 'dashboard_agl.php';
                     break;
                 case 'ajl':
-                    header('Location: dashboard_ajl.php');
+                    $dashboard = 'dashboard_ajl.php';
                     break;
                 case 'pwpl':
-                    header('Location: dashboard_pwpl.php');
+                    $dashboard = 'dashboard_pwpl.php';
+                    break;
+                    case 'abm':
+                    $dashboard = 'dashboard_abm.php';
                     break;
                 case 'head office':
-                    header('Location: dashboard_headoffice.php');
-                    break;
                 default:
-                    header('Location: dashboard.php');
+                    $dashboard = 'dashboard.php';
+                    break;
             }
+            
+            header("Location: $dashboard");
             exit();
         } else {
             $error = "Invalid username, password, or location";
@@ -51,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - IT Asset Management</title>
-
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -82,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 5px;
             font-weight: 600;
         }
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
@@ -104,13 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: #dc3545;
             text-align: center;
             margin-bottom: 15px;
-        }
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
         }
     </style>
 </head>
@@ -136,6 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <option value="agl">AGL</option>
                     <option value="ajl">AJL</option>
                     <option value="pwpl">PWPL</option>
+                    <option value="abm">ABM</option>
                     <option value="head office">Head Office</option>
                 </select>
             </div>

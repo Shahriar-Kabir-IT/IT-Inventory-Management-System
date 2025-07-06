@@ -17,9 +17,6 @@ try {
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());
 }
-
-// Check if user is admin
-$is_admin = ($current_user['user_type'] === 'admin');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -244,14 +241,14 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     /* Modal styles */
-    .modal-overlay {
+    #modal {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0.5);
-      display: none;
+      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
@@ -266,72 +263,131 @@ $is_admin = ($current_user['user_type'] === 'admin');
       max-height: 90vh;
       overflow-y: auto;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      position: relative;
     }
 
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
+    .modal-content h2 {
       font-size: 1.5rem;
-      cursor: pointer;
-      background: none;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #495057;
+    }
+
+    .modal-content input,
+    .modal-content select,
+    .modal-content textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .modal-content textarea {
+      height: 80px;
+      resize: vertical;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-content button {
+      padding: 10px 20px;
       border: none;
-      color: #6c757d;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
     }
 
-    /* Approval Modal Specific Styles */
-    #approvalModal .modal-content {
-      max-width: 1000px;
+    .modal-content .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
     }
 
-    .approval-table {
+    .modal-content .btn-success {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+    }
+
+    .modal-content .btn-danger {
+      background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+      color: white;
+    }
+
+    .modal-content .btn-warning {
+      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+      color: black;
+    }
+
+    .modal-content .btn-info {
+      background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+      color: white;
+    }
+
+    .modal-content button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .warning-box {
+      background: #f8d7da;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #dc3545;
+      margin: 15px 0;
+      color: #721c24;
+    }
+
+    .info-box {
+      background: #e2f3f8;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #17a2b8;
+      margin: 15px 0;
+      color: #0c5460;
+    }
+
+    .history-table {
       width: 100%;
       border-collapse: collapse;
       margin: 15px 0;
     }
 
-    .approval-table th, 
-    .approval-table td {
+    .history-table th, 
+    .history-table td {
       padding: 10px;
       border: 1px solid #ddd;
       text-align: left;
     }
 
-    .approval-table th {
+    .history-table th {
       background-color: #f8f9fa;
     }
 
-    .approval-table tr:nth-child(even) {
+    .history-table tr:nth-child(even) {
       background-color: #f9f9f9;
     }
 
-    /* Approval Button Styles */
-    .approval-btn {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s;
-      font-size: 14px;
-      margin: 2px;
-    }
-
-    .approve-btn {
-      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-      color: white;
-    }
-
-    .reject-btn {
-      background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
-      color: white;
-    }
-
-    .approval-btn:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    .approval-notice {
+      background-color: #d4edda;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -361,7 +417,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
           <h1>IT Asset Inventory Management</h1>
           <p>Comprehensive tracking system for IT department assets and equipment</p>
         </div>
-        <div style="color: white; text-align: right; padding: 10px;">
+        <div class="user-info" style="color: white; text-align: right; padding: 10px;">
           <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
           <p><?php echo strtoupper($current_user['factory']); ?> - <?php echo ucfirst($current_user['user_type']); ?></p>
           <a href="logout.php" style="color: white; text-decoration: underline;">Logout</a>
@@ -389,12 +445,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
     </div>
 
     <div class="controls">
-      <?php if ($is_admin): ?>
-        <button class="btn btn-success" id="addItemBtn">➕ Add New Item</button>
-        <button class="btn btn-danger" id="removeBtn">🗑️ Remove Item</button>
-        <button class="btn btn-warning" id="approvalBtn">🔄 Pending Approvals (<span id="approvalCount">0</span>)</button>
-      <?php endif; ?>
+      <button class="btn btn-success" id="addItemBtn">➕ Add New Item</button>
       <button class="btn btn-warning" id="serviceBtn">🔧 Send for Servicing</button>
+      <button class="btn btn-danger" id="removeBtn">🗑️ Remove Item</button>
       <button class="btn btn-primary" id="exportBtn">⬇️ Export</button>
       <button class="btn btn-info" id="historyBtn">📜 View All Service History</button>
 
@@ -442,27 +495,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
     </div>
   </div>
 
-  <!-- Modal Overlay (for all modals) -->
-  <div id="modalOverlay" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close">&times;</button>
-      <div id="modalContent"></div>
-    </div>
-  </div>
-
-  <!-- Approval Modal -->
-  <div id="approvalModal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeApprovalModal()">&times;</button>
-      <div id="approvalContent"></div>
-    </div>
-  </div>
-
   <script>
     let inventoryData = [];
     let filteredData = [];
-    let currentUserType = "<?php echo $current_user['user_type']; ?>";
-    let currentFactory = "<?php echo $current_user['factory']; ?>";
 
     // DOM Elements
     const addItemBtn = document.getElementById('addItemBtn');
@@ -470,209 +505,25 @@ $is_admin = ($current_user['user_type'] === 'admin');
     const removeBtn = document.getElementById('removeBtn');
     const exportBtn = document.getElementById('exportBtn');
     const historyBtn = document.getElementById('historyBtn');
-    const approvalBtn = document.getElementById('approvalBtn');
     const statusFilter = document.getElementById('statusFilter');
     const searchInput = document.getElementById('searchInput');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalContent = document.getElementById('modalContent');
-    const modalClose = document.querySelector('.modal-close');
-    const approvalModal = document.getElementById('approvalModal');
-    const approvalContent = document.getElementById('approvalContent');
-    const approvalCount = document.getElementById('approvalCount');
 
     // Event Listeners
-    if (addItemBtn) addItemBtn.addEventListener('click', showAddItemModal);
+    addItemBtn.addEventListener('click', showAddItemModal);
     serviceBtn.addEventListener('click', showServiceModal);
-    if (removeBtn) removeBtn.addEventListener('click', showRemoveModal);
+    removeBtn.addEventListener('click', showRemoveModal);
     exportBtn.addEventListener('click', exportToCSV);
     historyBtn.addEventListener('click', showAllServiceHistory);
-    if (approvalBtn) approvalBtn.addEventListener('click', showApprovalModal);
     statusFilter.addEventListener('change', filterTable);
     searchInput.addEventListener('keyup', filterTable);
-    modalClose.addEventListener('click', closeModal);
-
-    // Close modal when clicking outside content
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) {
-        closeModal();
-      }
-    });
-
-    approvalModal.addEventListener('click', (e) => {
-      if (e.target === approvalModal) {
-        closeApprovalModal();
-      }
-    });
 
     // Load data when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-      loadDataFromDB();
-      if (approvalBtn) {
-        updateApprovalCount();
-      }
-    });
-
-    function showModal(content) {
-      modalContent.innerHTML = content;
-      modalOverlay.style.display = 'flex';
-    }
-
-    function closeModal() {
-      modalOverlay.style.display = 'none';
-    }
-
-    function showApprovalModal() {
-      try {
-        showLoading(true);
-        fetch('get_pending_approvals.php')
-          .then(response => response.json())
-          .then(approvals => {
-            let html = `
-              <h2>🔄 Pending Approvals</h2>
-              <table class="approval-table">
-                <thead>
-                  <tr>
-                    <th>Request ID</th>
-                    <th>Action</th>
-                    <th>Asset ID</th>
-                    <th>Requested By</th>
-                    <th>Factory</th>
-                    <th>Date</th>
-                    <th>Details</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-            `;
-            
-            approvals.forEach(approval => {
-              const details = approval.action_details ? JSON.parse(approval.action_details) : {};
-              let detailsHtml = '';
-              
-              if (approval.action_type === 'ADD') {
-                detailsHtml = `
-                  <strong>Asset:</strong> ${details.asset_name}<br>
-                  <strong>Category:</strong> ${details.category}<br>
-                  <strong>Brand:</strong> ${details.brand}<br>
-                  <strong>Model:</strong> ${details.model}
-                `;
-              } else if (approval.action_type === 'SERVICE') {
-                detailsHtml = `
-                  <strong>Type:</strong> ${details.service_type}<br>
-                  <strong>Technician:</strong> ${details.service_by}<br>
-                  <strong>Notes:</strong> ${details.service_notes}
-                `;
-              } else if (approval.action_type === 'COMPLETE_SERVICE') {
-                detailsHtml = `
-                  <strong>Completion Notes:</strong> ${details.completion_notes}
-                `;
-              } else if (approval.action_type === 'DELETE') {
-                detailsHtml = `
-                  <strong>Reason:</strong> ${details.remove_reason}<br>
-                  <strong>Notes:</strong> ${details.remove_notes}
-                `;
-              }
-              
-              html += `
-                <tr>
-                  <td>${approval.id}</td>
-                  <td>${approval.action_type}</td>
-                  <td>${approval.asset_id || 'N/A'}</td>
-                  <td>${approval.requested_by}</td>
-                  <td>${approval.factory.toUpperCase()}</td>
-                  <td>${new Date(approval.request_date).toLocaleString()}</td>
-                  <td>${detailsHtml}</td>
-                  <td>
-                    <button onclick="processApproval(${approval.id}, 'APPROVE')" class="approval-btn approve-btn">Approve</button>
-                    <button onclick="processApproval(${approval.id}, 'REJECT')" class="approval-btn reject-btn">Reject</button>
-                  </td>
-                </tr>
-              `;
-            });
-            
-            html += `
-                </tbody>
-              </table>
-            `;
-            
-            approvalContent.innerHTML = html;
-            approvalModal.style.display = 'flex';
-          })
-          .catch(error => {
-            console.error('Error loading approvals:', error);
-            approvalContent.innerHTML = '<p>Error loading approval requests. Please try again.</p>';
-            approvalModal.style.display = 'flex';
-          })
-          .finally(() => {
-            showLoading(false);
-          });
-      } catch (error) {
-        console.error('Error:', error);
-        showLoading(false);
-      }
-    }
-
-    function closeApprovalModal() {
-      approvalModal.style.display = 'none';
-    }
-
-    function processApproval(approvalId, action) {
-      if (!confirm(`Are you sure you want to ${action.toLowerCase()} this request?`)) {
-        return;
-      }
-      
-      showLoading(true);
-      fetch('process_approval.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          approval_id: approvalId,
-          action: action,
-          approver: '<?php echo $current_user['name']; ?>'
-        })
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.success) {
-          alert(`Request ${action.toLowerCase()}d successfully!`);
-          showApprovalModal();
-          loadDataFromDB();
-          updateApprovalCount();
-        } else {
-          alert(`Error processing request: ${result.message || 'Unknown error'}`);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Error processing approval. Check console for details.');
-      })
-      .finally(() => {
-        showLoading(false);
-      });
-    }
-
-    function updateApprovalCount() {
-      fetch('count_pending_approvals.php')
-        .then(response => response.json())
-        .then(result => {
-          if (result.success) {
-            approvalCount.textContent = result.count;
-          }
-        })
-        .catch(error => {
-          console.error('Error updating approval count:', error);
-        });
-    }
+    document.addEventListener('DOMContentLoaded', loadDataFromDB);
 
     async function loadDataFromDB() {
       try {
         showLoading(true);
-        let url = 'get_assets.php';
-        if (currentUserType !== 'admin') {
-          url += `?factory=${currentFactory}`;
-        }
-        
-        const response = await fetch(url);
+        const response = await fetch('get_assets_abm.php');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -835,100 +686,101 @@ $is_admin = ($current_user['user_type'] === 'admin');
 
     function showAddItemModal() {
       const modalHtml = `
-        <h2>➕ Add New Asset</h2>
-        <form id="addForm">
-          <div>
-            <label for="assetName">Asset Name*</label>
-            <input type="text" id="assetName" required>
+      <div id="modal">
+        <div class="modal-content">
+          <h2>➕ Add New Asset</h2>
+          <div class="approval-notice">
+            <strong>Note:</strong> All additions require approval from the admin.
           </div>
-          
-          <div>
-            <label for="category">Category*</label>
-            <select id="category" required>
-              <option value="">Select Category</option>
-              <option value="Desktop">Desktop</option>
-              <option value="Laptop">Laptop</option>
-              <option value="Server">Server</option>
-              <option value="Network">Network</option>
-              <option value="Printer">Printer</option>
-              <option value="Monitor">Monitor</option>
-              <option value="Mobile">Mobile</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="brand">Brand*</label>
-            <input type="text" id="brand" required>
-          </div>
-          
-          <div>
-            <label for="model">Model*</label>
-            <input type="text" id="model" required>
-          </div>
-          
-          <div>
-            <label for="serial">Serial Number*</label>
-            <input type="text" id="serial" required>
-          </div>
-          
-          <div>
-            <label for="location">Location*</label>
-            <select id="location" required>
-              <option value="agl">AGL</option>
-              <option value="ajl">AJL</option>
-              <option value="pwpl">PWPL</option>
-              <option value="head office">Head Office</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="assigned">Assigned To</label>
-            <input type="text" id="assigned">
-          </div>
-          
-          <div>
-            <label for="department">Department*</label>
-            <input type="text" id="department" required>
-          </div>
-          
-          <div>
-            <label for="purchaseDate">Purchase Date*</label>
-            <input type="date" id="purchaseDate" required>
-          </div>
-          
-          <div>
-            <label for="price">Purchase Price*</label>
-            <input type="text" id="price" required placeholder="$1,000">
-          </div>
-          
-          <div>
-            <label for="warranty">Warranty Expiry*</label>
-            <input type="date" id="warranty" required>
-          </div>
-          
-          <div>
-            <label for="priority">Priority</label>
-            <select id="priority">
-              <option value="Low">Low</option>
-              <option value="Medium" selected>Medium</option>
-              <option value="High">High</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="notes">Notes</label>
-            <textarea id="notes" placeholder="Additional information..."></textarea>
-          </div>
-          
-          <div class="button-group">
-            <button type="submit" class="btn-success">Add Asset</button>
-            <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
-          </div>
-        </form>
-      `;
+          <form id="addForm">
+            <div>
+              <label for="assetName">Asset Name*</label>
+              <input type="text" id="assetName" required>
+            </div>
+            
+            <div>
+              <label for="category">Category*</label>
+              <select id="category" required>
+                <option value="">Select Category</option>
+                <option value="Desktop">Desktop</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Server">Server</option>
+                <option value="Network">Network</option>
+                <option value="Printer">Printer</option>
+                <option value="Monitor">Monitor</option>
+                <option value="Mobile">Mobile</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="brand">Brand*</label>
+              <input type="text" id="brand" required>
+            </div>
+            
+            <div>
+              <label for="model">Model*</label>
+              <input type="text" id="model" required>
+            </div>
+            
+            <div>
+              <label for="serial">Serial Number*</label>
+              <input type="text" id="serial" required>
+            </div>
+            
+            <div>
+              <label for="location">Location*</label>
+              <input type="text" id="location" required>
+            </div>
+            
+            <div>
+              <label for="assigned">Assigned To</label>
+              <input type="text" id="assigned">
+            </div>
+            
+            <div>
+              <label for="department">Department*</label>
+              <input type="text" id="department" required>
+            </div>
+            
+            <div>
+              <label for="purchaseDate">Purchase Date*</label>
+              <input type="date" id="purchaseDate" required>
+            </div>
+            
+            <div>
+              <label for="price">Purchase Price*</label>
+              <input type="text" id="price" required placeholder="$1,000">
+            </div>
+            
+            <div>
+              <label for="warranty">Warranty Expiry*</label>
+              <input type="date" id="warranty" required>
+            </div>
+            
+            <div>
+              <label for="priority">Priority</label>
+              <select id="priority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="notes">Notes</label>
+              <textarea id="notes" placeholder="Additional information..."></textarea>
+            </div>
+            
+            <div class="button-group">
+              <button type="submit" class="btn-success">Add Asset</button>
+              <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>`;
       
-      showModal(modalHtml);
-          
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
+      
       document.getElementById('addForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -940,7 +792,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
           brand: document.getElementById('brand').value,
           model: document.getElementById('model').value,
           serial_number: document.getElementById('serial').value,
-          status: 'ACTIVE',
+          status: 'PENDING',
           location: document.getElementById('location').value,
           assigned_to: document.getElementById('assigned').value || 'Unassigned',
           department: document.getElementById('department').value,
@@ -952,26 +804,35 @@ $is_admin = ($current_user['user_type'] === 'admin');
           notes: document.getElementById('notes').value
         };
 
-        try {
-          const response = await fetch('add_asset.php', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
-          });
-          
-          const result = await response.json();
-          if (result.success) {
-            alert('Asset added successfully!');
-            closeModal();
-            loadDataFromDB();
-          } else {
-            alert('Error adding asset: ' + (result.message || 'Unknown error'));
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('Error adding asset. Check console for details.');
-        }
+        await submitAddItem(data);
       });
+    }
+
+    async function submitAddItem(data) {
+      try {
+        data.action_type = 'ADD';
+        data.requested_by = '<?php echo $current_user['name']; ?>';
+        data.factory = 'abm';
+        data.asset_id = generateAssetId();
+        
+        const response = await fetch('request_approval_abm.php', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+          alert('Your request has been submitted for approval. You will be notified once approved.');
+          closeModal();
+          loadDataFromDB();
+        } else {
+          alert('Error submitting request: ' + (result.message || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error submitting request. Check console for details.');
+      }
     }
 
     function showServiceModal() {
@@ -986,43 +847,48 @@ $is_admin = ($current_user['user_type'] === 'admin');
         .join('');
       
       const modalHtml = `
-        <h2>🔧 Send Asset for Servicing</h2>
-        
-        <div>
-          <label for="serviceAsset">Select Asset to Service:</label>
-          <select id="serviceAsset">
-            <option value="">Choose an asset...</option>
-            ${options}
-          </select>
+      <div id="modal">
+        <div class="modal-content">
+          <h2>🔧 Send Asset for Servicing</h2>
+          <div class="approval-notice">
+            <strong>Note:</strong> All service requests require approval from the admin.
+          </div>
+          <div>
+            <label for="serviceAsset">Select Asset to Service:</label>
+            <select id="serviceAsset">
+              <option value="">Choose an asset...</option>
+              ${options}
+            </select>
+          </div>
+          
+          <div>
+            <label for="serviceType">Service Type:</label>
+            <select id="serviceType">
+              <option value="Scheduled Maintenance">Scheduled Maintenance</option>
+              <option value="Repair">Repair</option>
+              <option value="Upgrade">Upgrade</option>
+              <option value="Inspection">Inspection</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="serviceBy">Serviced By:</label>
+            <input type="text" id="serviceBy" placeholder="Technician name">
+          </div>
+          
+          <div>
+            <label for="serviceNotes">Service Notes:</label>
+            <textarea id="serviceNotes" placeholder="Describe the service required..."></textarea>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" onclick="submitService()" class="btn-warning">Send for Service</button>
+            <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
+          </div>
         </div>
-        
-        <div>
-          <label for="serviceType">Service Type:</label>
-          <select id="serviceType">
-            <option value="Scheduled Maintenance">Scheduled Maintenance</option>
-            <option value="Repair">Repair</option>
-            <option value="Upgrade">Upgrade</option>
-            <option value="Inspection">Inspection</option>
-          </select>
-        </div>
-        
-        <div>
-          <label for="serviceBy">Serviced By:</label>
-          <input type="text" id="serviceBy" placeholder="Technician name">
-        </div>
-        
-        <div>
-          <label for="serviceNotes">Service Notes:</label>
-          <textarea id="serviceNotes" placeholder="Describe the service required..."></textarea>
-        </div>
-        
-        <div class="button-group">
-          <button type="button" onclick="submitService()" class="btn-warning">Send for Service</button>
-          <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
-        </div>
-      `;
+      </div>`;
       
-      showModal(modalHtml);
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
     }
 
     async function submitService() {
@@ -1041,31 +907,41 @@ $is_admin = ($current_user['user_type'] === 'admin');
         return;
       }
 
+      const data = {
+        asset_id: assetId,
+        status: 'MAINTENANCE',
+        service_type: serviceType,
+        service_notes: serviceNotes,
+        service_by: serviceBy,
+        last_maintenance: new Date().toISOString().split('T')[0]
+      };
+      
+      await submitServiceRequest(data);
+    }
+
+    async function submitServiceRequest(data) {
       try {
-        const response = await fetch('update_status.php', {
+        data.action_type = 'SERVICE';
+        data.requested_by = '<?php echo $current_user['name']; ?>';
+        data.factory = 'abm';
+        
+        const response = await fetch('request_approval_abm.php', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            asset_id: assetId,
-            status: 'MAINTENANCE',
-            service_type: serviceType,
-            service_notes: serviceNotes,
-            service_by: serviceBy,
-            last_maintenance: new Date().toISOString().split('T')[0]
-          })
+          body: JSON.stringify(data)
         });
         
         const result = await response.json();
         if (result.success) {
-          alert('Asset sent for servicing successfully!');
+          alert('Your service request has been submitted for approval. You will be notified once approved.');
           closeModal();
           loadDataFromDB();
         } else {
-          alert('Error updating asset: ' + (result.message || 'Unknown error'));
+          alert('Error submitting service request: ' + (result.message || 'Unknown error'));
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Error sending for service. Check console for details.');
+        alert('Error submitting service request. Check console for details.');
       }
     }
 
@@ -1074,50 +950,64 @@ $is_admin = ($current_user['user_type'] === 'admin');
       if (!asset) return;
 
       const modalHtml = `
-        <h2>✔ Complete Service for ${assetId}</h2>
-        <div class="info-box">
-          <strong>Asset:</strong> ${asset.asset_name || 'N/A'}<br>
-          <strong>Current Status:</strong> ${asset.status || 'N/A'}
+      <div id="modal">
+        <div class="modal-content">
+          <h2>✔ Complete Service for ${assetId}</h2>
+          <div class="approval-notice">
+            <strong>Note:</strong> Service completion requires approval from the admin.
+          </div>
+          <div class="info-box">
+            <strong>Asset:</strong> ${asset.asset_name || 'N/A'}<br>
+            <strong>Current Status:</strong> ${asset.status || 'N/A'}
+          </div>
+          
+          <div>
+            <label for="completionNotes">Completion Notes:</label>
+            <textarea id="completionNotes" placeholder="Describe work completed..."></textarea>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" onclick="completeService('${assetId}')" class="btn-success">Mark as Completed</button>
+            <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
+          </div>
         </div>
-        
-        <div>
-          <label for="completionNotes">Completion Notes:</label>
-          <textarea id="completionNotes" placeholder="Describe work completed..."></textarea>
-        </div>
-        
-        <div class="button-group">
-          <button type="button" onclick="completeService('${assetId}')" class="btn-success">Mark as Completed</button>
-          <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
-        </div>
-      `;
+      </div>`;
       
-      showModal(modalHtml);
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
     }
 
     async function completeService(assetId) {
       const completionNotes = document.getElementById('completionNotes').value;
+      await submitCompleteServiceRequest(assetId, completionNotes);
+    }
 
+    async function submitCompleteServiceRequest(assetId, completionNotes) {
       try {
-        const response = await fetch('complete_service.php', {
+        const data = {
+          action_type: 'COMPLETE_SERVICE',
+          requested_by: '<?php echo $current_user['name']; ?>',
+          factory: 'abm',
+          asset_id: assetId,
+          completion_notes: completionNotes
+        };
+        
+        const response = await fetch('request_approval_abm.php', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            asset_id: assetId,
-            completion_notes: completionNotes
-          })
+          body: JSON.stringify(data)
         });
         
         const result = await response.json();
         if (result.success) {
-          alert('Service completed successfully! Asset status set to ACTIVE.');
+          alert('Your completion request has been submitted for approval. You will be notified once approved.');
           closeModal();
           loadDataFromDB();
         } else {
-          alert('Error completing service: ' + (result.message || 'Unknown error'));
+          alert('Error submitting completion request: ' + (result.message || 'Unknown error'));
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Error completing service. Check console for details.');
+        alert('Error submitting completion request. Check console for details.');
       }
     }
 
@@ -1132,45 +1022,50 @@ $is_admin = ($current_user['user_type'] === 'admin');
         .join('');
       
       const modalHtml = `
-        <h2>🗑️ Remove Asset from Inventory</h2>
-        
-        <div>
-          <label for="removeAsset">Select Asset to Remove:</label>
-          <select id="removeAsset">
-            <option value="">Choose an asset...</option>
-            ${options}
-          </select>
+      <div id="modal">
+        <div class="modal-content">
+          <h2>🗑️ Remove Asset from Inventory</h2>
+          <div class="approval-notice">
+            <strong>Note:</strong> All removal requests require approval from the admin.
+          </div>
+          <div>
+            <label for="removeAsset">Select Asset to Remove:</label>
+            <select id="removeAsset">
+              <option value="">Choose an asset...</option>
+              ${options}
+            </select>
+          </div>
+          
+          <div>
+            <label for="removeReason">Reason for Removal:</label>
+            <select id="removeReason">
+              <option value="End of Life">End of Life</option>
+              <option value="Sold">Sold</option>
+              <option value="Donated">Donated</option>
+              <option value="Disposed">Disposed</option>
+              <option value="Lost/Stolen">Lost/Stolen</option>
+              <option value="Transfer">Transfer to Another Dept</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="removeNotes">Additional Notes:</label>
+            <textarea id="removeNotes" placeholder="Additional details about removal..."></textarea>
+          </div>
+          
+          <div class="warning-box">
+            <strong>⚠️ Warning:</strong> This action will permanently remove the asset from your inventory. 
+            Make sure to backup your data before proceeding.
+          </div>
+          
+          <div class="button-group">
+            <button type="button" onclick="submitRemove()" class="btn-danger">Remove Asset</button>
+            <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
+          </div>
         </div>
-        
-        <div>
-          <label for="removeReason">Reason for Removal:</label>
-          <select id="removeReason">
-            <option value="End of Life">End of Life</option>
-            <option value="Sold">Sold</option>
-            <option value="Donated">Donated</option>
-            <option value="Disposed">Disposed</option>
-            <option value="Lost/Stolen">Lost/Stolen</option>
-            <option value="Transfer">Transfer to Another Dept</option>
-          </select>
-        </div>
-        
-        <div>
-          <label for="removeNotes">Additional Notes:</label>
-          <textarea id="removeNotes" placeholder="Additional details about removal..."></textarea>
-        </div>
-        
-        <div class="warning-box">
-          <strong>⚠️ Warning:</strong> This action will permanently remove the asset from your inventory. 
-          Make sure to backup your data before proceeding.
-        </div>
-        
-        <div class="button-group">
-          <button type="button" onclick="submitRemove()" class="btn-danger">Remove Asset</button>
-          <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
-        </div>
-      `;
+      </div>`;
       
-      showModal(modalHtml);
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
     }
 
     async function submitRemove() {
@@ -1183,81 +1078,94 @@ $is_admin = ($current_user['user_type'] === 'admin');
         return;
       }
 
-      if (!confirm('Are you sure you want to remove this asset? This action cannot be undone.')) {
+      if (!confirm('Are you sure you want to request removal of this asset? This action requires approval.')) {
         return;
       }
 
+      const data = {
+        asset_id: assetId,
+        remove_reason: removeReason,
+        remove_notes: removeNotes
+      };
+      
+      await submitRemoveRequest(data);
+    }
+
+    async function submitRemoveRequest(data) {
       try {
-        const response = await fetch('delete_asset.php', {
+        data.action_type = 'DELETE';
+        data.requested_by = '<?php echo $current_user['name']; ?>';
+        data.factory = 'abm';
+        
+        const response = await fetch('request_approval_abm.php', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            asset_id: assetId,
-            remove_reason: removeReason,
-            remove_notes: removeNotes
-          })
+          body: JSON.stringify(data)
         });
         
         const result = await response.json();
         if (result.success) {
-          alert('Asset removed successfully!');
+          alert('Your removal request has been submitted for approval. You will be notified once approved.');
           closeModal();
           loadDataFromDB();
         } else {
-          alert('Error removing asset: ' + (result.message || 'Unknown error'));
+          alert('Error submitting removal request: ' + (result.message || 'Unknown error'));
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Error removing asset. Check console for details.');
+        alert('Error submitting removal request. Check console for details.');
       }
     }
 
     function showServiceHistory(assetId) {
-      fetch(`get_service_history.php?asset_id=${assetId}`)
+      fetch(`get_service_history_abm.php?asset_id=${assetId}`)
         .then(response => response.json())
         .then(history => {
             const asset = inventoryData.find(item => item.asset_id === assetId);
             const modalHtml = `
-                <h2>📜 Service History for ${assetId}</h2>
-                <div class="info-box">
-                    <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
-                    <strong>Model:</strong> ${asset?.model || 'N/A'}<br>
-                    <strong>Current Status:</strong> ${asset?.status || 'N/A'}
-                </div>
-                
-                ${history.length > 0 ? `
-                <table class="history-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Type</th>
-                            <th>Technician</th>
-                            <th>Status</th>
-                            <th>Completed</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${history.map(record => `
+            <div id="modal">
+                <div class="modal-content">
+                    <h2>📜 Service History for ${assetId}</h2>
+                    <div class="info-box">
+                        <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
+                        <strong>Model:</strong> ${asset?.model || 'N/A'}<br>
+                        <strong>Current Status:</strong> ${asset?.status || 'N/A'}
+                    </div>
+                    
+                    ${history.length > 0 ? `
+                    <table class="history-table">
+                        <thead>
                             <tr>
-                                <td>${record.service_date || 'N/A'}</td>
-                                <td>${record.service_type || 'N/A'}</td>
-                                <td>${record.service_by || 'N/A'}</td>
-                                <td>${record.status || 'N/A'}</td>
-                                <td>${record.completion_date || 'N/A'}</td>
-                                <td>${record.service_notes || ''}</td>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Technician</th>
+                                <th>Status</th>
+                                <th>Completed</th>
+                                <th>Notes</th>
                             </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-                ` : '<p>No service history found for this asset.</p>'}
-                
-                <div class="button-group">
-                    <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
+                        </thead>
+                        <tbody>
+                            ${history.map(record => `
+                                <tr>
+                                    <td>${record.service_date || 'N/A'}</td>
+                                    <td>${record.service_type || 'N/A'}</td>
+                                    <td>${record.service_by || 'N/A'}</td>
+                                    <td>${record.status || 'N/A'}</td>
+                                    <td>${record.completion_date || 'N/A'}</td>
+                                    <td>${record.service_notes || ''}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    ` : '<p>No service history found for this asset.</p>'}
+                    
+                    <div class="button-group">
+                        <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
+                    </div>
                 </div>
-            `;
+            </div>`;
             
-            showModal(modalHtml);
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
         })
         .catch(error => {
             console.error('Error loading service history:', error);
@@ -1266,56 +1174,76 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     function showAllServiceHistory() {
-      fetch('get_service_history.php')
+      fetch('get_service_history_abm.php')
         .then(response => response.json())
         .then(history => {
             const modalHtml = `
-                <h2>📜 Complete Service History</h2>
-                
-                ${history.length > 0 ? `
-                <table class="history-table">
-                    <thead>
-                        <tr>
-                            <th>Asset ID</th>
-                            <th>Asset Name</th>
-                            <th>Date</th>
-                            <th>Type</th>
-                            <th>Technician</th>
-                            <th>Status</th>
-                            <th>Completed</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${history.map(record => {
-                            const asset = inventoryData.find(item => item.asset_id === record.asset_id);
-                            return `
+            <div id="modal">
+                <div class="modal-content">
+                    <h2>📜 Complete Service History</h2>
+                    
+                    ${history.length > 0 ? `
+                    <table class="history-table">
+                        <thead>
                             <tr>
-                                <td>${record.asset_id || 'N/A'}</td>
-                                <td>${asset?.asset_name || 'N/A'}</td>
-                                <td>${record.service_date || 'N/A'}</td>
-                                <td>${record.service_type || 'N/A'}</td>
-                                <td>${record.service_by || 'N/A'}</td>
-                                <td>${record.status || 'N/A'}</td>
-                                <td>${record.completion_date || 'N/A'}</td>
-                                <td>${record.service_notes || ''}</td>
-                            </tr>`;
-                        }).join('')}
-                    </tbody>
-                </table>
-                ` : '<p>No service history records found.</p>'}
-                
-                <div class="button-group">
-                    <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
+                                <th>Asset ID</th>
+                                <th>Asset Name</th>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Technician</th>
+                                <th>Status</th>
+                                <th>Completed</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${history.map(record => {
+                                const asset = inventoryData.find(item => item.asset_id === record.asset_id);
+                                return `
+                                <tr>
+                                    <td>${record.asset_id || 'N/A'}</td>
+                                    <td>${asset?.asset_name || 'N/A'}</td>
+                                    <td>${record.service_date || 'N/A'}</td>
+                                    <td>${record.service_type || 'N/A'}</td>
+                                    <td>${record.service_by || 'N/A'}</td>
+                                    <td>${record.status || 'N/A'}</td>
+                                    <td>${record.completion_date || 'N/A'}</td>
+                                    <td>${record.service_notes || ''}</td>
+                                </tr>`;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                    ` : '<p>No service history records found.</p>'}
+                    
+                    <div class="button-group">
+                        <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
+                    </div>
                 </div>
-            `;
+            </div>`;
             
-            showModal(modalHtml);
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
         })
         .catch(error => {
             console.error('Error loading service history:', error);
             alert('Error loading service history');
         });
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      if (modal) modal.remove();
+    }
+
+    function generateAssetId() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      
+      return `IT-${year}${month}${day}${hours}${minutes}${seconds}`;
     }
 
     function showLoading(show) {
