@@ -1,29 +1,6 @@
-<?php
-session_start();
-require_once 'db_connect.php';
 
-// Redirect to login if not authenticated
-if (!isset($_SESSION['user_id'])) {
-  header('Location: login.php');
-  exit();
-}
-
-// Get current user info
-$current_user = null;
-try {
-  $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
-  $stmt->execute([$_SESSION['user_id']]);
-  $current_user = $stmt->fetch();
-} catch (PDOException $e) {
-  die("Database error: " . $e->getMessage());
-}
-
-// Check if user is admin
-$is_admin = ($current_user['user_type'] === 'admin');
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -251,7 +228,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.5);
       display: none;
       justify-content: center;
       align-items: center;
@@ -266,7 +243,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       max-width: 800px;
       max-height: 90vh;
       overflow-y: auto;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       position: relative;
     }
 
@@ -344,7 +321,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       margin: 15px 0;
     }
 
-    .history-table th,
+    .history-table th, 
     .history-table td {
       padding: 10px;
       border: 1px solid #ddd;
@@ -379,7 +356,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       background: white;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 30px rgba(0,0,0,0.3);
       z-index: 1000;
       width: 90%;
       max-width: 800px;
@@ -461,63 +438,30 @@ $is_admin = ($current_user['user_type'] === 'admin');
         padding: 8px 4px;
         font-size: 11px;
       }
-
       .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-bottom: 15px;
-        font-size: 14px;
-      }
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
 
-      .warning-box {
-        background: #f8d7da;
-        padding: 15px;
-        border-radius: 5px;
-        border-left: 4px solid #dc3545;
-        margin: 15px 0;
-        color: #721c24;
-      }
+.warning-box {
+  background: #f8d7da;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #dc3545;
+  margin: 15px 0;
+  color: #721c24;
+}
 
-      .button-group {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-        margin-top: 20px;
-      }
-
-      .delete-btn {
-        background-color: #dc3545;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .delete-btn:hover {
-        background-color: #c82333;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
-
-      .edit-btn {
-        background-color: #17a2b8;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .edit-btn:hover {
-        background-color: #138496;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
     }
   </style>
 </head>
@@ -528,12 +472,12 @@ $is_admin = ($current_user['user_type'] === 'admin');
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <div>
           <h1>IT Asset Inventory Management</h1>
-          <p>Ananta Companies Head</p>
+          <p>Comprehensive tracking system for IT department assets and equipment</p>
         </div>
-        <div style="color: white; text-align: right; padding: 10px;">
+        <div class="user-info">
           <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
           <p><?php echo strtoupper($current_user['factory']); ?> - <?php echo ucfirst($current_user['user_type']); ?></p>
-          <a href="logout.php" style="color: white; text-decoration: underline;">Logout</a>
+          <a href="logout.php">Logout</a>
         </div>
       </div>
     </div>
@@ -561,23 +505,11 @@ $is_admin = ($current_user['user_type'] === 'admin');
       <?php if ($is_admin): ?>
         <button class="btn btn-success" id="addItemBtn">➕ Add New Item</button>
         <button class="btn btn-danger" id="removeBtn">🗑️ Remove Item</button>
-        <button class="btn btn-warning" id="approvalBtn">🔄 Pending Approvals (<span id="approvalCount">0</span>)</button>
         <button class="btn btn-info" id="userManagementBtn">👥 User Management</button>
       <?php endif; ?>
       <button class="btn btn-warning" id="serviceBtn">🔧 Send for Servicing</button>
       <button class="btn btn-primary" id="exportBtn">⬇️ Export</button>
       <button class="btn btn-info" id="historyBtn">📜 View All Service History</button>
-
-      <div class="filter-group">
-        <label>Factory:</label>
-        <select id="factoryFilter">
-          <option value="all">Head Office</option>
-          <option value="agl">AGL</option>
-          <option value="ajl">AJL</option>
-          <option value="abm">ABM</option>
-          <option value="pwpl">PWPL</option>
-        </select>
-      </div>
 
       <div class="filter-group">
         <label>Filter by Status:</label>
@@ -615,7 +547,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
             <th>Last Maintenance</th>
             <th>Priority</th>
             <th>Notes</th>
-            <th id="actionsHeader">Actions</th> <!-- Added ID for easier selection -->
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody id="inventoryBody"></tbody>
@@ -631,22 +563,15 @@ $is_admin = ($current_user['user_type'] === 'admin');
     </div>
   </div>
 
-  <!-- Approval Modal -->
-  <div id="approvalModal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeApprovalModal()">&times;</button>
-      <div id="approvalContent"></div>
-    </div>
-  </div>
-
   <!-- User Management Modal -->
   <div id="userManagementModal" class="user-management-container">
     <button class="user-management-close">&times;</button>
     <h2>👥 User Management</h2>
     <div class="button-group" style="margin-bottom: 20px;">
       <button class="btn btn-success" id="createUserBtn">Create New User</button>
+      <button class="btn btn-primary" id="viewUsersBtn">View All Users</button>
     </div>
-
+    
     <div id="userFormContainer" class="user-form" style="display: none;">
       <form id="userForm">
         <input type="hidden" id="userId">
@@ -678,8 +603,8 @@ $is_admin = ($current_user['user_type'] === 'admin');
           <select id="factory" required>
             <option value="agl">AGL</option>
             <option value="ajl">AJL</option>
-            <option value="abm">ABM</option>
             <option value="pwpl">PWPL</option>
+            <option value="abm">ABM</option>
             <option value="head office">Head Office</option>
           </select>
         </div>
@@ -689,7 +614,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
         </div>
       </form>
     </div>
-
+    
     <div id="userListContainer" class="user-list">
       <!-- User list will be loaded here -->
     </div>
@@ -707,20 +632,16 @@ $is_admin = ($current_user['user_type'] === 'admin');
     const removeBtn = document.getElementById('removeBtn');
     const exportBtn = document.getElementById('exportBtn');
     const historyBtn = document.getElementById('historyBtn');
-    const approvalBtn = document.getElementById('approvalBtn');
     const userManagementBtn = document.getElementById('userManagementBtn');
-    const factoryFilter = document.getElementById('factoryFilter');
     const statusFilter = document.getElementById('statusFilter');
     const searchInput = document.getElementById('searchInput');
     const modalOverlay = document.getElementById('modalOverlay');
     const modalContent = document.getElementById('modalContent');
     const modalClose = document.querySelector('.modal-close');
-    const approvalModal = document.getElementById('approvalModal');
-    const approvalContent = document.getElementById('approvalContent');
-    const approvalCount = document.getElementById('approvalCount');
     const userManagementModal = document.getElementById('userManagementModal');
     const userManagementClose = document.querySelector('.user-management-close');
     const createUserBtn = document.getElementById('createUserBtn');
+    const viewUsersBtn = document.getElementById('viewUsersBtn');
     const userFormContainer = document.getElementById('userFormContainer');
     const userListContainer = document.getElementById('userListContainer');
     const userForm = document.getElementById('userForm');
@@ -731,29 +652,19 @@ $is_admin = ($current_user['user_type'] === 'admin');
     if (removeBtn) removeBtn.addEventListener('click', showRemoveModal);
     exportBtn.addEventListener('click', exportToCSV);
     historyBtn.addEventListener('click', showAllServiceHistory);
-    if (approvalBtn) approvalBtn.addEventListener('click', showApprovalModal);
     if (userManagementBtn) userManagementBtn.addEventListener('click', showUserManagementModal);
-    factoryFilter.addEventListener('change', () => {
-      loadDataFromDB();
-      // No need for separate filterTable() call as loadDataFromDB() calls renderTable()
-    });
     statusFilter.addEventListener('change', filterTable);
     searchInput.addEventListener('keyup', filterTable);
     modalClose.addEventListener('click', closeModal);
     userManagementClose.addEventListener('click', closeUserManagementModal);
     if (createUserBtn) createUserBtn.addEventListener('click', showUserForm);
+    if (viewUsersBtn) viewUsersBtn.addEventListener('click', viewAllUsers);
     if (userForm) userForm.addEventListener('submit', handleUserFormSubmit);
 
     // Close modal when clicking outside content
     modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay) {
         closeModal();
-      }
-    });
-
-    approvalModal.addEventListener('click', (e) => {
-      if (e.target === approvalModal) {
-        closeApprovalModal();
       }
     });
 
@@ -765,12 +676,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
     });
 
     // Load data when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-      loadDataFromDB();
-      if (approvalBtn) {
-        updateApprovalCount();
-      }
-    });
+    document.addEventListener('DOMContentLoaded', loadDataFromDB);
 
     function showModal(content) {
       modalContent.innerHTML = content;
@@ -802,178 +708,31 @@ $is_admin = ($current_user['user_type'] === 'admin');
       userListContainer.style.display = 'block';
     }
 
-    function showApprovalModal() {
-      try {
-        showLoading(true);
-        fetch('get_pending_approvals.php')
-          .then(response => response.json())
-          .then(approvals => {
-            let html = `
-              <h2>🔄 Pending Approvals</h2>
-              <table class="approval-table">
-                <thead>
-                  <tr>
-                    <th>Request ID</th>
-                    <th>Action</th>
-                    <th>Asset ID</th>
-                    <th>Requested By</th>
-                    <th>Factory</th>
-                    <th>Date</th>
-                    <th>Details</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-            `;
-
-            approvals.forEach(approval => {
-              const details = approval.action_details ? JSON.parse(approval.action_details) : {};
-              let detailsHtml = '';
-
-              if (approval.action_type === 'ADD') {
-                detailsHtml = `
-                  <strong>Asset:</strong> ${details.asset_name}<br>
-                  <strong>Category:</strong> ${details.category}<br>
-                  <strong>Brand:</strong> ${details.brand}<br>
-                  <strong>Model:</strong> ${details.model}
-                `;
-              } else if (approval.action_type === 'SERVICE') {
-                detailsHtml = `
-                  <strong>Type:</strong> ${details.service_type}<br>
-                  <strong>Technician:</strong> ${details.service_by}<br>
-                  <strong>Notes:</strong> ${details.service_notes}
-                `;
-              } else if (approval.action_type === 'COMPLETE_SERVICE') {
-                detailsHtml = `
-                  <strong>Completion Notes:</strong> ${details.completion_notes}
-                `;
-              } else if (approval.action_type === 'DELETE') {
-                detailsHtml = `
-                  <strong>Reason:</strong> ${details.remove_reason}<br>
-                  <strong>Notes:</strong> ${details.remove_notes}
-                `;
-              }
-
-              html += `
-                <tr>
-                  <td>${approval.id}</td>
-                  <td>${approval.action_type}</td>
-                  <td>${approval.asset_id || 'N/A'}</td>
-                  <td>${approval.requested_by}</td>
-                  <td>${approval.factory.toUpperCase()}</td>
-                  <td>${new Date(approval.request_date).toLocaleString()}</td>
-                  <td>${detailsHtml}</td>
-                  <td>
-                    <button onclick="processApproval(${approval.id}, 'APPROVE')" class="approval-btn approve-btn">Approve</button>
-                    <button onclick="processApproval(${approval.id}, 'REJECT')" class="approval-btn reject-btn">Reject</button>
-                  </td>
-                </tr>
-              `;
-            });
-
-            html += `
-                </tbody>
-              </table>
-            `;
-
-            approvalContent.innerHTML = html;
-            approvalModal.style.display = 'flex';
-          })
-          .catch(error => {
-            console.error('Error loading approvals:', error);
-            approvalContent.innerHTML = '<p>Error loading approval requests. Please try again.</p>';
-            approvalModal.style.display = 'flex';
-          })
-          .finally(() => {
-            showLoading(false);
-          });
-      } catch (error) {
-        console.error('Error:', error);
-        showLoading(false);
-      }
-    }
-
-    function closeApprovalModal() {
-      approvalModal.style.display = 'none';
-    }
-
-    function processApproval(approvalId, action) {
-      if (!confirm(`Are you sure you want to ${action.toLowerCase()} this request?`)) {
-        return;
-      }
-
-      showLoading(true);
-      fetch('process_approval.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            approval_id: approvalId,
-            action: action,
-            approver: '<?php echo $current_user['name']; ?>'
-          })
-        })
-        .then(response => response.json())
-        .then(result => {
-          if (result.success) {
-            alert(`Request ${action.toLowerCase()}d successfully!`);
-            showApprovalModal();
-            loadDataFromDB();
-            updateApprovalCount();
-          } else {
-            alert(`Error processing request: ${result.message || 'Unknown error'}`);
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Error processing approval. Check console for details.');
-        })
-        .finally(() => {
-          showLoading(false);
-        });
-    }
-
-    function updateApprovalCount() {
-      fetch('count_pending_approvals.php')
-        .then(response => response.json())
-        .then(result => {
-          if (result.success) {
-            approvalCount.textContent = result.count;
-          }
-        })
-        .catch(error => {
-          console.error('Error updating approval count:', error);
-        });
-    }
-
     async function loadDataFromDB() {
       try {
         showLoading(true);
-        const selectedFactory = factoryFilter.value;
         let url = 'get_assets.php';
-
-        if (selectedFactory !== 'all') {
-          url = `get_assets_${selectedFactory}.php`;
+        if (currentUserType !== 'admin') {
+          url += `?factory=${currentFactory}`;
         }
-
+        
         const response = await fetch(url);
-
+        
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
+        
         const data = await response.json();
-
+        
         if (data.error) {
           throw new Error(data.error);
         }
-
+        
         inventoryData = data;
         filteredData = [...inventoryData];
         renderTable();
         updateStats();
-
+        
         console.log('Data loaded successfully:', inventoryData);
       } catch (error) {
         console.error('Error loading data:', error);
@@ -986,78 +745,54 @@ $is_admin = ($current_user['user_type'] === 'admin');
     function renderTable() {
       const tbody = document.getElementById('inventoryBody');
       tbody.innerHTML = '';
-
+      
       if (filteredData.length === 0) {
         tbody.innerHTML = '<tr><td colspan="17" style="text-align:center;">No assets found</td></tr>';
         return;
       }
 
-      const selectedFactory = factoryFilter.value;
-      const isHeadOffice = selectedFactory === 'all'; // Assuming 'all' represents Head Office
-
       filteredData.forEach(item => {
         const row = document.createElement('tr');
-
-        // Common columns
-        let rowHtml = `
-            <td>${item.asset_id || 'N/A'}</td>
-            <td>${item.asset_name || 'N/A'}</td>
-            <td>${item.category || 'N/A'}</td>
-            <td>${item.brand || 'N/A'}</td>
-            <td>${item.model || 'N/A'}</td>
-            <td>${item.serial_number || 'N/A'}</td>
-            <td><span class="status ${getStatusClass(item.status)}">${item.status || 'N/A'}</span></td>
-            <td>${item.location || 'N/A'}</td>
-            <td>${item.assigned_to || 'N/A'}</td>
-            <td>${item.department || 'N/A'}</td>
-            <td>${formatDate(item.purchase_date) || 'N/A'}</td>
-            <td>${item.purchase_price ? '$' + parseFloat(item.purchase_price).toFixed(2) : 'N/A'}</td>
-            <td>${formatDate(item.warranty_expiry) || 'N/A'}</td>
-            <td>${formatDate(item.last_maintenance) || 'N/A'}</td>
-            <td><span class="priority-${item.priority ? item.priority.toLowerCase() : 'medium'}">${item.priority || 'Medium'}</span></td>
-            <td>${item.notes || 'N/A'}</td>
+        row.innerHTML = `
+          <td>${item.asset_id || 'N/A'}</td>
+          <td>${item.asset_name || 'N/A'}</td>
+          <td>${item.category || 'N/A'}</td>
+          <td>${item.brand || 'N/A'}</td>
+          <td>${item.model || 'N/A'}</td>
+          <td>${item.serial_number || 'N/A'}</td>
+          <td><span class="status ${getStatusClass(item.status)}">${item.status || 'N/A'}</span></td>
+          <td>${item.location || 'N/A'}</td>
+          <td>${item.assigned_to || 'N/A'}</td>
+          <td>${item.department || 'N/A'}</td>
+          <td>${formatDate(item.purchase_date) || 'N/A'}</td>
+          <td>${item.purchase_price ? '$' + parseFloat(item.purchase_price).toFixed(2) : 'N/A'}</td>
+          <td>${formatDate(item.warranty_expiry) || 'N/A'}</td>
+          <td>${formatDate(item.last_maintenance) || 'N/A'}</td>
+          <td><span class="priority-${item.priority ? item.priority.toLowerCase() : 'medium'}">${item.priority || 'Medium'}</span></td>
+          <td>${item.notes || 'N/A'}</td>
+          <td>
+            ${item.status === 'MAINTENANCE' ? 
+              `<button onclick="showCompleteServiceModal('${item.asset_id}')" class="btn-success" style="padding:5px 10px; margin-bottom:5px;">
+                Complete Service
+              </button><br>` : ''
+            }
+            <button onclick="showServiceHistory('${item.asset_id}')" class="btn-info" style="padding:5px 10px;">
+              Service History
+            </button>
+          </td>
         `;
-
-        // Only show Actions column for Head Office
-        if (isHeadOffice) {
-          rowHtml += `
-                <td>
-                    ${item.status === 'MAINTENANCE' ? 
-                        `<button onclick="showCompleteServiceModal('${item.asset_id}')" class="btn btn-success" style="margin-bottom:5px;">
-                            Complete Service
-                        </button><br>` : ''
-                    }
-                    <button onclick="showServiceHistory('${item.asset_id}')" class="btn btn-info">
-                        Service History
-                    </button>
-                </td>
-            `;
-        }
-
-        row.innerHTML = rowHtml;
         tbody.appendChild(row);
       });
-
-      // Also hide the Actions header if not Head Office
-      const actionHeader = document.querySelector('#inventoryTable thead tr th:nth-child(17)');
-      if (actionHeader) {
-        actionHeader.style.display = isHeadOffice ? '' : 'none';
-      }
     }
 
     function getStatusClass(status) {
       if (!status) return '';
       switch (status.toUpperCase()) {
-        case 'ACTIVE':
-          return 'status-active';
-        case 'INACTIVE':
-          return 'status-inactive';
-        case 'OUT OF ORDER':
-          return 'status-out-of-order';
-        case 'MAINTENANCE':
-          return 'status-maintenance';
-        default:
-          return '';
+        case 'ACTIVE': return 'status-active';
+        case 'INACTIVE': return 'status-inactive';
+        case 'OUT OF ORDER': return 'status-out-of-order';
+        case 'MAINTENANCE': return 'status-maintenance';
+        default: return '';
       }
     }
 
@@ -1068,31 +803,31 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     function updateStats() {
-      document.getElementById('activeCount').textContent =
+      document.getElementById('activeCount').textContent = 
         inventoryData.filter(i => i.status && i.status.toUpperCase() === 'ACTIVE').length;
-      document.getElementById('inactiveCount').textContent =
+      document.getElementById('inactiveCount').textContent = 
         inventoryData.filter(i => i.status && i.status.toUpperCase() === 'INACTIVE').length;
-      document.getElementById('outOfOrderCount').textContent =
+      document.getElementById('outOfOrderCount').textContent = 
         inventoryData.filter(i => i.status && i.status.toUpperCase() === 'OUT OF ORDER').length;
-      document.getElementById('maintenanceCount').textContent =
+      document.getElementById('maintenanceCount').textContent = 
         inventoryData.filter(i => i.status && i.status.toUpperCase() === 'MAINTENANCE').length;
     }
 
     function filterTable() {
       const status = statusFilter.value;
       const search = searchInput.value.toLowerCase();
-
+      
       filteredData = inventoryData.filter(item => {
-        const statusMatch = !status ||
+        const statusMatch = !status || 
           (item.status && item.status.toUpperCase() === status.toUpperCase());
-
-        const searchMatch = !search ||
-          Object.values(item).some(val =>
+        
+        const searchMatch = !search || 
+          Object.values(item).some(val => 
             val && val.toString().toLowerCase().includes(search));
-
+          
         return statusMatch && searchMatch;
       });
-
+      
       renderTable();
     }
 
@@ -1103,9 +838,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
       }
 
       const headers = [
-        'Asset ID', 'Asset Name', 'Category', 'Brand', 'Model',
-        'Serial Number', 'Status', 'Location', 'Assigned To',
-        'Department', 'Purchase Date', 'Purchase Price',
+        'Asset ID', 'Asset Name', 'Category', 'Brand', 'Model', 
+        'Serial Number', 'Status', 'Location', 'Assigned To', 
+        'Department', 'Purchase Date', 'Purchase Price', 
         'Warranty Expiry', 'Last Maintenance', 'Priority', 'Notes'
       ];
 
@@ -1132,9 +867,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       ];
 
       const csvContent = csvRows.join('\n');
-      const blob = new Blob([csvContent], {
-        type: 'text/csv;charset=utf-8;'
-      });
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -1144,108 +877,108 @@ $is_admin = ($current_user['user_type'] === 'admin');
       document.body.removeChild(link);
     }
 
-    function showAddItemModal() {
-      const modalHtml = `
-        <h2>➕ Add New Asset</h2>
-        <form id="addForm">
-          <div>
-            <label for="assetName">Asset Name*</label>
-            <input type="text" id="assetName" required>
-          </div>
-          
-          <div>
-            <label for="category">Category*</label>
-            <select id="category" required>
-              <option value="">Select Category</option>
-              <option value="Desktop">Desktop</option>
-              <option value="Laptop">Laptop</option>
-              <option value="Server">Server</option>
-              <option value="Network">Network</option>
-              <option value="Printer">Printer</option>
-              <option value="Monitor">Monitor</option>
-              <option value="Mobile">Mobile</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="brand">Brand*</label>
-            <input type="text" id="brand" required>
-          </div>
-          
-          <div>
-            <label for="model">Model*</label>
-            <input type="text" id="model" required>
-          </div>
-          
-          <div>
-            <label for="serial">Serial Number*</label>
-            <input type="text" id="serial" required>
-          </div>
-          
-          <div>
-            <label for="location">Location*</label>
-            <select id="location" required>
-              <option value="agl">AGL</option>
-              <option value="ajl">AJL</option>
-              <option value="abm">ABM</option>
-              <option value="pwpl">PWPL</option>
-              <option value="head office">Head Office</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="assigned">Assigned To</label>
-            <input type="text" id="assigned">
-          </div>
-          
-          <div>
-            <label for="department">Department*</label>
-            <input type="text" id="department" required>
-          </div>
-          
-          <div>
-            <label for="purchaseDate">Purchase Date*</label>
-            <input type="date" id="purchaseDate" required>
-          </div>
-          
-          <div>
-            <label for="price">Purchase Price*</label>
-            <input type="text" id="price" required placeholder="$1,000">
-          </div>
-          
-          <div>
-            <label for="warranty">Warranty Expiry*</label>
-            <input type="date" id="warranty" required>
-          </div>
-          
-          <div>
-            <label for="priority">Priority</label>
-            <select id="priority">
-              <option value="Low">Low</option>
-              <option value="Medium" selected>Medium</option>
-              <option value="High">High</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="notes">Notes</label>
-            <textarea id="notes" placeholder="Additional information..."></textarea>
-          </div>
-          
-          <div class="button-group">
-            <button type="submit" class="btn-success">Add Asset</button>
-            <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
-          </div>
-        </form>
-      `;
-
-      showModal(modalHtml);
-
+   // 1. Add Item Modal
+function showAddItemModal() {
+  const modalHtml = `
+    <h2>➕ Add New Asset</h2>
+    <form id="addForm">
+      <div>
+        <label for="assetName">Asset Name*</label>
+        <input type="text" id="assetName" class="form-control" required>
+      </div>
+      
+      <div>
+        <label for="category">Category*</label>
+        <select id="category" class="form-control" required>
+          <option value="">Select Category</option>
+          <option value="Desktop">Desktop</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Server">Server</option>
+          <option value="Network">Network</option>
+          <option value="Printer">Printer</option>
+          <option value="Monitor">Monitor</option>
+          <option value="Mobile">Mobile</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="brand">Brand*</label>
+        <input type="text" id="brand" class="form-control" required>
+      </div>
+      
+      <div>
+        <label for="model">Model*</label>
+        <input type="text" id="model" class="form-control" required>
+      </div>
+      
+      <div>
+        <label for="serial">Serial Number*</label>
+        <input type="text" id="serial" class="form-control" required>
+      </div>
+      
+      <div>
+        <label for="location">Location*</label>
+        <select id="location" class="form-control" required>
+          <option value="agl">AGL</option>
+          <option value="ajl">AJL</option>
+          <option value="pwpl">PWPL</option>
+          <option value="head office">Head Office</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="assigned">Assigned To</label>
+        <input type="text" id="assigned" class="form-control">
+      </div>
+      
+      <div>
+        <label for="department">Department*</label>
+        <input type="text" id="department" class="form-control" required>
+      </div>
+      
+      <div>
+        <label for="purchaseDate">Purchase Date*</label>
+        <input type="date" id="purchaseDate" class="form-control" required>
+      </div>
+      
+      <div>
+        <label for="price">Purchase Price*</label>
+        <input type="text" id="price" class="form-control" required placeholder="$1,000">
+      </div>
+      
+      <div>
+        <label for="warranty">Warranty Expiry*</label>
+        <input type="date" id="warranty" class="form-control" required>
+      </div>
+      
+      <div>
+        <label for="priority">Priority</label>
+        <select id="priority" class="form-control">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="notes">Notes</label>
+        <textarea id="notes" class="form-control" placeholder="Additional information..."></textarea>
+      </div>
+      
+      <div class="button-group">
+        <button type="submit" class="btn btn-success">Add Asset</button>
+        <button type="button" onclick="closeModal()" class="btn btn-primary">Cancel</button>
+      </div>
+    </form>
+  `;
+  
+  showModal(modalHtml);
+      
       document.getElementById('addForm').addEventListener('submit', async (e) => {
         e.preventDefault();
-
+        
         const priceValue = document.getElementById('price').value.replace(/[^0-9.]/g, '');
-
+        
         const data = {
           asset_name: document.getElementById('assetName').value,
           category: document.getElementById('category').value,
@@ -1267,12 +1000,10 @@ $is_admin = ($current_user['user_type'] === 'admin');
         try {
           const response = await fetch('add_asset.php', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
           });
-
+          
           const result = await response.json();
           if (result.success) {
             alert('Asset added successfully!');
@@ -1289,55 +1020,55 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     function showServiceModal() {
-      if (inventoryData.length === 0) {
-        alert('No assets available for servicing');
-        return;
-      }
+  if (inventoryData.length === 0) {
+    alert('No assets available for servicing');
+    return;
+  }
 
-      let options = inventoryData
-        .filter(item => ['ACTIVE', 'OUT OF ORDER'].includes(item.status?.toUpperCase()))
-        .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.assigned_to})</option>`)
-        .join('');
-
-      const modalHtml = `
-        <h2>🔧 Send Asset for Servicing</h2>
-        
-        <div>
-          <label for="serviceAsset">Select Asset to Service:</label>
-          <select id="serviceAsset">
-            <option value="">Choose an asset...</option>
-            ${options}
-          </select>
-        </div>
-        
-        <div>
-          <label for="serviceType">Service Type:</label>
-          <select id="serviceType">
-            <option value="Scheduled Maintenance">Scheduled Maintenance</option>
-            <option value="Repair">Repair</option>
-            <option value="Upgrade">Upgrade</option>
-            <option value="Inspection">Inspection</option>
-          </select>
-        </div>
-        
-        <div>
-          <label for="serviceBy">Serviced By:</label>
-          <input type="text" id="serviceBy" placeholder="Technician name">
-        </div>
-        
-        <div>
-          <label for="serviceNotes">Service Notes:</label>
-          <textarea id="serviceNotes" placeholder="Describe the service required..."></textarea>
-        </div>
-        
-        <div class="button-group">
-          <button type="button" onclick="submitService()" class="btn-warning">Send for Service</button>
-          <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
-        </div>
-      `;
-
-      showModal(modalHtml);
-    }
+  let options = inventoryData
+    .filter(item => ['ACTIVE', 'OUT OF ORDER'].includes(item.status?.toUpperCase()))
+    .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.assigned_to})</option>`)
+    .join('');
+  
+  const modalHtml = `
+    <h2>🔧 Send Asset for Servicing</h2>
+    
+    <div>
+      <label for="serviceAsset">Select Asset to Service:</label>
+      <select id="serviceAsset" class="form-control">
+        <option value="">Choose an asset...</option>
+        ${options}
+      </select>
+    </div>
+    
+    <div>
+      <label for="serviceType">Service Type:</label>
+      <select id="serviceType" class="form-control">
+        <option value="Scheduled Maintenance">Scheduled Maintenance</option>
+        <option value="Repair">Repair</option>
+        <option value="Upgrade">Upgrade</option>
+        <option value="Inspection">Inspection</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="serviceBy">Serviced By:</label>
+      <input type="text" id="serviceBy" class="form-control" placeholder="Technician name">
+    </div>
+    
+    <div>
+      <label for="serviceNotes">Service Notes:</label>
+      <textarea id="serviceNotes" class="form-control" placeholder="Describe the service required..."></textarea>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" onclick="submitService()" class="btn btn-warning">Send for Service</button>
+      <button type="button" onclick="closeModal()" class="btn btn-primary">Cancel</button>
+    </div>
+  `;
+  
+  showModal(modalHtml);
+}
 
     async function submitService() {
       const assetId = document.getElementById('serviceAsset').value;
@@ -1358,9 +1089,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       try {
         const response = await fetch('update_status.php', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             asset_id: assetId,
             status: 'MAINTENANCE',
@@ -1370,7 +1099,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
             last_maintenance: new Date().toISOString().split('T')[0]
           })
         });
-
+        
         const result = await response.json();
         if (result.success) {
           alert('Asset sent for servicing successfully!');
@@ -1386,29 +1115,84 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     function showCompleteServiceModal(assetId) {
-      const asset = inventoryData.find(item => item.asset_id === assetId);
-      if (!asset) return;
+  const asset = inventoryData.find(item => item.asset_id === assetId);
+  if (!asset) return;
 
-      const modalHtml = `
-        <h2>✔ Complete Service for ${assetId}</h2>
-        <div class="info-box">
-          <strong>Asset:</strong> ${asset.asset_name || 'N/A'}<br>
-          <strong>Current Status:</strong> ${asset.status || 'N/A'}
-        </div>
-        
-        <div>
-          <label for="completionNotes">Completion Notes:</label>
-          <textarea id="completionNotes" placeholder="Describe work completed..."></textarea>
-        </div>
-        
-        <div class="button-group">
-          <button type="button" onclick="completeService('${assetId}')" class="btn-success">Mark as Completed</button>
-          <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
-        </div>
-      `;
+  const modalHtml = `
+    <h2>✔ Complete Service for ${assetId}</h2>
+    <div class="info-box">
+      <strong>Asset:</strong> ${asset.asset_name || 'N/A'}<br>
+      <strong>Current Status:</strong> ${asset.status || 'N/A'}
+    </div>
+    
+    <div>
+      <label for="completionNotes">Completion Notes:</label>
+      <textarea id="completionNotes" class="form-control" placeholder="Describe work completed..."></textarea>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" onclick="completeService('${assetId}')" class="btn btn-success">Mark as Completed</button>
+      <button type="button" onclick="closeModal()" class="btn btn-primary">Cancel</button>
+    </div>
+  `;
+  
+  showModal(modalHtml);
+}
 
-      showModal(modalHtml);
-    }
+// 4. Remove Asset Modal (already shown above)
+// 5. Service History Modal
+function showServiceHistory(assetId) {
+  fetch(`get_service_history.php?asset_id=${assetId}`)
+    .then(response => response.json())
+    .then(history => {
+        const asset = inventoryData.find(item => item.asset_id === assetId);
+        const modalHtml = `
+            <h2>📜 Service History for ${assetId}</h2>
+            <div class="info-box">
+                <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
+                <strong>Model:</strong> ${asset?.model || 'N/A'}<br>
+                <strong>Current Status:</strong> ${asset?.status || 'N/A'}
+            </div>
+            
+            ${history.length > 0 ? `
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Technician</th>
+                        <th>Status</th>
+                        <th>Completed</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${history.map(record => `
+                        <tr>
+                            <td>${record.service_date || 'N/A'}</td>
+                            <td>${record.service_type || 'N/A'}</td>
+                            <td>${record.service_by || 'N/A'}</td>
+                            <td>${record.status || 'N/A'}</td>
+                            <td>${record.completion_date || 'N/A'}</td>
+                            <td>${record.service_notes || ''}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+            ` : '<p>No service history found for this asset.</p>'}
+            
+            <div class="button-group">
+                <button type="button" onclick="closeModal()" class="btn btn-primary">Close</button>
+            </div>
+        `;
+        
+        showModal(modalHtml);
+    })
+    .catch(error => {
+        console.error('Error loading service history:', error);
+        alert('Error loading service history');
+    });
+}
 
     async function completeService(assetId) {
       const completionNotes = document.getElementById('completionNotes').value;
@@ -1416,15 +1200,13 @@ $is_admin = ($current_user['user_type'] === 'admin');
       try {
         const response = await fetch('complete_service.php', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             asset_id: assetId,
             completion_notes: completionNotes
           })
         });
-
+        
         const result = await response.json();
         if (result.success) {
           alert('Service completed successfully! Asset status set to ACTIVE.');
@@ -1439,24 +1221,23 @@ $is_admin = ($current_user['user_type'] === 'admin');
       }
     }
 
-    function showRemoveModal() {
-      if (inventoryData.length === 0) {
-        alert('No assets available to remove');
-        return;
-      }
+ <!-- Replace your existing showRemoveModal() function with this: -->
+function showRemoveModal() {
+  if (inventoryData.length === 0) {
+    alert('No assets available to remove');
+    return;
+  }
 
-      let options = inventoryData
-        .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.status})</option>`)
-        .join('');
-
-      const modalHtml = `
+  let options = inventoryData
+    .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.status})</option>`)
+    .join('');
+  
+  const modalHtml = `
     <h2>🗑️ Remove Asset from Inventory</h2>
-    <div class="approval-notice">
-      <strong>Note:</strong> All removal requests require approval from the admin.
-    </div>
+    
     <div>
       <label for="removeAsset">Select Asset to Remove:</label>
-      <select id="removeAsset">
+      <select id="removeAsset" class="form-control">
         <option value="">Choose an asset...</option>
         ${options}
       </select>
@@ -1464,7 +1245,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
     
     <div>
       <label for="removeReason">Reason for Removal:</label>
-      <select id="removeReason">
+      <select id="removeReason" class="form-control">
         <option value="End of Life">End of Life</option>
         <option value="Sold">Sold</option>
         <option value="Donated">Donated</option>
@@ -1476,7 +1257,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
     
     <div>
       <label for="removeNotes">Additional Notes:</label>
-      <textarea id="removeNotes" placeholder="Additional details about removal..."></textarea>
+      <textarea id="removeNotes" class="form-control" placeholder="Additional details about removal..."></textarea>
     </div>
     
     <div class="warning-box">
@@ -1489,10 +1270,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
       <button type="button" onclick="closeModal()" class="btn btn-primary">Cancel</button>
     </div>
   `;
-
-      showModal(modalHtml);
-    }
-
+  
+  showModal(modalHtml);
+}
 
     async function submitRemove() {
       const assetId = document.getElementById('removeAsset').value;
@@ -1504,26 +1284,24 @@ $is_admin = ($current_user['user_type'] === 'admin');
         return;
       }
 
-      if (!confirm('Are you sure you want to request removal of this asset? This action requires approval.')) {
+      if (!confirm('Are you sure you want to remove this asset? This action cannot be undone.')) {
         return;
       }
 
       try {
         const response = await fetch('delete_asset.php', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             asset_id: assetId,
             remove_reason: removeReason,
             remove_notes: removeNotes
           })
         });
-
+        
         const result = await response.json();
         if (result.success) {
-          alert('Asset removal request submitted successfully!');
+          alert('Asset removed successfully!');
           closeModal();
           loadDataFromDB();
         } else {
@@ -1539,8 +1317,8 @@ $is_admin = ($current_user['user_type'] === 'admin');
       fetch(`get_service_history.php?asset_id=${assetId}`)
         .then(response => response.json())
         .then(history => {
-          const asset = inventoryData.find(item => item.asset_id === assetId);
-          const modalHtml = `
+            const asset = inventoryData.find(item => item.asset_id === assetId);
+            const modalHtml = `
                 <h2>📜 Service History for ${assetId}</h2>
                 <div class="info-box">
                     <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
@@ -1579,120 +1357,73 @@ $is_admin = ($current_user['user_type'] === 'admin');
                     <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
                 </div>
             `;
-
-          showModal(modalHtml);
+            
+            showModal(modalHtml);
         })
         .catch(error => {
-          console.error('Error loading service history:', error);
-          alert('Error loading service history');
+            console.error('Error loading service history:', error);
+            alert('Error loading service history');
         });
     }
 
-  function showAllServiceHistory() {
-  const modalHtml = `
-    <h2>📜 Complete Service History</h2>
-    
-    <div class="filter-group" style="margin-bottom: 20px;">
-      <label for="historyFactoryFilter">Factory:</label>
-      <select id="historyFactoryFilter" onchange="loadServiceHistory()">
-        <option value="head_office">Head Office</option>
-        <option value="agl">AGL</option>
-        <option value="ajl">AJL</option>
-        <option value="abm">ABM</option>
-        <option value="pwpl">PWPL</option>
-        <option value="all">All Factories</option>
-      </select>
-    </div>
-    
-    <div id="serviceHistoryContent">
-      <p>Loading service history...</p>
-    </div>
-    
-    <div class="button-group">
-      <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
-    </div>
-  `;
-
-  showModal(modalHtml);
-  // Load initial data (Head Office by default)
-  loadServiceHistory();
-}
-
-// Function to load service history based on selected factory
-function loadServiceHistory() {
-  const factory = document.getElementById('historyFactoryFilter').value;
-  let url = 'get_service_history.php';
-  
-  if (factory !== 'all') {
-    url += `?factory=${factory}`;
-  }
-
-  showLoading(true);
-  fetch(url)
+    function showAllServiceHistory() {
+  fetch('get_service_history.php')
     .then(response => response.json())
     .then(history => {
-      let historyHtml;
-      
-      if (history.length > 0) {
-        historyHtml = `
-          <table class="history-table">
-            <thead>
-              <tr>
-                <th>Asset ID</th>
-                <th>Asset Name</th>
-                <th>Date</th>
-                <th>Type</th>
-                <th>Technician</th>
-                <th>Status</th>
-                <th>Completed</th>
-                <th>Notes</th>
-                <th>Factory</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${history.map(record => {
-                const asset = inventoryData.find(item => item.asset_id === record.asset_id);
-                // Determine factory from the record (either from source_table or factory column)
-                const recordFactory = record.source_table ? 
-                  record.source_table.replace('service_history_', '').replace('service_history', 'head_office') : 
-                  (record.factory || factory);
-                const factoryName = recordFactory === 'head_office' ? 'Head Office' : recordFactory.toUpperCase();
-                
-                return `
-                <tr>
-                  <td>${record.asset_id || 'N/A'}</td>
-                  <td>${asset?.asset_name || 'N/A'}</td>
-                  <td>${record.service_date || 'N/A'}</td>
-                  <td>${record.service_type || 'N/A'}</td>
-                  <td>${record.service_by || 'N/A'}</td>
-                  <td>${record.status || 'N/A'}</td>
-                  <td>${record.completion_date || 'N/A'}</td>
-                  <td>${record.service_notes || ''}</td>
-                  <td>${factoryName}</td>
-                </tr>`;
-              }).join('')}
-            </tbody>
-          </table>
+        const modalHtml = `
+            <h2>📜 Complete Service History</h2>
+            
+            ${history.length > 0 ? `
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Asset ID</th>
+                        <th>Asset Name</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Technician</th>
+                        <th>Status</th>
+                        <th>Completed</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${history.map(record => {
+                        const asset = inventoryData.find(item => item.asset_id === record.asset_id);
+                        return `
+                        <tr>
+                            <td>${record.asset_id || 'N/A'}</td>
+                            <td>${asset?.asset_name || 'N/A'}</td>
+                            <td>${record.service_date || 'N/A'}</td>
+                            <td>${record.service_type || 'N/A'}</td>
+                            <td>${record.service_by || 'N/A'}</td>
+                            <td>${record.status || 'N/A'}</td>
+                            <td>${record.completion_date || 'N/A'}</td>
+                            <td>${record.service_notes || ''}</td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table>
+            ` : '<p>No service history records found.</p>'}
+            
+            <div class="button-group">
+                <button type="button" onclick="closeModal()" class="btn btn-primary">Close</button>
+            </div>
         `;
-      } else {
-        historyHtml = '<p>No service history records found for the selected factory.</p>';
-      }
-      
-      document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
-      showLoading(false);
+        
+        showModal(modalHtml);
     })
     .catch(error => {
-      console.error('Error loading service history:', error);
-      document.getElementById('serviceHistoryContent').innerHTML = 
-        '<p>Error loading service history. Please try again.</p>';
-      showLoading(false);
+        console.error('Error loading service history:', error);
+        alert('Error loading service history');
     });
 }
+
     async function viewAllUsers() {
       try {
         const response = await fetch('get_users.php');
         const users = await response.json();
-
+        
         let html = `
           <table>
             <thead>
@@ -1714,14 +1445,15 @@ function loadServiceHistory() {
                   <td>${user.user_type}</td>
                   <td>${user.factory}</td>
                   <td class="action-buttons">
-  <button onclick="deleteUser('${user.id}')" class="btn btn-danger delete-btn">Delete</button>
-</td>
+                    <button onclick="editUser('${user.id}')" class="btn-warning">Edit</button>
+                    <button onclick="deleteUser('${user.id}')" class="btn-danger">Delete</button>
+                  </td>
                 </tr>
               `).join('')}
             </tbody>
           </table>
         `;
-
+        
         userListContainer.innerHTML = html;
         userFormContainer.style.display = 'none';
         userListContainer.style.display = 'block';
@@ -1735,7 +1467,7 @@ function loadServiceHistory() {
       try {
         const response = await fetch(`get_user.php?id=${userId}`);
         const user = await response.json();
-
+        
         document.getElementById('userId').value = user.id;
         document.getElementById('name').value = user.name;
         document.getElementById('username').value = user.username;
@@ -1743,7 +1475,7 @@ function loadServiceHistory() {
         document.getElementById('employeeId').value = user.employee_id;
         document.getElementById('userType').value = user.user_type;
         document.getElementById('factory').value = user.factory;
-
+        
         userFormContainer.style.display = 'block';
         userListContainer.style.display = 'none';
       } catch (error) {
@@ -1758,7 +1490,7 @@ function loadServiceHistory() {
           const response = await fetch(`delete_user.php?id=${userId}`, {
             method: 'DELETE'
           });
-
+          
           const result = await response.json();
           if (result.success) {
             alert('User deleted successfully!');
@@ -1775,7 +1507,7 @@ function loadServiceHistory() {
 
     async function handleUserFormSubmit(e) {
       e.preventDefault();
-
+      
       const userId = document.getElementById('userId').value;
       const userData = {
         name: document.getElementById('name').value,
@@ -1789,15 +1521,13 @@ function loadServiceHistory() {
       try {
         const url = userId ? `update_user.php?id=${userId}` : 'create_user.php';
         const method = userId ? 'PUT' : 'POST';
-
+        
         const response = await fetch(url, {
           method: method,
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(userData)
         });
-
+        
         const result = await response.json();
         if (result.success) {
           alert(`User ${userId ? 'updated' : 'created'} successfully!`);
@@ -1836,5 +1566,4 @@ function loadServiceHistory() {
     }
   </script>
 </body>
-
 </html>

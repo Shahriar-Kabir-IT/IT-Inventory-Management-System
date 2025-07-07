@@ -415,7 +415,7 @@ try {
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <div>
           <h1>IT Asset Inventory Management</h1>
-          <p>Comprehensive tracking system for IT department assets and equipment</p>
+          <p>Ananta Jeanswear Limited</p>
         </div>
         <div class="user-info" style="color: white; text-align: right; padding: 10px;">
           <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
