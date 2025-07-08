@@ -87,36 +87,58 @@ $is_admin = ($current_user['user_type'] === 'admin');
       font-weight: 500;
       transition: all 0.3s ease;
       font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
       color: white;
     }
 
     .btn-success {
-      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      background: linear-gradient(135deg, #1cc88a 0%, #13855c 100%);
       color: white;
     }
 
     .btn-danger {
-      background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+      background: linear-gradient(135deg, #e74a3b 0%, #be2617 100%);
       color: white;
     }
 
     .btn-warning {
-      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-      color: black;
+      background: linear-gradient(135deg, #f6c23e 0%, #dda20a 100%);
+      color: #2c3e50;
     }
 
     .btn-info {
-      background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+      background: linear-gradient(135deg, #36b9cc 0%, #258391 100%);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #858796 0%, #60616f 100%);
       color: white;
     }
 
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      opacity: 0.9;
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+
+    .btn-icon {
+      font-size: 16px;
     }
 
     .filter-group {
@@ -259,16 +281,16 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     .modal-content {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 800px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      position: relative;
-    }
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 95%; /* Increased from 90% */
+  max-width: 900px; /* Increased from 800px */
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
 
     .modal-close {
       position: absolute;
@@ -279,6 +301,11 @@ $is_admin = ($current_user['user_type'] === 'admin');
       background: none;
       border: none;
       color: #6c757d;
+      transition: color 0.3s;
+    }
+
+    .modal-close:hover {
+      color: #000;
     }
 
     .modal-content h2 {
@@ -306,6 +333,14 @@ $is_admin = ($current_user['user_type'] === 'admin');
       border-radius: 5px;
       margin-bottom: 15px;
       font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .modal-content input:focus,
+    .modal-content select:focus,
+    .modal-content textarea:focus {
+      border-color: #4e73df;
+      outline: none;
     }
 
     .modal-content textarea {
@@ -397,6 +432,11 @@ $is_admin = ($current_user['user_type'] === 'admin');
       background: none;
       border: none;
       color: #6c757d;
+      transition: color 0.3s;
+    }
+
+    .user-management-close:hover {
+      color: #000;
     }
 
     .user-form {
@@ -438,12 +478,87 @@ $is_admin = ($current_user['user_type'] === 'admin');
       background-color: #f8f9fa;
     }
 
-    .action-buttons button {
-      padding: 5px 10px;
-      margin-right: 5px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    .action-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 40px; /* Increased vertical gap */
+  padding: 10px 0; /* Add some padding top and bottom */
+}
+
+    /* Loading spinner */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Approval Table Styles */
+    .approval-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .approval-table th {
+      background: #f8f9fa;
+      padding: 8px 10px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .approval-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    .compact-details {
+      max-width: 250px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .detail-line {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 2px;
+    }
+
+    .detail-line strong {
+      display: inline-block;
+      width: 100px;
+      color: #666;
+    }
+
+    .badge {
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge-add {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .badge-service {
+      background: #cce5ff;
+      color: #004085;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      max-width: 100%;
     }
 
     @media (max-width: 768px) {
@@ -462,61 +577,46 @@ $is_admin = ($current_user['user_type'] === 'admin');
         font-size: 11px;
       }
 
-      .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-bottom: 15px;
-        font-size: 14px;
-      }
-
-      .warning-box {
-        background: #f8d7da;
-        padding: 15px;
-        border-radius: 5px;
-        border-left: 4px solid #dc3545;
-        margin: 15px 0;
-        color: #721c24;
-      }
-
       .button-group {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-        margin-top: 20px;
+        flex-direction: column;
       }
 
-      .delete-btn {
-        background-color: #dc3545;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease;
+      .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      
+      .history-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        font-size: 0.9em;
       }
 
-      .delete-btn:hover {
-        background-color: #c82333;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      .history-table th,
+      .history-table td {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        text-align: left;
       }
 
-      .edit-btn {
-        background-color: #17a2b8;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease;
+      .history-table th {
+        background-color: #f8f9fa;
+        position: sticky;
+        top: 0;
       }
 
-      .edit-btn:hover {
-        background-color: #138496;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      .history-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .history-table tr:hover {
+        background-color: #f1f1f1;
+      }
+
+      .error {
+        color: #dc3545;
+        font-weight: bold;
       }
     }
   </style>
@@ -559,14 +659,15 @@ $is_admin = ($current_user['user_type'] === 'admin');
 
     <div class="controls">
       <?php if ($is_admin): ?>
-        <button class="btn btn-success" id="addItemBtn">➕ Add New Item</button>
-        <button class="btn btn-danger" id="removeBtn">🗑️ Remove Item</button>
-        <button class="btn btn-warning" id="approvalBtn">🔄 Pending Approvals (<span id="approvalCount">0</span>)</button>
-        <button class="btn btn-info" id="userManagementBtn">👥 User Management</button>
+        <button class="btn btn-success" id="addItemBtn"><i class="btn-icon">+</i> Add New Asset</button>
+        <button class="btn btn-danger" id="removeBtn"><i class="btn-icon">🗑️</i> Remove Asset</button>
+        <button class="btn btn-warning" id="approvalBtn"><i class="btn-icon">🔄</i> Pending Approvals (<span id="approvalCount">0</span>)</button>
+        <button class="btn btn-info" id="userManagementBtn"><i class="btn-icon">👥</i> User Management</button>
       <?php endif; ?>
-      <button class="btn btn-warning" id="serviceBtn">🔧 Send for Servicing</button>
-      <button class="btn btn-primary" id="exportBtn">⬇️ Export</button>
-      <button class="btn btn-info" id="historyBtn">📜 View All Service History</button>
+      <button class="btn btn-warning" id="serviceBtn"><i class="btn-icon">🔧</i> Send for Servicing</button>
+      <button class="btn btn-primary" id="exportBtn"><i class="btn-icon">⬇️</i> Export Data</button>
+      <button class="btn btn-info" id="historyBtn"><i class="btn-icon">📜</i> Service History</button>
+      <button class="btn btn-secondary" id="viewDeletedBtn"><i class="btn-icon">🗑️</i> Deleted Assets</button>
 
       <div class="filter-group">
         <label>Factory:</label>
@@ -580,7 +681,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       </div>
 
       <div class="filter-group">
-        <label>Filter by Status:</label>
+        <label>Status:</label>
         <select id="statusFilter">
           <option value="">All Status</option>
           <option value="ACTIVE">Active</option>
@@ -615,7 +716,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
             <th>Last Maintenance</th>
             <th>Priority</th>
             <th>Notes</th>
-            <th id="actionsHeader">Actions</th> <!-- Added ID for easier selection -->
+            <th id="actionsHeader">Actions</th>
           </tr>
         </thead>
         <tbody id="inventoryBody"></tbody>
@@ -639,12 +740,44 @@ $is_admin = ($current_user['user_type'] === 'admin');
     </div>
   </div>
 
+  <!-- Deleted Assets Modal -->
+  <div id="deletedAssetsModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeDeletedAssetsModal()">&times;</button>
+        <h2><i class="btn-icon">🗑️</i> Deleted Assets</h2>
+        
+        <div class="filter-group" style="margin-bottom: 20px;">
+            <label>Factory:</label>
+            <select id="deletedFactoryFilter">
+                <option value="head_office">Head Office</option>
+                <option value="agl">AGL</option>
+                <option value="ajl">AJL</option>
+                <option value="abm">ABM</option>
+                <option value="pwpl">PWPL</option>
+            </select>
+        </div>
+        
+        <div id="deletedAssetsContent">
+            <p>Select a factory and click "Load Data" to view deleted assets.</p>
+        </div>
+        
+        <div class="button-group">
+            <button type="button" onclick="loadDeletedAssets()" class="btn btn-primary">
+                <i class="btn-icon">🔍</i> Load Data
+            </button>
+            <button type="button" onclick="closeDeletedAssetsModal()" class="btn btn-secondary">
+                <i class="btn-icon">✕</i> Close
+            </button>
+        </div>
+    </div>
+  </div>
+
   <!-- User Management Modal -->
   <div id="userManagementModal" class="user-management-container">
     <button class="user-management-close">&times;</button>
-    <h2>👥 User Management</h2>
+    <h2><i class="btn-icon">👥</i> User Management</h2>
     <div class="button-group" style="margin-bottom: 20px;">
-      <button class="btn btn-success" id="createUserBtn">Create New User</button>
+      <button class="btn btn-success" id="createUserBtn"><i class="btn-icon">+</i> Create New User</button>
     </div>
 
     <div id="userFormContainer" class="user-form" style="display: none;">
@@ -684,8 +817,12 @@ $is_admin = ($current_user['user_type'] === 'admin');
           </select>
         </div>
         <div class="button-group">
-          <button type="submit" class="btn btn-success">Save</button>
-          <button type="button" class="btn btn-primary" onclick="hideUserForm()">Cancel</button>
+          <button type="submit" class="btn btn-success">
+            <i class="btn-icon">✓</i> Save
+          </button>
+          <button type="button" onclick="hideUserForm()" class="btn btn-secondary">
+            <i class="btn-icon">✕</i> Cancel
+          </button>
         </div>
       </form>
     </div>
@@ -709,6 +846,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
     const historyBtn = document.getElementById('historyBtn');
     const approvalBtn = document.getElementById('approvalBtn');
     const userManagementBtn = document.getElementById('userManagementBtn');
+    const viewDeletedBtn = document.getElementById('viewDeletedBtn');
     const factoryFilter = document.getElementById('factoryFilter');
     const statusFilter = document.getElementById('statusFilter');
     const searchInput = document.getElementById('searchInput');
@@ -724,6 +862,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
     const userFormContainer = document.getElementById('userFormContainer');
     const userListContainer = document.getElementById('userListContainer');
     const userForm = document.getElementById('userForm');
+    const deletedAssetsModal = document.getElementById('deletedAssetsModal');
+    const deletedFactoryFilter = document.getElementById('deletedFactoryFilter');
+    const deletedAssetsContent = document.getElementById('deletedAssetsContent');
 
     // Event Listeners
     if (addItemBtn) addItemBtn.addEventListener('click', showAddItemModal);
@@ -733,9 +874,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
     historyBtn.addEventListener('click', showAllServiceHistory);
     if (approvalBtn) approvalBtn.addEventListener('click', showApprovalModal);
     if (userManagementBtn) userManagementBtn.addEventListener('click', showUserManagementModal);
+    viewDeletedBtn.addEventListener('click', showDeletedAssetsModal);
     factoryFilter.addEventListener('change', () => {
       loadDataFromDB();
-      // No need for separate filterTable() call as loadDataFromDB() calls renderTable()
     });
     statusFilter.addEventListener('change', filterTable);
     searchInput.addEventListener('keyup', filterTable);
@@ -757,10 +898,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
       }
     });
 
-    // Close user management modal when clicking outside
-    userManagementModal.addEventListener('click', (e) => {
-      if (e.target === userManagementModal) {
-        closeUserManagementModal();
+    deletedAssetsModal.addEventListener('click', (e) => {
+      if (e.target === deletedAssetsModal) {
+        closeDeletedAssetsModal();
       }
     });
 
@@ -790,6 +930,89 @@ $is_admin = ($current_user['user_type'] === 'admin');
       userManagementModal.style.display = 'none';
     }
 
+    function showDeletedAssetsModal() {
+      deletedAssetsModal.style.display = 'flex';
+      deletedAssetsContent.innerHTML = '<p>Select a factory and click "Load Data" to view deleted assets.</p>';
+    }
+
+    function closeDeletedAssetsModal() {
+      deletedAssetsModal.style.display = 'none';
+    }
+
+    function loadDeletedAssets() {
+      const factory = deletedFactoryFilter.value;
+      showLoading(true);
+      
+      fetch(`get_deleted_assets.php?factory=${factory}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            deletedAssetsContent.innerHTML = `<p class="error">${data.error}</p>`;
+            return;
+          }
+
+          if (data.length === 0) {
+            deletedAssetsContent.innerHTML = '<p>No deleted assets found for this factory.</p>';
+            return;
+          }
+
+          let html = `
+            <div class="info-box">
+              Showing ${data.length} deleted assets for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}
+            </div>
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Asset Name</th>
+                  <th>Category</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Location</th>
+                  <th>Assigned To</th>
+                  <th>Purchase Date</th>
+                  <th>Removal Reason</th>
+                  <th>Removal Notes</th>
+                  <th>Removed By</th>
+                  <th>Removal Date</th>
+                </tr>
+              </thead>
+              <tbody>
+          `;
+
+          data.forEach(asset => {
+            html += `
+              <tr>
+                <td>${asset.asset_name || 'N/A'}</td>
+                <td>${asset.category || 'N/A'}</td>
+                <td>${asset.brand || 'N/A'}</td>
+                <td>${asset.model || 'N/A'}</td>
+                <td>${asset.location || 'N/A'}</td>
+                <td>${asset.assigned_to || 'N/A'}</td>
+                <td>${formatDate(asset.purchase_date) || 'N/A'}</td>
+                <td>${asset.removal_reason || 'N/A'}</td>
+                <td>${asset.removal_notes || 'N/A'}</td>
+                <td>${asset.removed_by || 'N/A'}</td>
+                <td>${formatDate(asset.removal_date) || 'N/A'}</td>
+              </tr>
+            `;
+          });
+
+          html += `
+              </tbody>
+            </table>
+          `;
+
+          deletedAssetsContent.innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error loading deleted assets:', error);
+          deletedAssetsContent.innerHTML = '<p class="error">Error loading deleted assets. Please try again.</p>';
+        })
+        .finally(() => {
+          showLoading(false);
+        });
+    }
+
     function showUserForm() {
       userFormContainer.style.display = 'block';
       userListContainer.style.display = 'none';
@@ -809,71 +1032,95 @@ $is_admin = ($current_user['user_type'] === 'admin');
           .then(response => response.json())
           .then(approvals => {
             let html = `
-              <h2>🔄 Pending Approvals</h2>
-              <table class="approval-table">
-                <thead>
-                  <tr>
-                    <th>Request ID</th>
-                    <th>Action</th>
-                    <th>Asset ID</th>
-                    <th>Requested By</th>
-                    <th>Factory</th>
-                    <th>Date</th>
-                    <th>Details</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
+              <h2><i class="btn-icon">🔄</i> Pending Approvals (${approvals.length})</h2>
+              <div class="table-responsive">
+                <table class="approval-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 80px;">ID</th>
+                      <th style="width: 100px;">Action</th>
+                      <th style="width: 120px;">Asset ID</th>
+                      <th style="width: 120px;">Requested By</th>
+                      <th style="width: 80px;">Factory</th>
+                      <th style="width: 150px;">Date</th>
+                      <th style="min-width: 250px;">Details</th>
+                      <th style="width: 150px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
             `;
 
             approvals.forEach(approval => {
               const details = approval.action_details ? JSON.parse(approval.action_details) : {};
-              let detailsHtml = '';
-
-              if (approval.action_type === 'ADD') {
-                detailsHtml = `
-                  <strong>Asset:</strong> ${details.asset_name}<br>
-                  <strong>Category:</strong> ${details.category}<br>
-                  <strong>Brand:</strong> ${details.brand}<br>
-                  <strong>Model:</strong> ${details.model}
-                `;
-              } else if (approval.action_type === 'SERVICE') {
-                detailsHtml = `
-                  <strong>Type:</strong> ${details.service_type}<br>
-                  <strong>Technician:</strong> ${details.service_by}<br>
-                  <strong>Notes:</strong> ${details.service_notes}
-                `;
-              } else if (approval.action_type === 'COMPLETE_SERVICE') {
-                detailsHtml = `
-                  <strong>Completion Notes:</strong> ${details.completion_notes}
-                `;
-              } else if (approval.action_type === 'DELETE') {
-                detailsHtml = `
-                  <strong>Reason:</strong> ${details.remove_reason}<br>
-                  <strong>Notes:</strong> ${details.remove_notes}
-                `;
-              }
-
+              
               html += `
                 <tr>
                   <td>${approval.id}</td>
-                  <td>${approval.action_type}</td>
+                  <td><span class="badge ${approval.action_type === 'ADD' ? 'badge-add' : 'badge-service'}">${approval.action_type}</span></td>
                   <td>${approval.asset_id || 'N/A'}</td>
                   <td>${approval.requested_by}</td>
                   <td>${approval.factory.toUpperCase()}</td>
                   <td>${new Date(approval.request_date).toLocaleString()}</td>
-                  <td>${detailsHtml}</td>
                   <td>
-                    <button onclick="processApproval(${approval.id}, 'APPROVE')" class="approval-btn approve-btn">Approve</button>
-                    <button onclick="processApproval(${approval.id}, 'REJECT')" class="approval-btn reject-btn">Reject</button>
+                    <div class="compact-details">
+                      ${approval.action_type === 'ADD' ? `
+                        <div class="detail-line"><strong>Asset:</strong> ${details.asset_name || 'N/A'}</div>
+                        <div class="detail-line"><strong>Category:</strong> ${details.category || 'N/A'}</div>
+                        <div class="detail-line"><strong>Model:  </strong> ${details.brand || 'N/A'} ${details.model || ''}</div>
+                        <div class="detail-line"><strong>Serial:</strong> ${details.serial_number || 'N/A'}</div>
+                        <div class="detail-line"><strong>Location:</strong> ${details.location || 'N/A'}</div>
+                        <div class="detail-line"><strong>Dept:</strong> ${details.department || 'N/A'}</div>
+                        <div class="detail-line"><strong>Purchase:</strong> ${details.purchase_date || 'N/A'} ($${details.purchase_price || '0'})</div>
+                        <div class="detail-line"><strong>Warranty:</strong> ${details.warranty_expiry || 'N/A'}</div>
+                        <div class="detail-line"><strong>Priority:</strong> <span class="priority-${details.priority ? details.priority.toLowerCase() : 'medium'}">${details.priority || 'Medium'}</span></div>
+                        ${details.notes ? `<div class="detail-line"><strong>Notes:</strong> ${details.notes}</div>` : ''}
+                      ` : ''}
+                      
+                      ${approval.action_type === 'SERVICE' ? `
+                        <div class="detail-line"><strong>Service Type:</strong> ${details.service_type || 'N/A'}</div>
+                        <div class="detail-line"><strong>Technician:</strong> ${details.service_by || 'N/A'}</div>
+                        <div class="detail-line"><strong>Start Date:</strong> ${details.service_date || 'N/A'}</div>
+                        ${details.service_notes ? `<div class="detail-line"><strong>Notes:</strong> ${details.service_notes}</div>` : ''}
+                      ` : ''}
+                      
+                      ${approval.action_type === 'COMPLETE_SERVICE' ? `
+                        <div class="detail-line"><strong>Completion Date:</strong> ${details.completion_date || 'N/A'}</div>
+                        <div class="detail-line"><strong>Technician:</strong> ${details.service_by || 'N/A'}</div>
+                        ${details.completion_notes ? `<div class="detail-line"><strong>Notes:</strong> ${details.completion_notes}</div>` : ''}
+                      ` : ''}
+                      
+                      ${approval.action_type === 'DELETE' ? `
+                        <div class="detail-line"><strong>Reason:</strong> ${details.remove_reason || 'N/A'}</div>
+                        <div class="detail-line"><strong>Date:</strong> ${details.removal_date || 'N/A'}</div>
+                        ${details.remove_notes ? `<div class="detail-line"><strong>Notes:</strong> ${details.remove_notes}</div>` : ''}
+                      ` : ''}
+                    </div>
                   </td>
+                  <td>
+  <div class="action-buttons">
+    <button onclick="processApproval(${approval.id}, 'APPROVE')" 
+            class="btn btn-success btn-sm approval-action-btn">
+      <i class="btn-icon">✓</i> Approve
+    </button>
+    <button onclick="processApproval(${approval.id}, 'REJECT')" 
+            class="btn btn-danger btn-sm approval-action-btn">
+      <i class="btn-icon">✕</i> Reject
+    </button>
+  </div>
+</td>
                 </tr>
               `;
             });
 
             html += `
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              </div>
+              <div class="button-group" style="margin-top: 20px;">
+                <button type="button" onclick="closeApprovalModal()" class="btn btn-secondary">
+                  <i class="btn-icon">✕</i> Close
+                </button>
+              </div>
             `;
 
             approvalContent.innerHTML = html;
@@ -881,7 +1128,15 @@ $is_admin = ($current_user['user_type'] === 'admin');
           })
           .catch(error => {
             console.error('Error loading approvals:', error);
-            approvalContent.innerHTML = '<p>Error loading approval requests. Please try again.</p>';
+            approvalContent.innerHTML = `
+              <div class="error-box">
+                <h3>Error Loading Approvals</h3>
+                <p>${error.message || 'Unknown error occurred'}</p>
+                <button onclick="showApprovalModal()" class="btn btn-primary">
+                  <i class="btn-icon">🔄</i> Try Again
+                </button>
+              </div>
+            `;
             approvalModal.style.display = 'flex';
           })
           .finally(() => {
@@ -993,7 +1248,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       }
 
       const selectedFactory = factoryFilter.value;
-      const isHeadOffice = selectedFactory === 'all'; // Assuming 'all' represents Head Office
+      const isHeadOffice = selectedFactory === 'all';
 
       filteredData.forEach(item => {
         const row = document.createElement('tr');
@@ -1023,12 +1278,12 @@ $is_admin = ($current_user['user_type'] === 'admin');
           rowHtml += `
                 <td>
                     ${item.status === 'MAINTENANCE' ? 
-                        `<button onclick="showCompleteServiceModal('${item.asset_id}')" class="btn btn-success" style="margin-bottom:5px;">
-                            Complete Service
+                        `<button onclick="showCompleteServiceModal('${item.asset_id}')" class="btn btn-success btn-sm" style="margin-bottom:5px;">
+                            <i class="btn-icon">✓</i> Complete
                         </button><br>` : ''
                     }
-                    <button onclick="showServiceHistory('${item.asset_id}')" class="btn btn-info">
-                        Service History
+                    <button onclick="showServiceHistory('${item.asset_id}')" class="btn btn-info btn-sm">
+                        <i class="btn-icon">📜</i> History
                     </button>
                 </td>
             `;
@@ -1146,7 +1401,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
 
     function showAddItemModal() {
       const modalHtml = `
-        <h2>➕ Add New Asset</h2>
+        <h2><i class="btn-icon">+</i> Add New Asset</h2>
         <form id="addForm">
           <div>
             <label for="assetName">Asset Name*</label>
@@ -1233,8 +1488,12 @@ $is_admin = ($current_user['user_type'] === 'admin');
           </div>
           
           <div class="button-group">
-            <button type="submit" class="btn-success">Add Asset</button>
-            <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
+            <button type="submit" class="btn btn-success">
+              <i class="btn-icon">✓</i> Add Asset
+            </button>
+            <button type="button" onclick="closeModal()" class="btn btn-secondary">
+              <i class="btn-icon">✕</i> Cancel
+            </button>
           </div>
         </form>
       `;
@@ -1300,7 +1559,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
         .join('');
 
       const modalHtml = `
-        <h2>🔧 Send Asset for Servicing</h2>
+        <h2><i class="btn-icon">🔧</i> Send Asset for Servicing</h2>
         
         <div>
           <label for="serviceAsset">Select Asset to Service:</label>
@@ -1331,8 +1590,12 @@ $is_admin = ($current_user['user_type'] === 'admin');
         </div>
         
         <div class="button-group">
-          <button type="button" onclick="submitService()" class="btn-warning">Send for Service</button>
-          <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
+          <button type="button" onclick="submitService()" class="btn btn-warning">
+            <i class="btn-icon">🔧</i> Send for Service
+          </button>
+          <button type="button" onclick="closeModal()" class="btn btn-secondary">
+            <i class="btn-icon">✕</i> Cancel
+          </button>
         </div>
       `;
 
@@ -1390,7 +1653,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       if (!asset) return;
 
       const modalHtml = `
-        <h2>✔ Complete Service for ${assetId}</h2>
+        <h2><i class="btn-icon">✓</i> Complete Service for ${assetId}</h2>
         <div class="info-box">
           <strong>Asset:</strong> ${asset.asset_name || 'N/A'}<br>
           <strong>Current Status:</strong> ${asset.status || 'N/A'}
@@ -1402,8 +1665,12 @@ $is_admin = ($current_user['user_type'] === 'admin');
         </div>
         
         <div class="button-group">
-          <button type="button" onclick="completeService('${assetId}')" class="btn-success">Mark as Completed</button>
-          <button type="button" onclick="closeModal()" class="btn-primary">Cancel</button>
+          <button type="button" onclick="completeService('${assetId}')" class="btn btn-success">
+            <i class="btn-icon">✓</i> Mark as Completed
+          </button>
+          <button type="button" onclick="closeModal()" class="btn btn-secondary">
+            <i class="btn-icon">✕</i> Cancel
+          </button>
         </div>
       `;
 
@@ -1450,49 +1717,52 @@ $is_admin = ($current_user['user_type'] === 'admin');
         .join('');
 
       const modalHtml = `
-    <h2>🗑️ Remove Asset from Inventory</h2>
-    <div class="approval-notice">
-      <strong>Note:</strong> All removal requests require approval from the admin.
-    </div>
-    <div>
-      <label for="removeAsset">Select Asset to Remove:</label>
-      <select id="removeAsset">
-        <option value="">Choose an asset...</option>
-        ${options}
-      </select>
-    </div>
-    
-    <div>
-      <label for="removeReason">Reason for Removal:</label>
-      <select id="removeReason">
-        <option value="End of Life">End of Life</option>
-        <option value="Sold">Sold</option>
-        <option value="Donated">Donated</option>
-        <option value="Disposed">Disposed</option>
-        <option value="Lost/Stolen">Lost/Stolen</option>
-        <option value="Transfer">Transfer to Another Dept</option>
-      </select>
-    </div>
-    
-    <div>
-      <label for="removeNotes">Additional Notes:</label>
-      <textarea id="removeNotes" placeholder="Additional details about removal..."></textarea>
-    </div>
-    
-    <div class="warning-box">
-      <strong>⚠️ Warning:</strong> This action will permanently remove the asset from your inventory. 
-      Make sure to backup your data before proceeding.
-    </div>
-    
-    <div class="button-group">
-      <button type="button" onclick="submitRemove()" class="btn btn-danger">Remove Asset</button>
-      <button type="button" onclick="closeModal()" class="btn btn-primary">Cancel</button>
-    </div>
-  `;
+        <h2><i class="btn-icon">🗑️</i> Remove Asset from Inventory</h2>
+        <div class="warning-box">
+          <strong>Note:</strong> All removal requests require approval from the admin.
+        </div>
+        <div>
+          <label for="removeAsset">Select Asset to Remove:</label>
+          <select id="removeAsset">
+            <option value="">Choose an asset...</option>
+            ${options}
+          </select>
+        </div>
+        
+        <div>
+          <label for="removeReason">Reason for Removal:</label>
+          <select id="removeReason">
+            <option value="End of Life">End of Life</option>
+            <option value="Sold">Sold</option>
+            <option value="Donated">Donated</option>
+            <option value="Disposed">Disposed</option>
+            <option value="Lost/Stolen">Lost/Stolen</option>
+            <option value="Transfer">Transfer to Another Dept</option>
+          </select>
+        </div>
+        
+        <div>
+          <label for="removeNotes">Additional Notes:</label>
+          <textarea id="removeNotes" placeholder="Additional details about removal..."></textarea>
+        </div>
+        
+        <div class="warning-box">
+          <strong>⚠️ Warning:</strong> This action will permanently remove the asset from your inventory. 
+          Make sure to backup your data before proceeding.
+        </div>
+        
+        <div class="button-group">
+          <button type="button" onclick="submitRemove()" class="btn btn-danger">
+            <i class="btn-icon">🗑️</i> Remove Asset
+          </button>
+          <button type="button" onclick="closeModal()" class="btn btn-secondary">
+            <i class="btn-icon">✕</i> Cancel
+          </button>
+        </div>
+      `;
 
       showModal(modalHtml);
     }
-
 
     async function submitRemove() {
       const assetId = document.getElementById('removeAsset').value;
@@ -1504,7 +1774,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
         return;
       }
 
-      if (!confirm('Are you sure you want to request removal of this asset? This action requires approval.')) {
+      if (!confirm('Are you sure you want to request removal of this asset?')) {
         return;
       }
 
@@ -1523,7 +1793,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
 
         const result = await response.json();
         if (result.success) {
-          alert('Asset removal request submitted successfully!');
+          alert('Asset removed successfully!');
           closeModal();
           loadDataFromDB();
         } else {
@@ -1541,7 +1811,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
         .then(history => {
           const asset = inventoryData.find(item => item.asset_id === assetId);
           const modalHtml = `
-                <h2>📜 Service History for ${assetId}</h2>
+                <h2><i class="btn-icon">📜</i> Service History for ${assetId}</h2>
                 <div class="info-box">
                     <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
                     <strong>Model:</strong> ${asset?.model || 'N/A'}<br>
@@ -1576,7 +1846,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
                 ` : '<p>No service history found for this asset.</p>'}
                 
                 <div class="button-group">
-                    <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
+                    <button type="button" onclick="closeModal()" class="btn btn-secondary">
+                      <i class="btn-icon">✕</i> Close
+                    </button>
                 </div>
             `;
 
@@ -1587,10 +1859,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
           alert('Error loading service history');
         });
     }
-
-  function showAllServiceHistory() {
+function showAllServiceHistory() {
   const modalHtml = `
-    <h2>📜 Complete Service History</h2>
+    <h2><i class="btn-icon">📜</i> Complete Service History</h2>
     
     <div class="filter-group" style="margin-bottom: 20px;">
       <label for="historyFactoryFilter">Factory:</label>
@@ -1605,22 +1876,26 @@ $is_admin = ($current_user['user_type'] === 'admin');
     </div>
     
     <div id="serviceHistoryContent">
-      <p>Loading service history...</p>
+      <p>Loading Head Office service history...</p>
     </div>
     
     <div class="button-group">
-      <button type="button" onclick="closeModal()" class="btn-primary">Close</button>
+      <button type="button" onclick="closeModal()" class="btn btn-secondary">
+        <i class="btn-icon">✕</i> Close
+      </button>
     </div>
   `;
 
   showModal(modalHtml);
-  // Load initial data (Head Office by default)
+  // Load Head Office data immediately
   loadServiceHistory();
 }
 
-// Function to load service history based on selected factory
 function loadServiceHistory() {
-  const factory = document.getElementById('historyFactoryFilter').value;
+  // Get the selected factory or default to head_office
+  const factoryFilter = document.getElementById('historyFactoryFilter');
+  const factory = factoryFilter ? factoryFilter.value : 'head_office';
+  
   let url = 'get_service_history.php';
   
   if (factory !== 'all') {
@@ -1635,6 +1910,9 @@ function loadServiceHistory() {
       
       if (history.length > 0) {
         historyHtml = `
+          <div class="info-box">
+            Showing ${history.length} service records for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}
+          </div>
           <table class="history-table">
             <thead>
               <tr>
@@ -1646,36 +1924,28 @@ function loadServiceHistory() {
                 <th>Status</th>
                 <th>Completed</th>
                 <th>Notes</th>
-                <th>Factory</th>
               </tr>
             </thead>
             <tbody>
               ${history.map(record => {
                 const asset = inventoryData.find(item => item.asset_id === record.asset_id);
-                // Determine factory from the record (either from source_table or factory column)
-                const recordFactory = record.source_table ? 
-                  record.source_table.replace('service_history_', '').replace('service_history', 'head_office') : 
-                  (record.factory || factory);
-                const factoryName = recordFactory === 'head_office' ? 'Head Office' : recordFactory.toUpperCase();
-                
                 return `
                 <tr>
                   <td>${record.asset_id || 'N/A'}</td>
                   <td>${asset?.asset_name || 'N/A'}</td>
-                  <td>${record.service_date || 'N/A'}</td>
+                  <td>${formatDate(record.service_date) || 'N/A'}</td>
                   <td>${record.service_type || 'N/A'}</td>
                   <td>${record.service_by || 'N/A'}</td>
                   <td>${record.status || 'N/A'}</td>
-                  <td>${record.completion_date || 'N/A'}</td>
+                  <td>${formatDate(record.completion_date) || 'N/A'}</td>
                   <td>${record.service_notes || ''}</td>
-                  <td>${factoryName}</td>
                 </tr>`;
               }).join('')}
             </tbody>
           </table>
         `;
       } else {
-        historyHtml = '<p>No service history records found for the selected factory.</p>';
+        historyHtml = `<p>No service history records found for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}.</p>`;
       }
       
       document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
@@ -1684,7 +1954,7 @@ function loadServiceHistory() {
     .catch(error => {
       console.error('Error loading service history:', error);
       document.getElementById('serviceHistoryContent').innerHTML = 
-        '<p>Error loading service history. Please try again.</p>';
+        '<p class="error">Error loading service history. Please try again.</p>';
       showLoading(false);
     });
 }
@@ -1714,8 +1984,10 @@ function loadServiceHistory() {
                   <td>${user.user_type}</td>
                   <td>${user.factory}</td>
                   <td class="action-buttons">
-  <button onclick="deleteUser('${user.id}')" class="btn btn-danger delete-btn">Delete</button>
-</td>
+                    <button onclick="deleteUser('${user.id}')" class="btn btn-danger btn-sm">
+                      <i class="btn-icon">🗑️</i> Delete
+                    </button>
+                  </td>
                 </tr>
               `).join('')}
             </tbody>
@@ -1827,7 +2099,12 @@ function loadServiceHistory() {
           div.style.justifyContent = 'center';
           div.style.alignItems = 'center';
           div.style.zIndex = '9999';
-          div.innerHTML = '<div style="background: white; padding: 20px; border-radius: 5px;">Loading...</div>';
+          div.innerHTML = `
+            <div style="background: white; padding: 20px; border-radius: 5px; display: flex; align-items: center; gap: 10px;">
+              <div class="loading-spinner"></div>
+              <span>Loading...</span>
+            </div>
+          `;
           document.body.appendChild(div);
         }
       } else {
@@ -1836,5 +2113,4 @@ function loadServiceHistory() {
     }
   </script>
 </body>
-
 </html>
