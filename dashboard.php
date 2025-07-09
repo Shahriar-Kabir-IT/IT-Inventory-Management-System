@@ -36,14 +36,16 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      padding: 20px;
-    }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0; /* Ensure no margin */
+  padding: 0; /* Remove padding from body */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
 
     .container {
-      max-width: 1400px;
+      max-width: 2000px;
       margin: 0 auto;
       background: white;
       border-radius: 15px;

@@ -8,6 +8,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $location = $_POST['location'];
 
     try {
+        // First check for superadmin credentials
+        if ($username === 'superadmin' && $password === '1234' && $location === 'head office') {
+            $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND factory = ?");
+            $stmt->execute([$username, $location]);
+            $user = $stmt->fetch();
+
+            if ($user) {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['user_type'] = $user['user_type'];
+                $_SESSION['factory'] = $user['factory'];
+                header("Location: dashboard_admin.php");
+                exit();
+            }
+        }
+
+        // Normal user authentication
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND factory = ?");
         $stmt->execute([$username, $location]);
         $user = $stmt->fetch();
@@ -29,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 case 'pwpl':
                     $dashboard = 'dashboard_pwpl.php';
                     break;
-                    case 'abm':
+                case 'abm':
                     $dashboard = 'dashboard_abm.php';
                     break;
                 case 'head office':
