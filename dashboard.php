@@ -36,130 +36,113 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  margin: 0; /* Ensure no margin */
-  padding: 0; /* Remove padding from body */
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
 
     .container {
-      max-width: 2000px;
+      width: 100%;
       margin: 0 auto;
       background: white;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .header {
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      background: #2c3e50;
       color: white;
-      padding: 30px;
+      padding: 15px;
       text-align: center;
     }
 
     .header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
       font-weight: 300;
     }
 
     .header p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       opacity: 0.9;
     }
 
     .controls {
-      padding: 20px 30px;
+      padding: 10px;
       background: #f8f9fa;
       border-bottom: 1px solid #e9ecef;
       display: flex;
-      gap: 15px;
+      gap: 8px;
       flex-wrap: wrap;
       align-items: center;
     }
 
     .btn {
-      padding: 10px 20px;
+      padding: 8px 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 4px;
       cursor: pointer;
       font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 14px;
+      font-size: 0.85rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+      background: #4e73df;
       color: white;
     }
 
     .btn-success {
-      background: linear-gradient(135deg, #1cc88a 0%, #13855c 100%);
+      background: #1cc88a;
       color: white;
     }
 
     .btn-danger {
-      background: linear-gradient(135deg, #e74a3b 0%, #be2617 100%);
+      background: #e74a3b;
       color: white;
     }
 
     .btn-warning {
-      background: linear-gradient(135deg, #f6c23e 0%, #dda20a 100%);
+      background: #f6c23e;
       color: #2c3e50;
     }
 
     .btn-info {
-      background: linear-gradient(135deg, #36b9cc 0%, #258391 100%);
+      background: #36b9cc;
       color: white;
     }
 
     .btn-secondary {
-      background: linear-gradient(135deg, #858796 0%, #60616f 100%);
+      background: #858796;
       color: white;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       opacity: 0.9;
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn-sm {
-      padding: 6px 12px;
-      font-size: 13px;
-    }
-
-    .btn-icon {
-      font-size: 16px;
     }
 
     .filter-group {
       display: flex;
-      gap: 10px;
+      gap: 5px;
       align-items: center;
+      font-size: 0.9rem;
     }
 
     .filter-group select,
     .filter-group input {
-      padding: 8px 12px;
+      padding: 8px;
       border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 14px;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      min-width: 120px;
     }
 
     .table-container {
       overflow-x: auto;
-      max-height: 70vh;
+      max-height: calc(100vh - 300px);
       position: relative;
     }
 
@@ -167,25 +150,24 @@ $is_admin = ($current_user['user_type'] === 'admin');
       width: 100%;
       border-collapse: collapse;
       background: white;
+      font-size: 0.85rem;
     }
 
     th {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 15px 8px;
+      background: #f8f9fa;
+      padding: 10px 8px;
       text-align: left;
       font-weight: 600;
-      font-size: 13px;
       color: #495057;
-      border-bottom: 2px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
       position: sticky;
       top: 0;
       z-index: 10;
     }
 
     td {
-      padding: 12px 8px;
+      padding: 8px;
       border-bottom: 1px solid #f1f3f4;
-      font-size: 13px;
     }
 
     tr:hover {
@@ -193,9 +175,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     .status {
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 10px;
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -237,20 +219,19 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     .stats {
-      padding: 20px 30px;
+      padding: 10px;
       background: #f8f9fa;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
     }
 
     .stat-card {
       background: white;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 10px;
+      border-radius: 5px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     .stat-card:hover {
@@ -258,17 +239,16 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     .stat-number {
-      font-size: 2rem;
+      font-size: 1.2rem;
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 3px;
     }
 
     .stat-label {
       color: #6c757d;
-      font-size: 14px;
+      font-size: 0.9rem;
     }
 
-    /* Modal styles */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -283,27 +263,26 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 95%; /* Increased from 90% */
-  max-width: 900px; /* Increased from 800px */
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
+      background: white;
+      padding: 15px;
+      border-radius: 5px;
+      width: 95%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
 
     .modal-close {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 1.5rem;
+      top: 5px;
+      right: 5px;
+      font-size: 1.2rem;
       cursor: pointer;
       background: none;
       border: none;
       color: #6c757d;
-      transition: color 0.3s;
     }
 
     .modal-close:hover {
@@ -407,7 +386,6 @@ $is_admin = ($current_user['user_type'] === 'admin');
       text-decoration: underline;
     }
 
-    /* User Management Styles */
     .user-management-container {
       position: fixed;
       top: 50%;
@@ -481,63 +459,76 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     .action-buttons {
-  display: flex;
-  flex-direction: column; /* Stack buttons vertically */
-  gap: 40px; /* Increased vertical gap */
-  padding: 10px 0; /* Add some padding top and bottom */
-}
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 10px 0;
+    }
 
-    /* Loading spinner */
     .loading-spinner {
       display: inline-block;
       width: 20px;
       height: 20px;
-      border: 3px solid rgba(255,255,255,.3);
+      border: 3px solid rgba(255, 255, 255, .3);
       border-radius: 50%;
       border-top-color: #fff;
       animation: spin 1s ease-in-out infinite;
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
-    /* Approval Table Styles */
     .approval-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13px;
+      font-size: 0.85rem;
+      /* Increased from 13px */
     }
 
     .approval-table th {
       background: #f8f9fa;
-      padding: 8px 10px;
+      padding: 10px 12px;
+      /* Increased padding */
       font-weight: 600;
       text-align: left;
+      white-space: nowrap;
+      /* Prevent header text wrapping */
     }
 
     .approval-table td {
-      padding: 8px 10px;
+      padding: 10px 12px;
+      /* Increased padding */
       border-bottom: 1px solid #eee;
       vertical-align: top;
     }
 
     .compact-details {
-      max-width: 250px;
-      font-size: 12px;
-      line-height: 1.4;
+      max-width: 300px;
+      /* Increased from 250px */
+      font-size: 0.85rem;
+      /* Increased from 12px */
+      line-height: 1.5;
+      /* Increased from 1.4 */
     }
 
     .detail-line {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 2px;
+      white-space: normal;
+      /* Changed from nowrap to allow wrapping */
+      overflow: visible;
+      /* Changed from hidden */
+      text-overflow: clip;
+      /* Changed from ellipsis */
+      margin-bottom: 4px;
+      /* Increased from 2px */
     }
 
     .detail-line strong {
       display: inline-block;
-      width: 100px;
+      width: 110px;
+      /* Increased from 100px */
       color: #666;
     }
 
@@ -565,8 +556,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
 
     @media (max-width: 768px) {
       .controls {
-        flex-direction: column;
-        align-items: stretch;
+        gap: 5px;
       }
 
       .filter-group {
@@ -584,10 +574,10 @@ $is_admin = ($current_user['user_type'] === 'admin');
       }
 
       .btn {
-        width: 100%;
-        margin-bottom: 10px;
+        padding: 6px 8px;
+        font-size: 0.7rem;
       }
-      
+
       .history-table {
         width: 100%;
         border-collapse: collapse;
@@ -745,32 +735,32 @@ $is_admin = ($current_user['user_type'] === 'admin');
   <!-- Deleted Assets Modal -->
   <div id="deletedAssetsModal" class="modal-overlay">
     <div class="modal-content">
-        <button class="modal-close" onclick="closeDeletedAssetsModal()">&times;</button>
-        <h2><i class="btn-icon">🗑️</i> Deleted Assets</h2>
-        
-        <div class="filter-group" style="margin-bottom: 20px;">
-            <label>Factory:</label>
-            <select id="deletedFactoryFilter">
-                <option value="head_office">Head Office</option>
-                <option value="agl">AGL</option>
-                <option value="ajl">AJL</option>
-                <option value="abm">ABM</option>
-                <option value="pwpl">PWPL</option>
-            </select>
-        </div>
-        
-        <div id="deletedAssetsContent">
-            <p>Select a factory and click "Load Data" to view deleted assets.</p>
-        </div>
-        
-        <div class="button-group">
-            <button type="button" onclick="loadDeletedAssets()" class="btn btn-primary">
-                <i class="btn-icon">🔍</i> Load Data
-            </button>
-            <button type="button" onclick="closeDeletedAssetsModal()" class="btn btn-secondary">
-                <i class="btn-icon">✕</i> Close
-            </button>
-        </div>
+      <button class="modal-close" onclick="closeDeletedAssetsModal()">&times;</button>
+      <h2><i class="btn-icon">🗑️</i> Deleted Assets</h2>
+
+      <div class="filter-group" style="margin-bottom: 20px;">
+        <label>Factory:</label>
+        <select id="deletedFactoryFilter">
+          <option value="head_office">Head Office</option>
+          <option value="agl">AGL</option>
+          <option value="ajl">AJL</option>
+          <option value="abm">ABM</option>
+          <option value="pwpl">PWPL</option>
+        </select>
+      </div>
+
+      <div id="deletedAssetsContent">
+        <p>Select a factory and click "Load Data" to view deleted assets.</p>
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="loadDeletedAssets()" class="btn btn-primary">
+          <i class="btn-icon">🔍</i> Load Data
+        </button>
+        <button type="button" onclick="closeDeletedAssetsModal()" class="btn btn-secondary">
+          <i class="btn-icon">✕</i> Close
+        </button>
+      </div>
     </div>
   </div>
 
@@ -944,7 +934,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
     function loadDeletedAssets() {
       const factory = deletedFactoryFilter.value;
       showLoading(true);
-      
+
       fetch(`get_deleted_assets.php?factory=${factory}`)
         .then(response => response.json())
         .then(data => {
@@ -1054,7 +1044,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
 
             approvals.forEach(approval => {
               const details = approval.action_details ? JSON.parse(approval.action_details) : {};
-              
+
               html += `
                 <tr>
                   <td>${approval.id}</td>
@@ -1861,8 +1851,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
           alert('Error loading service history');
         });
     }
-function showAllServiceHistory() {
-  const modalHtml = `
+
+    function showAllServiceHistory() {
+      const modalHtml = `
     <h2><i class="btn-icon">📜</i> Complete Service History</h2>
     
     <div class="filter-group" style="margin-bottom: 20px;">
@@ -1888,30 +1879,30 @@ function showAllServiceHistory() {
     </div>
   `;
 
-  showModal(modalHtml);
-  // Load Head Office data immediately
-  loadServiceHistory();
-}
+      showModal(modalHtml);
+      // Load Head Office data immediately
+      loadServiceHistory();
+    }
 
-function loadServiceHistory() {
-  // Get the selected factory or default to head_office
-  const factoryFilter = document.getElementById('historyFactoryFilter');
-  const factory = factoryFilter ? factoryFilter.value : 'head_office';
-  
-  let url = 'get_service_history.php';
-  
-  if (factory !== 'all') {
-    url += `?factory=${factory}`;
-  }
+    function loadServiceHistory() {
+      // Get the selected factory or default to head_office
+      const factoryFilter = document.getElementById('historyFactoryFilter');
+      const factory = factoryFilter ? factoryFilter.value : 'head_office';
 
-  showLoading(true);
-  fetch(url)
-    .then(response => response.json())
-    .then(history => {
-      let historyHtml;
-      
-      if (history.length > 0) {
-        historyHtml = `
+      let url = 'get_service_history.php';
+
+      if (factory !== 'all') {
+        url += `?factory=${factory}`;
+      }
+
+      showLoading(true);
+      fetch(url)
+        .then(response => response.json())
+        .then(history => {
+          let historyHtml;
+
+          if (history.length > 0) {
+            historyHtml = `
           <div class="info-box">
             Showing ${history.length} service records for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}
           </div>
@@ -1946,20 +1937,20 @@ function loadServiceHistory() {
             </tbody>
           </table>
         `;
-      } else {
-        historyHtml = `<p>No service history records found for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}.</p>`;
-      }
-      
-      document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
-      showLoading(false);
-    })
-    .catch(error => {
-      console.error('Error loading service history:', error);
-      document.getElementById('serviceHistoryContent').innerHTML = 
-        '<p class="error">Error loading service history. Please try again.</p>';
-      showLoading(false);
-    });
-}
+          } else {
+            historyHtml = `<p>No service history records found for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}.</p>`;
+          }
+
+          document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
+          showLoading(false);
+        })
+        .catch(error => {
+          console.error('Error loading service history:', error);
+          document.getElementById('serviceHistoryContent').innerHTML =
+            '<p class="error">Error loading service history. Please try again.</p>';
+          showLoading(false);
+        });
+    }
     async function viewAllUsers() {
       try {
         const response = await fetch('get_users.php');
@@ -2115,4 +2106,5 @@ function loadServiceHistory() {
     }
   </script>
 </body>
+
 </html>

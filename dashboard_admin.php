@@ -29,516 +29,596 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IT Asset Inventory Management</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      padding: 20px;
-    }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 14px;
+}
 
-    .header {
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      font-weight: 300;
-    }
-
-    .header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .controls {
-      padding: 20px 30px;
-      background: #f8f9fa;
-      border-bottom: 1px solid #e9ecef;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
-      color: white;
-    }
-
-    .btn-success {
-      background: linear-gradient(135deg, #1cc88a 0%, #13855c 100%);
-      color: white;
-    }
-
-    .btn-danger {
-      background: linear-gradient(135deg, #e74a3b 0%, #be2617 100%);
-      color: white;
-    }
-
-    .btn-warning {
-      background: linear-gradient(135deg, #f6c23e 0%, #dda20a 100%);
-      color: #2c3e50;
-    }
-
-    .btn-info {
-      background: linear-gradient(135deg, #36b9cc 0%, #258391 100%);
-      color: white;
-    }
-
-    .btn-secondary {
-      background: linear-gradient(135deg, #858796 0%, #60616f 100%);
-      color: white;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      opacity: 0.9;
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn-sm {
-      padding: 6px 12px;
-      font-size: 13px;
-    }
-
-    .btn-icon {
-      font-size: 16px;
-    }
-
-    .filter-group {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .filter-group select,
-    .filter-group input {
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    .table-container {
-      overflow-x: auto;
-      max-height: 70vh;
-      position: relative;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 15px 8px;
-      text-align: left;
-      font-weight: 600;
-      font-size: 13px;
-      color: #495057;
-      border-bottom: 2px solid #dee2e6;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    td {
-      padding: 12px 8px;
-      border-bottom: 1px solid #f1f3f4;
-      font-size: 13px;
-    }
-
-    tr:hover {
-      background-color: #f8f9ff;
-    }
-
-    .status {
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .status-active {
-      background: #d4edda;
-      color: #155724;
-    }
-
-    .status-inactive {
-      background: #fff3cd;
-      color: #856404;
-    }
-
-    .status-out-of-order {
-      background: #f8d7da;
-      color: #721c24;
-    }
-
-    .status-maintenance {
-      background: #d1ecf1;
-      color: #0c5460;
-    }
-
-    .priority-high {
-      color: #dc3545;
-      font-weight: bold;
-    }
-
-    .priority-medium {
-      color: #ffc107;
-      font-weight: bold;
-    }
-
-    .priority-low {
-      color: #28a745;
-      font-weight: bold;
-    }
-
-    .stats {
-      padding: 20px 30px;
-      background: #f8f9fa;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-
-    .stat-card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .stat-label {
-      color: #6c757d;
-      font-size: 14px;
-    }
-
-    /* Modal styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .modal-content {
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  width: 100%;
+  margin: 0 auto;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 95%; /* Increased from 90% */
-  max-width: 900px; /* Increased from 800px */
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+.header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.controls {
+  padding: 10px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-primary {
+  background: #4e73df;
+  color: white;
+}
+
+.btn-success {
+  background: #1cc88a;
+  color: white;
+}
+
+.btn-danger {
+  background: #e74a3b;
+  color: white;
+}
+
+.btn-warning {
+  background: #f6c23e;
+  color: #2c3e50;
+}
+
+.btn-info {
+  background: #36b9cc;
+  color: white;
+}
+
+.btn-secondary {
+  background: #858796;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.filter-group {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.table-container {
+  flex: 1;
+  overflow: auto;
   position: relative;
 }
 
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #6c757d;
-      transition: color 0.3s;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 0.85rem;
+}
 
-    .modal-close:hover {
-      color: #000;
-    }
+th {
+  background: #f8f9fa;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 1px solid #dee2e6;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    .modal-content h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: #2c3e50;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+td {
+  padding: 8px;
+  border-bottom: 1px solid #f1f3f4;
+}
 
-    .modal-content label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #495057;
-    }
+tr:hover {
+  background-color: #f8f9ff;
+}
 
-    .modal-content input,
-    .modal-content select,
-    .modal-content textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      font-size: 14px;
-      transition: border-color 0.3s;
-    }
+.status {
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-    .modal-content input:focus,
-    .modal-content select:focus,
-    .modal-content textarea:focus {
-      border-color: #4e73df;
-      outline: none;
-    }
+.status-active {
+  background: #d4edda;
+  color: #155724;
+}
 
-    .modal-content textarea {
-      height: 80px;
-      resize: vertical;
-    }
+.status-inactive {
+  background: #fff3cd;
+  color: #856404;
+}
 
-    .button-group {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 20px;
-    }
+.status-out-of-order {
+  background: #f8d7da;
+  color: #721c24;
+}
 
-    .warning-box {
-      background: #f8d7da;
-      padding: 15px;
-      border-radius: 5px;
-      border-left: 4px solid #dc3545;
-      margin: 15px 0;
-      color: #721c24;
-    }
+.status-maintenance {
+  background: #d1ecf1;
+  color: #0c5460;
+}
 
-    .info-box {
-      background: #e2f3f8;
-      padding: 15px;
-      border-radius: 5px;
-      border-left: 4px solid #17a2b8;
-      margin: 15px 0;
-      color: #0c5460;
-    }
+.priority-high {
+  color: #dc3545;
+  font-weight: bold;
+}
 
-    .history-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 15px 0;
-    }
+.priority-medium {
+  color: #ffc107;
+  font-weight: bold;
+}
 
-    .history-table th,
-    .history-table td {
-      padding: 10px;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
+.priority-low {
+  color: #28a745;
+  font-weight: bold;
+}
 
-    .history-table th {
-      background-color: #f8f9fa;
-    }
+.stats {
+  padding: 10px;
+  background: #f8f9fa;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  flex-shrink: 0;
+}
 
-    .history-table tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
+.stat-card {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
 
-    .user-info {
-      text-align: right;
-      color: white;
-      padding: 10px;
-    }
+.stat-card:hover {
+  transform: translateY(-5px);
+}
 
-    .user-info a {
-      color: white;
-      text-decoration: underline;
-    }
+.stat-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
 
-    /* Loading spinner */
-    .loading-spinner {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(255,255,255,.3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 1s ease-in-out infinite;
-    }
+.stat-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-    /* Approval Table Styles */
-    .approval-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
+.modal-content {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  width: 95%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
 
-    .approval-table th {
-      background: #f8f9fa;
-      padding: 8px 10px;
-      font-weight: 600;
-      text-align: left;
-    }
+#approvalModal .modal-content {
+  max-width: 950px;
+}
 
-    .approval-table td {
-      padding: 8px 10px;
-      border-bottom: 1px solid #eee;
-      vertical-align: top;
-    }
+.modal-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #6c757d;
+}
 
-    .compact-details {
-      max-width: 250px;
-      font-size: 12px;
-      line-height: 1.4;
-    }
+.modal-close:hover {
+  color: #000;
+}
 
-    .detail-line {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 2px;
-    }
+.modal-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    .detail-line strong {
-      display: inline-block;
-      width: 100px;
-      color: #666;
-    }
+.modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #495057;
+}
 
-    .badge {
-      padding: 3px 6px;
-      border-radius: 3px;
-      font-size: 11px;
-      font-weight: 600;
-    }
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
 
-    .badge-add {
-      background: #d4edda;
-      color: #155724;
-    }
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #4e73df;
+  outline: none;
+}
 
-    .badge-service {
-      background: #cce5ff;
-      color: #004085;
-    }
+.modal-content textarea {
+  height: 80px;
+  resize: vertical;
+}
 
-    .table-responsive {
-      overflow-x: auto;
-      max-width: 100%;
-    }
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
 
-    @media (max-width: 768px) {
-      .controls {
-        flex-direction: column;
-        align-items: stretch;
-      }
+.warning-box {
+  background: #f8d7da;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #dc3545;
+  margin: 15px 0;
+  color: #721c24;
+}
 
-      .filter-group {
-        justify-content: space-between;
-      }
+.info-box {
+  background: #e2f3f8;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #17a2b8;
+  margin: 15px 0;
+  color: #0c5460;
+}
 
-      th,
-      td {
-        padding: 8px 4px;
-        font-size: 11px;
-      }
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
 
-      .button-group {
-        flex-direction: column;
-      }
+.history-table th,
+.history-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
 
-      .btn {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      
-      .history-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-        font-size: 0.9em;
-      }
+.history-table th {
+  background-color: #f8f9fa;
+}
 
-      .history-table th,
-      .history-table td {
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-        text-align: left;
-      }
+.history-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
 
-      .history-table th {
-        background-color: #f8f9fa;
-        position: sticky;
-        top: 0;
-      }
+.user-info {
+  text-align: right;
+  color: white;
+  padding: 10px;
+}
 
-      .history-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
+.user-info a {
+  color: white;
+  text-decoration: underline;
+}
 
-      .history-table tr:hover {
-        background-color: #f1f1f1;
-      }
+.user-management-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: none;
+}
 
-      .error {
-        color: #dc3545;
-        font-weight: bold;
-      }
-    }
+.user-management-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #6c757d;
+  transition: color 0.3s;
+}
+
+.user-management-close:hover {
+  color: #000;
+}
+
+.user-form {
+  margin-top: 20px;
+}
+
+.user-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.user-form input,
+.user-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.user-list {
+  margin-top: 20px;
+}
+
+.user-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-list th,
+.user-list td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.user-list th {
+  background-color: #f8f9fa;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 10px 0;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.approval-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.approval-table th {
+  background: #f8f9fa;
+  padding: 10px 12px;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.approval-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.compact-details {
+  max-width: 300px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.detail-line {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  margin-bottom: 4px;
+}
+
+.detail-line strong {
+  display: inline-block;
+  width: 110px;
+  color: #666;
+}
+
+.badge {
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-add {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge-service {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.approval-action-btn {
+  min-width: 80px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    gap: 5px;
+  }
+
+  .filter-group {
+    justify-content: space-between;
+  }
+
+  th,
+  td {
+    padding: 8px 4px;
+    font-size: 11px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.9em;
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  .history-table th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+  }
+
+  .history-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .history-table tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .error {
+    color: #dc3545;
+    font-weight: bold;
+  }
+}
   </style>
 </head>
 
@@ -647,32 +727,32 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
   <!-- Deleted Assets Modal -->
   <div id="deletedAssetsModal" class="modal-overlay">
     <div class="modal-content">
-        <button class="modal-close" onclick="closeDeletedAssetsModal()">&times;</button>
-        <h2><i class="btn-icon">🗑️</i> Deleted Assets</h2>
-        
-        <div class="filter-group" style="margin-bottom: 20px;">
-            <label>Factory:</label>
-            <select id="deletedFactoryFilter">
-                <option value="head_office">Head Office</option>
-                <option value="agl">AGL</option>
-                <option value="ajl">AJL</option>
-                <option value="abm">ABM</option>
-                <option value="pwpl">PWPL</option>
-            </select>
-        </div>
-        
-        <div id="deletedAssetsContent">
-            <p>Select a factory and click "Load Data" to view deleted assets.</p>
-        </div>
-        
-        <div class="button-group">
-            <button type="button" onclick="loadDeletedAssets()" class="btn btn-primary">
-                <i class="btn-icon">🔍</i> Load Data
-            </button>
-            <button type="button" onclick="closeDeletedAssetsModal()" class="btn btn-secondary">
-                <i class="btn-icon">✕</i> Close
-            </button>
-        </div>
+      <button class="modal-close" onclick="closeDeletedAssetsModal()">&times;</button>
+      <h2><i class="btn-icon">🗑️</i> Deleted Assets</h2>
+
+      <div class="filter-group" style="margin-bottom: 20px;">
+        <label>Factory:</label>
+        <select id="deletedFactoryFilter">
+          <option value="head_office">Head Office</option>
+          <option value="agl">AGL</option>
+          <option value="ajl">AJL</option>
+          <option value="abm">ABM</option>
+          <option value="pwpl">PWPL</option>
+        </select>
+      </div>
+
+      <div id="deletedAssetsContent">
+        <p>Select a factory and click "Load Data" to view deleted assets.</p>
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="loadDeletedAssets()" class="btn btn-primary">
+          <i class="btn-icon">🔍</i> Load Data
+        </button>
+        <button type="button" onclick="closeDeletedAssetsModal()" class="btn btn-secondary">
+          <i class="btn-icon">✕</i> Close
+        </button>
+      </div>
     </div>
   </div>
 
@@ -744,7 +824,7 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
     function loadDeletedAssets() {
       const factory = deletedFactoryFilter.value;
       showLoading(true);
-      
+
       fetch(`get_deleted_assets.php?factory=${factory}`)
         .then(response => response.json())
         .then(data => {
@@ -960,59 +1040,85 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
     }
 
     function showServiceHistory(assetId) {
-      fetch(`get_service_history.php?asset_id=${assetId}`)
-        .then(response => response.json())
-        .then(history => {
-          const asset = inventoryData.find(item => item.asset_id === assetId);
-          const modalHtml = `
-                <h2><i class="btn-icon">📜</i> Service History for ${assetId}</h2>
-                <div class="info-box">
-                    <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
-                    <strong>Model:</strong> ${asset?.model || 'N/A'}<br>
-                    <strong>Current Status:</strong> ${asset?.status || 'N/A'}
-                </div>
-                
-                ${history.length > 0 ? `
-                <table class="history-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Type</th>
-                            <th>Technician</th>
-                            <th>Status</th>
-                            <th>Completed</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${history.map(record => `
-                            <tr>
-                                <td>${record.service_date || 'N/A'}</td>
-                                <td>${record.service_type || 'N/A'}</td>
-                                <td>${record.service_by || 'N/A'}</td>
-                                <td>${record.status || 'N/A'}</td>
-                                <td>${record.completion_date || 'N/A'}</td>
-                                <td>${record.service_notes || ''}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-                ` : '<p>No service history found for this asset.</p>'}
-                
-                <div class="button-group">
-                    <button type="button" onclick="closeModal()" class="btn btn-secondary">
-                      <i class="btn-icon">✕</i> Close
-                    </button>
-                </div>
-            `;
-
-          showModal(modalHtml);
-        })
-        .catch(error => {
-          console.error('Error loading service history:', error);
-          alert('Error loading service history');
-        });
-    }
+  showLoading(true);
+  
+  fetch(`get_service_history.php?asset_id=${assetId}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(history => {
+      const asset = inventoryData.find(item => item.asset_id === assetId);
+      let modalHtml = `
+        <h2><i class="btn-icon">📜</i> Service History for ${assetId}</h2>
+        <div class="info-box">
+          <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
+          <strong>Model:</strong> ${asset?.model || 'N/A'}<br>
+          <strong>Current Status:</strong> ${asset?.status || 'N/A'}
+        </div>`;
+      
+      if (history.length > 0) {
+        modalHtml += `
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Technician</th>
+              <th>Status</th>
+              <th>Completed</th>
+              <th>Notes</th>
+              <th>Factory</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${history.map(record => `
+              <tr>
+                <td>${formatDate(record.service_date) || 'N/A'}</td>
+                <td>${record.service_type || 'N/A'}</td>
+                <td>${record.service_by || 'N/A'}</td>
+                <td>${record.status || 'N/A'}</td>
+                <td>${formatDate(record.completion_date) || 'N/A'}</td>
+                <td>${record.service_notes || ''}</td>
+                <td>${record.factory ? record.factory.toUpperCase() : 'N/A'}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>`;
+      } else {
+        modalHtml += '<p>No service history found for this asset.</p>';
+      }
+      
+      modalHtml += `
+        <div class="button-group">
+          <button type="button" onclick="closeModal()" class="btn btn-secondary">
+            <i class="btn-icon">✕</i> Close
+          </button>
+        </div>`;
+      
+      showModal(modalHtml);
+    })
+    .catch(error => {
+      console.error('Error loading service history:', error);
+      showModal(`
+        <h2><i class="btn-icon">📜</i> Service History Error</h2>
+        <div class="error-box">
+          <p>Failed to load service history for asset ${assetId}</p>
+          <p>Error: ${error.message}</p>
+        </div>
+        <div class="button-group">
+          <button type="button" onclick="closeModal()" class="btn btn-secondary">
+            <i class="btn-icon">✕</i> Close
+          </button>
+        </div>
+      `);
+    })
+    .finally(() => {
+      showLoading(false);
+    });
+}
 
     function showAllServiceHistory() {
       const modalHtml = `
@@ -1050,9 +1156,9 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
       // Get the selected factory or default to head_office
       const factoryFilter = document.getElementById('historyFactoryFilter');
       const factory = factoryFilter ? factoryFilter.value : 'head_office';
-      
+
       let url = 'get_service_history.php';
-      
+
       if (factory !== 'all') {
         url += `?factory=${factory}`;
       }
@@ -1062,7 +1168,7 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
         .then(response => response.json())
         .then(history => {
           let historyHtml;
-          
+
           if (history.length > 0) {
             historyHtml = `
               <div class="info-box">
@@ -1102,13 +1208,13 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
           } else {
             historyHtml = `<p>No service history records found for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}.</p>`;
           }
-          
+
           document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
           showLoading(false);
         })
         .catch(error => {
           console.error('Error loading service history:', error);
-          document.getElementById('serviceHistoryContent').innerHTML = 
+          document.getElementById('serviceHistoryContent').innerHTML =
             '<p class="error">Error loading service history. Please try again.</p>';
           showLoading(false);
         });
@@ -1144,4 +1250,5 @@ $is_super_admin = ($current_user['user_type'] === 'super_admin');
     }
   </script>
 </body>
+
 </html>

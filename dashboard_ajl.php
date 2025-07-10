@@ -33,40 +33,41 @@ try {
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #f5f5f5;
       min-height: 100vh;
       padding: 20px;
+      font-size: 16px;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 100%;
       margin: 0 auto;
       background: white;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
 
     .header {
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      background: #2c3e50;
       color: white;
-      padding: 30px;
+      padding: 20px;
       text-align: center;
     }
 
     .header h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 10px;
-      font-weight: 300;
+      font-weight: 500;
     }
 
     .header p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       opacity: 0.9;
     }
 
     .controls {
-      padding: 20px 30px;
+      padding: 15px 20px;
       background: #f8f9fa;
       border-bottom: 1px solid #e9ecef;
       display: flex;
@@ -78,41 +79,41 @@ try {
     .btn {
       padding: 10px 20px;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: 500;
       transition: all 0.3s ease;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #667eea;
       color: white;
     }
 
     .btn-success {
-      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      background: #28a745;
       color: white;
     }
 
     .btn-danger {
-      background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+      background: #dc3545;
       color: white;
     }
 
     .btn-warning {
-      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+      background: #ffc107;
       color: black;
     }
 
     .btn-info {
-      background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+      background: #17a2b8;
       color: white;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      opacity: 0.9;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .filter-group {
@@ -126,7 +127,8 @@ try {
       padding: 8px 12px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 15px;
+      min-width: 150px;
     }
 
     .table-container {
@@ -139,14 +141,14 @@ try {
       width: 100%;
       border-collapse: collapse;
       background: white;
+      font-size: 15px;
     }
 
     th {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 15px 8px;
+      background: #f8f9fa;
+      padding: 12px 8px;
       text-align: left;
       font-weight: 600;
-      font-size: 13px;
       color: #495057;
       border-bottom: 2px solid #dee2e6;
       position: sticky;
@@ -157,7 +159,6 @@ try {
     td {
       padding: 12px 8px;
       border-bottom: 1px solid #f1f3f4;
-      font-size: 13px;
     }
 
     tr:hover {
@@ -167,7 +168,7 @@ try {
     .status {
       padding: 5px 10px;
       border-radius: 20px;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -209,35 +210,35 @@ try {
     }
 
     .stats {
-      padding: 20px 30px;
+      padding: 15px 20px;
       background: #f8f9fa;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      gap: 15px;
     }
 
     .stat-card {
       background: white;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 15px;
+      border-radius: 8px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease;
     }
 
     .stat-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
     }
 
     .stat-number {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: bold;
       margin-bottom: 5px;
     }
 
     .stat-label {
       color: #6c757d;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     /* Modal styles */
@@ -256,18 +257,18 @@ try {
 
     .modal-content {
       background: white;
-      padding: 30px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: 8px;
       width: 90%;
       max-width: 800px;
       max-height: 90vh;
       overflow-y: auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .modal-content h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
       color: #2c3e50;
       display: flex;
       align-items: center;
@@ -279,6 +280,7 @@ try {
       margin-bottom: 8px;
       font-weight: 600;
       color: #495057;
+      font-size: 15px;
     }
 
     .modal-content input,
@@ -289,11 +291,11 @@ try {
       border: 1px solid #ddd;
       border-radius: 5px;
       margin-bottom: 15px;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .modal-content textarea {
-      height: 80px;
+      height: 100px;
       resize: vertical;
     }
 
@@ -311,36 +313,7 @@ try {
       cursor: pointer;
       font-weight: 500;
       transition: all 0.3s;
-    }
-
-    .modal-content .btn-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-    }
-
-    .modal-content .btn-success {
-      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-      color: white;
-    }
-
-    .modal-content .btn-danger {
-      background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
-      color: white;
-    }
-
-    .modal-content .btn-warning {
-      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-      color: black;
-    }
-
-    .modal-content .btn-info {
-      background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
-      color: white;
-    }
-
-    .modal-content button:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
+      font-size: 15px;
     }
 
     .warning-box {
@@ -350,6 +323,7 @@ try {
       border-left: 4px solid #dc3545;
       margin: 15px 0;
       color: #721c24;
+      font-size: 15px;
     }
 
     .info-box {
@@ -359,12 +333,14 @@ try {
       border-left: 4px solid #17a2b8;
       margin: 15px 0;
       color: #0c5460;
+      font-size: 15px;
     }
 
     .history-table {
       width: 100%;
       border-collapse: collapse;
       margin: 15px 0;
+      font-size: 15px;
     }
 
     .history-table th, 
@@ -388,6 +364,23 @@ try {
       border-radius: 5px;
       margin-bottom: 10px;
       text-align: center;
+      font-size: 15px;
+    }
+
+    .notification-badge {
+      position: relative;
+      display: inline-block;
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #dc3545;
+      color: white;
+      border-radius: 50%;
+      padding: 3px 6px;
+      font-size: 12px;
     }
 
     @media (max-width: 768px) {
@@ -397,13 +390,12 @@ try {
       }
 
       .filter-group {
-        justify-content: space-between;
+        width: 100%;
       }
-
-      th,
-      td {
-        padding: 8px 4px;
-        font-size: 11px;
+      
+      .filter-group select,
+      .filter-group input {
+        width: 100%;
       }
     }
   </style>
@@ -421,6 +413,11 @@ try {
           <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
           <p><?php echo strtoupper($current_user['factory']); ?> - <?php echo ucfirst($current_user['user_type']); ?></p>
           <a href="logout.php" style="color: white; text-decoration: underline;">Logout</a>
+          <div style="margin-top: 5px;">
+            <a href="#" onclick="showNotifications()" style="color: white; text-decoration: underline;">
+              <span class="notification-badge">🔔 <span id="notificationCount" class="notification-count">0</span></span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -507,6 +504,7 @@ try {
     const historyBtn = document.getElementById('historyBtn');
     const statusFilter = document.getElementById('statusFilter');
     const searchInput = document.getElementById('searchInput');
+    const notificationCount = document.getElementById('notificationCount');
 
     // Event Listeners
     addItemBtn.addEventListener('click', showAddItemModal);
@@ -518,8 +516,94 @@ try {
     searchInput.addEventListener('keyup', filterTable);
 
     // Load data when page loads
-    document.addEventListener('DOMContentLoaded', loadDataFromDB);
+    document.addEventListener('DOMContentLoaded', () => {
+      loadDataFromDB();
+      updateNotificationCount();
+    });
 
+    // Notification functions
+    function updateNotificationCount() {
+      fetch('get_unread_notifications.php')
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            notificationCount.textContent = data.count;
+            notificationCount.style.display = data.count > 0 ? 'inline-block' : 'none';
+          }
+        })
+        .catch(error => {
+          console.error('Error updating notification count:', error);
+        });
+    }
+
+    function showNotifications() {
+      fetch('get_notifications.php')
+        .then(response => response.json())
+        .then(notifications => {
+          let html = `
+            <div id="modal">
+              <div class="modal-content">
+                <h2>🔔 Notifications</h2>
+                
+                ${notifications.length > 0 ? `
+                <table class="history-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Message</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${notifications.map(notification => `
+                      <tr>
+                        <td>${new Date(notification.created_at).toLocaleString()}</td>
+                        <td>${notification.message}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+                ` : '<p>No notifications found.</p>'}
+                
+                <div class="button-group">
+                  <button type="button" onclick="markNotificationsAsRead()" class="btn btn-success">
+                    Mark as Read
+                  </button>
+                  <button type="button" onclick="closeModal()" class="btn btn-primary">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          document.body.insertAdjacentHTML('beforeend', html);
+        })
+        .catch(error => {
+          console.error('Error loading notifications:', error);
+          alert('Error loading notifications');
+        });
+    }
+
+    function markNotificationsAsRead() {
+      fetch('mark_notifications_read.php', {
+        method: 'POST'
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          updateNotificationCount();
+          closeModal();
+        }
+      })
+      .catch(error => {
+        console.error('Error marking notifications as read:', error);
+      });
+    }
+
+    // Check for new notifications every 30 seconds
+    setInterval(updateNotificationCount, 30000);
+
+    // Original functions remain unchanged below this point
     async function loadDataFromDB() {
       try {
         showLoading(true);
@@ -812,7 +896,7 @@ try {
       try {
         data.action_type = 'ADD';
         data.requested_by = '<?php echo $current_user['name']; ?>';
-        data.factory = 'abm';
+        data.factory = 'ajl';
         data.asset_id = generateAssetId();
         
         const response = await fetch('request_approval_ajl.php', {
@@ -923,7 +1007,7 @@ try {
       try {
         data.action_type = 'SERVICE';
         data.requested_by = '<?php echo $current_user['name']; ?>';
-        data.factory = 'abm';
+        data.factory = 'ajl';
         
         const response = await fetch('request_approval_ajl.php', {
           method: 'POST',
@@ -986,7 +1070,7 @@ try {
         const data = {
           action_type: 'COMPLETE_SERVICE',
           requested_by: '<?php echo $current_user['name']; ?>',
-          factory: 'abm',
+          factory: 'ajl',
           asset_id: assetId,
           completion_notes: completionNotes
         };
@@ -1078,10 +1162,6 @@ try {
         return;
       }
 
-      if (!confirm('Are you sure you want to request removal of this asset? This action requires approval.')) {
-        return;
-      }
-
       const data = {
         asset_id: assetId,
         remove_reason: removeReason,
@@ -1095,7 +1175,7 @@ try {
       try {
         data.action_type = 'DELETE';
         data.requested_by = '<?php echo $current_user['name']; ?>';
-        data.factory = 'abm';
+        data.factory = 'ajl';
         
         const response = await fetch('request_approval_ajl.php', {
           method: 'POST',

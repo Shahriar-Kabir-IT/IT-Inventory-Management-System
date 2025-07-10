@@ -1,6 +1,62 @@
 <?php
 require_once 'db_connect.php';
 
+// Notification functions
+function createNotification($userId, $message, $approvalId) {
+    global $pdo;
+    
+    try {
+        $stmt = $pdo->prepare("INSERT INTO notifications 
+                              (user_id, message, approval_id, is_read, created_at) 
+                              VALUES (?, ?, ?, 0, NOW())");
+        $stmt->execute([$userId, $message, $approvalId]);
+        return $pdo->lastInsertId();
+    } catch (PDOException $e) {
+        error_log("Error creating notification: " . $e->getMessage());
+        return false;
+    }
+}
+
+function getUnreadNotifications($userId) {
+    global $pdo;
+    
+    try {
+        $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM notifications WHERE user_id = ? AND is_read = 0");
+        $stmt->execute([$userId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+    } catch (PDOException $e) {
+        error_log("Error fetching unread notifications: " . $e->getMessage());
+        return 0;
+    }
+}
+
+function getNotifications($userId) {
+    global $pdo;
+    
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM notifications WHERE user_id = ? ORDER BY created_at DESC");
+        $stmt->execute([$userId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Error fetching notifications: " . $e->getMessage());
+        return [];
+    }
+}
+
+function markNotificationsAsRead($userId) {
+    global $pdo;
+    
+    try {
+        $stmt = $pdo->prepare("UPDATE notifications SET is_read = 1 WHERE user_id = ? AND is_read = 0");
+        $stmt->execute([$userId]);
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error marking notifications as read: " . $e->getMessage());
+        return false;
+    }
+}
+
+// Original functions with notification integration
 function createApprovalRequest($assetId, $actionType, $requestedBy, $factory, $currentStatus = null, $actionDetails = null) {
     global $pdo;
     
@@ -43,6 +99,11 @@ function processApproval($approvalId, $approver, $action = 'APPROVE') {
             return ['success' => false, 'message' => 'Approval request not found'];
         }
         
+        // Get user who made the request
+        $userStmt = $pdo->prepare("SELECT id FROM users WHERE name = ? LIMIT 1");
+        $userStmt->execute([$approval['requested_by']]);
+        $user = $userStmt->fetch(PDO::FETCH_ASSOC);
+        
         if ($action === 'APPROVE') {
             // Process the approved action
             $actionDetails = json_decode($approval['action_details'], true);
@@ -55,6 +116,13 @@ function processApproval($approvalId, $approver, $action = 'APPROVE') {
                                           approval_date = NOW()
                                       WHERE id = ?");
                 $stmt->execute([$approver, $approvalId]);
+                
+                // Create notification
+                if ($user) {
+                    $message = "Your request for " . strtolower($approval['action_type']) . " (Asset ID: {$approval['asset_id']}) has been approved";
+                    createNotification($user['id'], $message, $approvalId);
+                }
+                
                 return ['success' => true, 'message' => 'Action approved and processed successfully'];
             } else {
                 return $result;
@@ -67,6 +135,13 @@ function processApproval($approvalId, $approver, $action = 'APPROVE') {
                                       approval_date = NOW()
                                   WHERE id = ?");
             $stmt->execute([$approver, $approvalId]);
+            
+            // Create notification
+            if ($user) {
+                $message = "Your request for " . strtolower($approval['action_type']) . " (Asset ID: {$approval['asset_id']}) has been rejected";
+                createNotification($user['id'], $message, $approvalId);
+            }
+            
             return ['success' => true, 'message' => 'Action rejected'];
         }
     } catch (PDOException $e) {
