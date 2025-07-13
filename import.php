@@ -19,7 +19,7 @@ if (($handle = fopen("test.csv", "r")) !== FALSE) {
     fgetcsv($handle, 1000, ",");
     
     // Prepare the SQL statement
-    $stmt = $conn->prepare("INSERT INTO assets_agl (asset_id, asset_name, category, brand, model, serial_number, status, location, assigned_to, department, purchase_date, purchase_price, warranty_expiry, last_maintenance, priority, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO assets_abm (asset_id, asset_name, category, brand, model, serial_number, status, location, assigned_to, department, purchase_date, purchase_price, warranty_expiry, last_maintenance, priority, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
     // Bind parameters
     $stmt->bind_param("ssssssssssssdsss", 

@@ -1315,16 +1315,21 @@ try {
     }
 
     function generateAssetId() {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      
-      return `IT-${year}${month}${day}${hours}${minutes}${seconds}`;
-    }
+    // Find the highest existing ABMIT- number
+    const abmAssets = inventoryData.filter(item => item.asset_id?.startsWith('AJLIT-'));
+    let maxNumber = 0;
+    
+    abmAssets.forEach(item => {
+        const num = parseInt(item.asset_id.split('-')[1]);
+        if (num > maxNumber) {
+            maxNumber = num;
+        }
+    });
+    
+    // Increment and format with leading zeros
+    const nextNumber = (maxNumber + 1).toString().padStart(3, '0');
+    return `AJLIT-${nextNumber}`;
+}
 
     function showLoading(show) {
       const loading = document.getElementById('loading');

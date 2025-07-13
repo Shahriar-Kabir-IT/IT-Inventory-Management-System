@@ -666,9 +666,8 @@ $is_admin = ($current_user['user_type'] === 'admin');
         <select id="factoryFilter">
           <option value="all">Head Office</option>
           <option value="agl">AGL</option>
-          <option value="ajl">AJL</option>
+          <option value="ajl">AJL & PWPL</option>
           <option value="abm">ABM</option>
-          <option value="pwpl">PWPL</option>
         </select>
       </div>
 
@@ -1885,26 +1884,34 @@ $is_admin = ($current_user['user_type'] === 'admin');
     }
 
     function loadServiceHistory() {
-      // Get the selected factory or default to head_office
-      const factoryFilter = document.getElementById('historyFactoryFilter');
-      const factory = factoryFilter ? factoryFilter.value : 'head_office';
+  const factoryFilter = document.getElementById('historyFactoryFilter');
+  const factory = factoryFilter ? factoryFilter.value : 'head_office';
 
-      let url = 'get_service_history.php';
+  let url = 'get_service_history.php';
+  if (factory !== 'all') {
+    url += `?factory=${factory}`;
+  }
 
-      if (factory !== 'all') {
-        url += `?factory=${factory}`;
+  showLoading(true);
+  console.log('Fetching service history from:', url); // Debug log
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      return response.json();
+    })
+    .then(history => {
+      console.log('Received history data:', history); // Debug log
+      
+      let historyHtml;
+      const recordCount = Array.isArray(history) ? history.length : 0;
 
-      showLoading(true);
-      fetch(url)
-        .then(response => response.json())
-        .then(history => {
-          let historyHtml;
-
-          if (history.length > 0) {
-            historyHtml = `
+      if (recordCount > 0) {
+        historyHtml = `
           <div class="info-box">
-            Showing ${history.length} service records for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}
+            Showing ${recordCount} service records for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}
           </div>
           <table class="history-table">
             <thead>
@@ -1920,37 +1927,51 @@ $is_admin = ($current_user['user_type'] === 'admin');
               </tr>
             </thead>
             <tbody>
-              ${history.map(record => {
-                const asset = inventoryData.find(item => item.asset_id === record.asset_id);
-                return `
+              ${history.map(record => `
                 <tr>
                   <td>${record.asset_id || 'N/A'}</td>
-                  <td>${asset?.asset_name || 'N/A'}</td>
+                  <td>${record.asset_name || 'N/A'}</td>
                   <td>${formatDate(record.service_date) || 'N/A'}</td>
                   <td>${record.service_type || 'N/A'}</td>
                   <td>${record.service_by || 'N/A'}</td>
                   <td>${record.status || 'N/A'}</td>
                   <td>${formatDate(record.completion_date) || 'N/A'}</td>
                   <td>${record.service_notes || ''}</td>
-                </tr>`;
-              }).join('')}
+                </tr>
+              `).join('')}
             </tbody>
           </table>
         `;
-          } else {
-            historyHtml = `<p>No service history records found for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}.</p>`;
-          }
+      } else {
+        historyHtml = `
+          <div class="info-box">
+            No service history records found for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}.
+            <br><br>
+            Possible reasons:
+            <ul>
+              <li>No service records exist yet</li>
+              <li>Database tables might not be properly set up</li>
+              <li>Connection issues with the database</li>
+            </ul>
+          </div>
+        `;
+      }
 
-          document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
-          showLoading(false);
-        })
-        .catch(error => {
-          console.error('Error loading service history:', error);
-          document.getElementById('serviceHistoryContent').innerHTML =
-            '<p class="error">Error loading service history. Please try again.</p>';
-          showLoading(false);
-        });
-    }
+      document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
+      showLoading(false);
+    })
+    .catch(error => {
+      console.error('Error loading service history:', error);
+      document.getElementById('serviceHistoryContent').innerHTML = `
+        <div class="error">
+          <h3>Error Loading Service History</h3>
+          <p>${error.message || 'Unknown error occurred'}</p>
+          <p>Please check the console for more details.</p>
+        </div>
+      `;
+      showLoading(false);
+    });
+}
     async function viewAllUsers() {
       try {
         const response = await fetch('get_users.php');
