@@ -610,12 +610,6 @@ $is_admin = ($current_user['user_type'] === 'admin');
         color: #dc3545;
         font-weight: bold;
       }
-
-      a[href="logout.php"]:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateY(-1px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
     }
   </style>
 </head>
@@ -627,344 +621,333 @@ $is_admin = ($current_user['user_type'] === 'admin');
         <div>
           <h1>IT Asset Inventory Management</h1>
           <p>Ananta Companies Head</p>
-          <div style="color: white; text-align: right; padding: 10px;">
-            <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
-            <p><?php echo strtoupper($current_user['factory']); ?> - <?php echo ucfirst($current_user['user_type']); ?></p>
-            <a href="logout.php" style="
-    color: white;
-    text-decoration: none;
-    background: rgba(255,255,255,0.2);
-    padding: 5px 12px;
-    border-radius: 4px;
-    display: inline-block;
-    margin-top: 5px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.3);
-  ">
-              <i style="margin-right: 5px;">🚪</i>Logout
-            </a>
-          </div>
+        </div>
+        <div style="color: white; text-align: right; padding: 10px;">
+          <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
+          <p><?php echo strtoupper($current_user['factory']); ?> - <?php echo ucfirst($current_user['user_type']); ?></p>
+          <a href="logout.php" style="color: white; text-decoration: underline;">Logout</a>
         </div>
       </div>
+    </div>
 
-      <div class="stats">
-        <div class="stat-card">
-          <div class="stat-number" style="color: #28a745;" id="activeCount">0</div>
-          <div class="stat-label">Active Assets</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" style="color: #ffc107;" id="inactiveCount">0</div>
-          <div class="stat-label">Inactive Assets</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" style="color: #dc3545;" id="outOfOrderCount">0</div>
-          <div class="stat-label">Out of Order</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" style="color: #17a2b8;" id="maintenanceCount">0</div>
-          <div class="stat-label">Under Maintenance</div>
-        </div>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number" style="color: #28a745;" id="activeCount">0</div>
+        <div class="stat-label">Active Assets</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: #ffc107;" id="inactiveCount">0</div>
+        <div class="stat-label">Inactive Assets</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: #dc3545;" id="outOfOrderCount">0</div>
+        <div class="stat-label">Out of Order</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: #17a2b8;" id="maintenanceCount">0</div>
+        <div class="stat-label">Under Maintenance</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <?php if ($is_admin): ?>
+        <button class="btn btn-success" id="addItemBtn"><i class="btn-icon">+</i> Add New Asset</button>
+        <button class="btn btn-danger" id="removeBtn"><i class="btn-icon">🗑️</i> Remove Asset</button>
+        <button class="btn btn-warning" id="approvalBtn"><i class="btn-icon">🔄</i> Pending Approvals (<span id="approvalCount">0</span>)</button>
+        <button class="btn btn-info" id="userManagementBtn"><i class="btn-icon">👥</i> User Management</button>
+      <?php endif; ?>
+      <button class="btn btn-warning" id="serviceBtn"><i class="btn-icon">🔧</i> Send for Servicing</button>
+      <button class="btn btn-primary" id="exportBtn"><i class="btn-icon">⬇️</i> Export Data</button>
+      <button class="btn btn-info" id="historyBtn"><i class="btn-icon">📜</i> Service History</button>
+      <button class="btn btn-secondary" id="viewDeletedBtn"><i class="btn-icon">🗑️</i> Deleted Assets</button>
+
+      <div class="filter-group">
+        <label>Factory:</label>
+        <select id="factoryFilter">
+          <option value="all">Head Office</option>
+          <option value="agl">AGL</option>
+          <option value="ajl">AJL & PWPL</option>
+          <option value="abm">ABM</option>
+        </select>
       </div>
 
-      <div class="controls">
-        <?php if ($is_admin): ?>
-          <button class="btn btn-success" id="addItemBtn"><i class="btn-icon">+</i> Add New Asset</button>
-          <button class="btn btn-danger" id="removeBtn"><i class="btn-icon">🗑️</i> Remove Asset</button>
-          <button class="btn btn-warning" id="approvalBtn"><i class="btn-icon">🔄</i> Pending Approvals (<span id="approvalCount">0</span>)</button>
-          <button class="btn btn-info" id="userManagementBtn"><i class="btn-icon">👥</i> User Management</button>
-        <?php endif; ?>
-        <button class="btn btn-warning" id="serviceBtn"><i class="btn-icon">🔧</i> Send for Servicing</button>
-        <button class="btn btn-primary" id="exportBtn"><i class="btn-icon">⬇️</i> Export Data</button>
-        <button class="btn btn-info" id="historyBtn"><i class="btn-icon">📜</i> Service History</button>
-        <button class="btn btn-secondary" id="viewDeletedBtn"><i class="btn-icon">🗑️</i> Deleted Assets</button>
+      <div class="filter-group">
+        <label>Status:</label>
+        <select id="statusFilter">
+          <option value="">All Status</option>
+          <option value="ACTIVE">Active</option>
+          <option value="INACTIVE">Inactive</option>
+          <option value="OUT OF ORDER">Out of Order</option>
+          <option value="MAINTENANCE">Maintenance</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Search:</label>
+        <input type="text" id="searchInput" placeholder="Search...">
+      </div>
+    </div>
 
-        <div class="filter-group">
-          <label>Factory:</label>
-          <select id="factoryFilter">
-            <option value="all">Head Office</option>
-            <option value="agl">AGL</option>
-            <option value="ajl">AJL & PWPL</option>
-            <option value="abm">ABM</option>
+    <div class="table-container">
+      <table id="inventoryTable">
+        <thead>
+          <tr>
+            <th>Asset ID</th>
+            <th>Asset Name</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Serial</th>
+            <th>Status</th>
+            <th>Location</th>
+            <th>Assigned</th>
+            <th>Department</th>
+            <th>Purchase</th>
+            <th>Price</th>
+            <th>Warranty</th>
+            <th>Last Maintenance</th>
+            <th>Priority</th>
+            <th>Notes</th>
+            <th id="actionsHeader">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="inventoryBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Overlay (for all modals) -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Approval Modal -->
+  <div id="approvalModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeApprovalModal()">&times;</button>
+      <div id="approvalContent"></div>
+    </div>
+  </div>
+
+  <!-- Deleted Assets Modal -->
+  <div id="deletedAssetsModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeDeletedAssetsModal()">&times;</button>
+      <h2><i class="btn-icon">🗑️</i> Deleted Assets</h2>
+
+      <div class="filter-group" style="margin-bottom: 20px;">
+        <label>Factory:</label>
+        <select id="deletedFactoryFilter">
+          <option value="head_office">Head Office</option>
+          <option value="agl">AGL</option>
+          <option value="ajl">AJL</option>
+          <option value="abm">ABM</option>
+          <option value="pwpl">PWPL</option>
+        </select>
+      </div>
+
+      <div id="deletedAssetsContent">
+        <p>Select a factory and click "Load Data" to view deleted assets.</p>
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="loadDeletedAssets()" class="btn btn-primary">
+          <i class="btn-icon">🔍</i> Load Data
+        </button>
+        <button type="button" onclick="closeDeletedAssetsModal()" class="btn btn-secondary">
+          <i class="btn-icon">✕</i> Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Management Modal -->
+  <div id="userManagementModal" class="user-management-container">
+    <button class="user-management-close">&times;</button>
+    <h2><i class="btn-icon">👥</i> User Management</h2>
+    <div class="button-group" style="margin-bottom: 20px;">
+      <button class="btn btn-success" id="createUserBtn"><i class="btn-icon">+</i> Create New User</button>
+    </div>
+
+    <div id="userFormContainer" class="user-form" style="display: none;">
+      <form id="userForm">
+        <input type="hidden" id="userId">
+        <div>
+          <label for="name">Full Name*</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="username">Username*</label>
+          <input type="text" id="username" required>
+        </div>
+        <div>
+          <label for="password">Password*</label>
+          <input type="password" id="password" required>
+        </div>
+        <div>
+          <label for="employeeId">Employee ID*</label>
+          <input type="text" id="employeeId" required>
+        </div>
+        <div>
+          <label for="userType">User Type*</label>
+          <select id="userType" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
           </select>
         </div>
-
-        <div class="filter-group">
-          <label>Status:</label>
-          <select id="statusFilter">
-            <option value="">All Status</option>
-            <option value="ACTIVE">Active</option>
-            <option value="INACTIVE">Inactive</option>
-            <option value="OUT OF ORDER">Out of Order</option>
-            <option value="MAINTENANCE">Maintenance</option>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label>Search:</label>
-          <input type="text" id="searchInput" placeholder="Search...">
-        </div>
-      </div>
-
-      <div class="table-container">
-        <table id="inventoryTable">
-          <thead>
-            <tr>
-              <th>Asset ID</th>
-              <th>Asset Name</th>
-              <th>Category</th>
-              <th>Brand</th>
-              <th>Model</th>
-              <th>Serial</th>
-              <th>Status</th>
-              <th>Location</th>
-              <th>Assigned</th>
-              <th>Department</th>
-              <th>Purchase</th>
-              <th>Price</th>
-              <th>Warranty</th>
-              <th>Last Maintenance</th>
-              <th>Priority</th>
-              <th>Notes</th>
-              <th id="actionsHeader">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="inventoryBody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Modal Overlay (for all modals) -->
-    <div id="modalOverlay" class="modal-overlay">
-      <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <div id="modalContent"></div>
-      </div>
-    </div>
-
-    <!-- Approval Modal -->
-    <div id="approvalModal" class="modal-overlay">
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeApprovalModal()">&times;</button>
-        <div id="approvalContent"></div>
-      </div>
-    </div>
-
-    <!-- Deleted Assets Modal -->
-    <div id="deletedAssetsModal" class="modal-overlay">
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeDeletedAssetsModal()">&times;</button>
-        <h2><i class="btn-icon">🗑️</i> Deleted Assets</h2>
-
-        <div class="filter-group" style="margin-bottom: 20px;">
-          <label>Factory:</label>
-          <select id="deletedFactoryFilter">
-            <option value="head_office">Head Office</option>
+        <div>
+          <label for="factory">Factory*</label>
+          <select id="factory" required>
             <option value="agl">AGL</option>
             <option value="ajl">AJL</option>
             <option value="abm">ABM</option>
             <option value="pwpl">PWPL</option>
+            <option value="head office">Head Office</option>
           </select>
         </div>
-
-        <div id="deletedAssetsContent">
-          <p>Select a factory and click "Load Data" to view deleted assets.</p>
-        </div>
-
         <div class="button-group">
-          <button type="button" onclick="loadDeletedAssets()" class="btn btn-primary">
-            <i class="btn-icon">🔍</i> Load Data
+          <button type="submit" class="btn btn-success">
+            <i class="btn-icon">✓</i> Save
           </button>
-          <button type="button" onclick="closeDeletedAssetsModal()" class="btn btn-secondary">
-            <i class="btn-icon">✕</i> Close
+          <button type="button" onclick="hideUserForm()" class="btn btn-secondary">
+            <i class="btn-icon">✕</i> Cancel
           </button>
         </div>
-      </div>
+      </form>
     </div>
 
-    <!-- User Management Modal -->
-    <div id="userManagementModal" class="user-management-container">
-      <button class="user-management-close">&times;</button>
-      <h2><i class="btn-icon">👥</i> User Management</h2>
-      <div class="button-group" style="margin-bottom: 20px;">
-        <button class="btn btn-success" id="createUserBtn"><i class="btn-icon">+</i> Create New User</button>
-      </div>
-
-      <div id="userFormContainer" class="user-form" style="display: none;">
-        <form id="userForm">
-          <input type="hidden" id="userId">
-          <div>
-            <label for="name">Full Name*</label>
-            <input type="text" id="name" required>
-          </div>
-          <div>
-            <label for="username">Username*</label>
-            <input type="text" id="username" required>
-          </div>
-          <div>
-            <label for="password">Password*</label>
-            <input type="password" id="password" required>
-          </div>
-          <div>
-            <label for="employeeId">Employee ID*</label>
-            <input type="text" id="employeeId" required>
-          </div>
-          <div>
-            <label for="userType">User Type*</label>
-            <select id="userType" required>
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
-          <div>
-            <label for="factory">Factory*</label>
-            <select id="factory" required>
-              <option value="agl">AGL</option>
-              <option value="ajl">AJL</option>
-              <option value="abm">ABM</option>
-              <option value="pwpl">PWPL</option>
-              <option value="head office">Head Office</option>
-            </select>
-          </div>
-          <div class="button-group">
-            <button type="submit" class="btn btn-success">
-              <i class="btn-icon">✓</i> Save
-            </button>
-            <button type="button" onclick="hideUserForm()" class="btn btn-secondary">
-              <i class="btn-icon">✕</i> Cancel
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <div id="userListContainer" class="user-list">
-        <!-- User list will be loaded here -->
-      </div>
+    <div id="userListContainer" class="user-list">
+      <!-- User list will be loaded here -->
     </div>
+  </div>
 
-    <script>
-      let inventoryData = [];
-      let filteredData = [];
-      let currentUserType = "<?php echo $current_user['user_type']; ?>";
-      let currentFactory = "<?php echo $current_user['factory']; ?>";
+  <script>
+    let inventoryData = [];
+    let filteredData = [];
+    let currentUserType = "<?php echo $current_user['user_type']; ?>";
+    let currentFactory = "<?php echo $current_user['factory']; ?>";
 
-      // DOM Elements
-      const addItemBtn = document.getElementById('addItemBtn');
-      const serviceBtn = document.getElementById('serviceBtn');
-      const removeBtn = document.getElementById('removeBtn');
-      const exportBtn = document.getElementById('exportBtn');
-      const historyBtn = document.getElementById('historyBtn');
-      const approvalBtn = document.getElementById('approvalBtn');
-      const userManagementBtn = document.getElementById('userManagementBtn');
-      const viewDeletedBtn = document.getElementById('viewDeletedBtn');
-      const factoryFilter = document.getElementById('factoryFilter');
-      const statusFilter = document.getElementById('statusFilter');
-      const searchInput = document.getElementById('searchInput');
-      const modalOverlay = document.getElementById('modalOverlay');
-      const modalContent = document.getElementById('modalContent');
-      const modalClose = document.querySelector('.modal-close');
-      const approvalModal = document.getElementById('approvalModal');
-      const approvalContent = document.getElementById('approvalContent');
-      const approvalCount = document.getElementById('approvalCount');
-      const userManagementModal = document.getElementById('userManagementModal');
-      const userManagementClose = document.querySelector('.user-management-close');
-      const createUserBtn = document.getElementById('createUserBtn');
-      const userFormContainer = document.getElementById('userFormContainer');
-      const userListContainer = document.getElementById('userListContainer');
-      const userForm = document.getElementById('userForm');
-      const deletedAssetsModal = document.getElementById('deletedAssetsModal');
-      const deletedFactoryFilter = document.getElementById('deletedFactoryFilter');
-      const deletedAssetsContent = document.getElementById('deletedAssetsContent');
+    // DOM Elements
+    const addItemBtn = document.getElementById('addItemBtn');
+    const serviceBtn = document.getElementById('serviceBtn');
+    const removeBtn = document.getElementById('removeBtn');
+    const exportBtn = document.getElementById('exportBtn');
+    const historyBtn = document.getElementById('historyBtn');
+    const approvalBtn = document.getElementById('approvalBtn');
+    const userManagementBtn = document.getElementById('userManagementBtn');
+    const viewDeletedBtn = document.getElementById('viewDeletedBtn');
+    const factoryFilter = document.getElementById('factoryFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const searchInput = document.getElementById('searchInput');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = document.getElementById('modalContent');
+    const modalClose = document.querySelector('.modal-close');
+    const approvalModal = document.getElementById('approvalModal');
+    const approvalContent = document.getElementById('approvalContent');
+    const approvalCount = document.getElementById('approvalCount');
+    const userManagementModal = document.getElementById('userManagementModal');
+    const userManagementClose = document.querySelector('.user-management-close');
+    const createUserBtn = document.getElementById('createUserBtn');
+    const userFormContainer = document.getElementById('userFormContainer');
+    const userListContainer = document.getElementById('userListContainer');
+    const userForm = document.getElementById('userForm');
+    const deletedAssetsModal = document.getElementById('deletedAssetsModal');
+    const deletedFactoryFilter = document.getElementById('deletedFactoryFilter');
+    const deletedAssetsContent = document.getElementById('deletedAssetsContent');
 
-      // Event Listeners
-      if (addItemBtn) addItemBtn.addEventListener('click', showAddItemModal);
-      serviceBtn.addEventListener('click', showServiceModal);
-      if (removeBtn) removeBtn.addEventListener('click', showRemoveModal);
-      exportBtn.addEventListener('click', exportToCSV);
-      historyBtn.addEventListener('click', showAllServiceHistory);
-      if (approvalBtn) approvalBtn.addEventListener('click', showApprovalModal);
-      if (userManagementBtn) userManagementBtn.addEventListener('click', showUserManagementModal);
-      viewDeletedBtn.addEventListener('click', showDeletedAssetsModal);
-      factoryFilter.addEventListener('change', () => {
-        loadDataFromDB();
-      });
-      statusFilter.addEventListener('change', filterTable);
-      searchInput.addEventListener('keyup', filterTable);
-      modalClose.addEventListener('click', closeModal);
-      userManagementClose.addEventListener('click', closeUserManagementModal);
-      if (createUserBtn) createUserBtn.addEventListener('click', showUserForm);
-      if (userForm) userForm.addEventListener('submit', handleUserFormSubmit);
+    // Event Listeners
+    if (addItemBtn) addItemBtn.addEventListener('click', showAddItemModal);
+    serviceBtn.addEventListener('click', showServiceModal);
+    if (removeBtn) removeBtn.addEventListener('click', showRemoveModal);
+    exportBtn.addEventListener('click', exportToCSV);
+    historyBtn.addEventListener('click', showAllServiceHistory);
+    if (approvalBtn) approvalBtn.addEventListener('click', showApprovalModal);
+    if (userManagementBtn) userManagementBtn.addEventListener('click', showUserManagementModal);
+    viewDeletedBtn.addEventListener('click', showDeletedAssetsModal);
+    factoryFilter.addEventListener('change', () => {
+      loadDataFromDB();
+    });
+    statusFilter.addEventListener('change', filterTable);
+    searchInput.addEventListener('keyup', filterTable);
+    modalClose.addEventListener('click', closeModal);
+    userManagementClose.addEventListener('click', closeUserManagementModal);
+    if (createUserBtn) createUserBtn.addEventListener('click', showUserForm);
+    if (userForm) userForm.addEventListener('submit', handleUserFormSubmit);
 
-      // Close modal when clicking outside content
-      modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-          closeModal();
-        }
-      });
-
-      approvalModal.addEventListener('click', (e) => {
-        if (e.target === approvalModal) {
-          closeApprovalModal();
-        }
-      });
-
-      deletedAssetsModal.addEventListener('click', (e) => {
-        if (e.target === deletedAssetsModal) {
-          closeDeletedAssetsModal();
-        }
-      });
-
-      // Load data when page loads
-      document.addEventListener('DOMContentLoaded', () => {
-        loadDataFromDB();
-        if (approvalBtn) {
-          updateApprovalCount();
-        }
-      });
-
-      function showModal(content) {
-        modalContent.innerHTML = content;
-        modalOverlay.style.display = 'flex';
+    // Close modal when clicking outside content
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        closeModal();
       }
+    });
 
-      function closeModal() {
-        modalOverlay.style.display = 'none';
+    approvalModal.addEventListener('click', (e) => {
+      if (e.target === approvalModal) {
+        closeApprovalModal();
       }
+    });
 
-      function showUserManagementModal() {
-        userManagementModal.style.display = 'block';
-        viewAllUsers();
+    deletedAssetsModal.addEventListener('click', (e) => {
+      if (e.target === deletedAssetsModal) {
+        closeDeletedAssetsModal();
       }
+    });
 
-      function closeUserManagementModal() {
-        userManagementModal.style.display = 'none';
+    // Load data when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      loadDataFromDB();
+      if (approvalBtn) {
+        updateApprovalCount();
       }
+    });
 
-      function showDeletedAssetsModal() {
-        deletedAssetsModal.style.display = 'flex';
-        deletedAssetsContent.innerHTML = '<p>Select a factory and click "Load Data" to view deleted assets.</p>';
-      }
+    function showModal(content) {
+      modalContent.innerHTML = content;
+      modalOverlay.style.display = 'flex';
+    }
 
-      function closeDeletedAssetsModal() {
-        deletedAssetsModal.style.display = 'none';
-      }
+    function closeModal() {
+      modalOverlay.style.display = 'none';
+    }
 
-      function loadDeletedAssets() {
-        const factory = deletedFactoryFilter.value;
-        showLoading(true);
+    function showUserManagementModal() {
+      userManagementModal.style.display = 'block';
+      viewAllUsers();
+    }
 
-        fetch(`get_deleted_assets.php?factory=${factory}`)
-          .then(response => response.json())
-          .then(data => {
-            if (data.error) {
-              deletedAssetsContent.innerHTML = `<p class="error">${data.error}</p>`;
-              return;
-            }
+    function closeUserManagementModal() {
+      userManagementModal.style.display = 'none';
+    }
 
-            if (data.length === 0) {
-              deletedAssetsContent.innerHTML = '<p>No deleted assets found for this factory.</p>';
-              return;
-            }
+    function showDeletedAssetsModal() {
+      deletedAssetsModal.style.display = 'flex';
+      deletedAssetsContent.innerHTML = '<p>Select a factory and click "Load Data" to view deleted assets.</p>';
+    }
 
-            let html = `
+    function closeDeletedAssetsModal() {
+      deletedAssetsModal.style.display = 'none';
+    }
+
+    function loadDeletedAssets() {
+      const factory = deletedFactoryFilter.value;
+      showLoading(true);
+
+      fetch(`get_deleted_assets.php?factory=${factory}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            deletedAssetsContent.innerHTML = `<p class="error">${data.error}</p>`;
+            return;
+          }
+
+          if (data.length === 0) {
+            deletedAssetsContent.innerHTML = '<p>No deleted assets found for this factory.</p>';
+            return;
+          }
+
+          let html = `
             <div class="info-box">
               Showing ${data.length} deleted assets for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}
             </div>
@@ -987,8 +970,8 @@ $is_admin = ($current_user['user_type'] === 'admin');
               <tbody>
           `;
 
-            data.forEach(asset => {
-              html += `
+          data.forEach(asset => {
+            html += `
               <tr>
                 <td>${asset.asset_name || 'N/A'}</td>
                 <td>${asset.category || 'N/A'}</td>
@@ -1003,43 +986,43 @@ $is_admin = ($current_user['user_type'] === 'admin');
                 <td>${formatDate(asset.removal_date) || 'N/A'}</td>
               </tr>
             `;
-            });
+          });
 
-            html += `
+          html += `
               </tbody>
             </table>
           `;
 
-            deletedAssetsContent.innerHTML = html;
-          })
-          .catch(error => {
-            console.error('Error loading deleted assets:', error);
-            deletedAssetsContent.innerHTML = '<p class="error">Error loading deleted assets. Please try again.</p>';
-          })
-          .finally(() => {
-            showLoading(false);
-          });
-      }
+          deletedAssetsContent.innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error loading deleted assets:', error);
+          deletedAssetsContent.innerHTML = '<p class="error">Error loading deleted assets. Please try again.</p>';
+        })
+        .finally(() => {
+          showLoading(false);
+        });
+    }
 
-      function showUserForm() {
-        userFormContainer.style.display = 'block';
-        userListContainer.style.display = 'none';
-        userForm.reset();
-        document.getElementById('userId').value = '';
-      }
+    function showUserForm() {
+      userFormContainer.style.display = 'block';
+      userListContainer.style.display = 'none';
+      userForm.reset();
+      document.getElementById('userId').value = '';
+    }
 
-      function hideUserForm() {
-        userFormContainer.style.display = 'none';
-        userListContainer.style.display = 'block';
-      }
+    function hideUserForm() {
+      userFormContainer.style.display = 'none';
+      userListContainer.style.display = 'block';
+    }
 
-      function showApprovalModal() {
-        try {
-          showLoading(true);
-          fetch('get_pending_approvals.php')
-            .then(response => response.json())
-            .then(approvals => {
-              let html = `
+    function showApprovalModal() {
+      try {
+        showLoading(true);
+        fetch('get_pending_approvals.php')
+          .then(response => response.json())
+          .then(approvals => {
+            let html = `
               <h2><i class="btn-icon">🔄</i> Pending Approvals (${approvals.length})</h2>
               <div class="table-responsive">
                 <table class="approval-table">
@@ -1058,10 +1041,10 @@ $is_admin = ($current_user['user_type'] === 'admin');
                   <tbody>
             `;
 
-              approvals.forEach(approval => {
-                const details = approval.action_details ? JSON.parse(approval.action_details) : {};
+            approvals.forEach(approval => {
+              const details = approval.action_details ? JSON.parse(approval.action_details) : {};
 
-                html += `
+              html += `
                 <tr>
                   <td>${approval.id}</td>
                   <td><span class="badge ${approval.action_type === 'ADD' ? 'badge-add' : 'badge-service'}">${approval.action_type}</span></td>
@@ -1118,9 +1101,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
 </td>
                 </tr>
               `;
-              });
+            });
 
-              html += `
+            html += `
                   </tbody>
                 </table>
               </div>
@@ -1131,12 +1114,12 @@ $is_admin = ($current_user['user_type'] === 'admin');
               </div>
             `;
 
-              approvalContent.innerHTML = html;
-              approvalModal.style.display = 'flex';
-            })
-            .catch(error => {
-              console.error('Error loading approvals:', error);
-              approvalContent.innerHTML = `
+            approvalContent.innerHTML = html;
+            approvalModal.style.display = 'flex';
+          })
+          .catch(error => {
+            console.error('Error loading approvals:', error);
+            approvalContent.innerHTML = `
               <div class="error-box">
                 <h3>Error Loading Approvals</h3>
                 <p>${error.message || 'Unknown error occurred'}</p>
@@ -1145,124 +1128,124 @@ $is_admin = ($current_user['user_type'] === 'admin');
                 </button>
               </div>
             `;
-              approvalModal.style.display = 'flex';
-            })
-            .finally(() => {
-              showLoading(false);
-            });
-        } catch (error) {
-          console.error('Error:', error);
-          showLoading(false);
-        }
-      }
-
-      function closeApprovalModal() {
-        approvalModal.style.display = 'none';
-      }
-
-      function processApproval(approvalId, action) {
-        if (!confirm(`Are you sure you want to ${action.toLowerCase()} this request?`)) {
-          return;
-        }
-
-        showLoading(true);
-        fetch('process_approval.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              approval_id: approvalId,
-              action: action,
-              approver: '<?php echo $current_user['name']; ?>'
-            })
-          })
-          .then(response => response.json())
-          .then(result => {
-            if (result.success) {
-              alert(`Request ${action.toLowerCase()}d successfully!`);
-              showApprovalModal();
-              loadDataFromDB();
-              updateApprovalCount();
-            } else {
-              alert(`Error processing request: ${result.message || 'Unknown error'}`);
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            alert('Error processing approval. Check console for details.');
+            approvalModal.style.display = 'flex';
           })
           .finally(() => {
             showLoading(false);
           });
+      } catch (error) {
+        console.error('Error:', error);
+        showLoading(false);
+      }
+    }
+
+    function closeApprovalModal() {
+      approvalModal.style.display = 'none';
+    }
+
+    function processApproval(approvalId, action) {
+      if (!confirm(`Are you sure you want to ${action.toLowerCase()} this request?`)) {
+        return;
       }
 
-      function updateApprovalCount() {
-        fetch('count_pending_approvals.php')
-          .then(response => response.json())
-          .then(result => {
-            if (result.success) {
-              approvalCount.textContent = result.count;
-            }
+      showLoading(true);
+      fetch('process_approval.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            approval_id: approvalId,
+            action: action,
+            approver: '<?php echo $current_user['name']; ?>'
           })
-          .catch(error => {
-            console.error('Error updating approval count:', error);
-          });
-      }
-
-      async function loadDataFromDB() {
-        try {
-          showLoading(true);
-          const selectedFactory = factoryFilter.value;
-          let url = 'get_assets.php';
-
-          if (selectedFactory !== 'all') {
-            url = `get_assets_${selectedFactory}.php`;
+        })
+        .then(response => response.json())
+        .then(result => {
+          if (result.success) {
+            alert(`Request ${action.toLowerCase()}d successfully!`);
+            showApprovalModal();
+            loadDataFromDB();
+            updateApprovalCount();
+          } else {
+            alert(`Error processing request: ${result.message || 'Unknown error'}`);
           }
-
-          const response = await fetch(url);
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-
-          if (data.error) {
-            throw new Error(data.error);
-          }
-
-          inventoryData = data;
-          filteredData = [...inventoryData];
-          renderTable();
-          updateStats();
-
-          console.log('Data loaded successfully:', inventoryData);
-        } catch (error) {
-          console.error('Error loading data:', error);
-          alert('Error loading data. Please check console for details.');
-        } finally {
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error processing approval. Check console for details.');
+        })
+        .finally(() => {
           showLoading(false);
+        });
+    }
+
+    function updateApprovalCount() {
+      fetch('count_pending_approvals.php')
+        .then(response => response.json())
+        .then(result => {
+          if (result.success) {
+            approvalCount.textContent = result.count;
+          }
+        })
+        .catch(error => {
+          console.error('Error updating approval count:', error);
+        });
+    }
+
+    async function loadDataFromDB() {
+      try {
+        showLoading(true);
+        const selectedFactory = factoryFilter.value;
+        let url = 'get_assets.php';
+
+        if (selectedFactory !== 'all') {
+          url = `get_assets_${selectedFactory}.php`;
         }
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
+        inventoryData = data;
+        filteredData = [...inventoryData];
+        renderTable();
+        updateStats();
+
+        console.log('Data loaded successfully:', inventoryData);
+      } catch (error) {
+        console.error('Error loading data:', error);
+        alert('Error loading data. Please check console for details.');
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('inventoryBody');
+      tbody.innerHTML = '';
+
+      if (filteredData.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="17" style="text-align:center;">No assets found</td></tr>';
+        return;
       }
 
-      function renderTable() {
-        const tbody = document.getElementById('inventoryBody');
-        tbody.innerHTML = '';
+      const selectedFactory = factoryFilter.value;
+      const isHeadOffice = selectedFactory === 'all';
 
-        if (filteredData.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="17" style="text-align:center;">No assets found</td></tr>';
-          return;
-        }
+      filteredData.forEach(item => {
+        const row = document.createElement('tr');
 
-        const selectedFactory = factoryFilter.value;
-        const isHeadOffice = selectedFactory === 'all';
-
-        filteredData.forEach(item => {
-          const row = document.createElement('tr');
-
-          // Common columns
-          let rowHtml = `
+        // Common columns
+        let rowHtml = `
             <td>${item.asset_id || 'N/A'}</td>
             <td>${item.asset_name || 'N/A'}</td>
             <td>${item.category || 'N/A'}</td>
@@ -1281,9 +1264,9 @@ $is_admin = ($current_user['user_type'] === 'admin');
             <td>${item.notes || 'N/A'}</td>
         `;
 
-          // Only show Actions column for Head Office
-          if (isHeadOffice) {
-            rowHtml += `
+        // Only show Actions column for Head Office
+        if (isHeadOffice) {
+          rowHtml += `
                 <td>
                     ${item.status === 'MAINTENANCE' ? 
                         `<button onclick="showCompleteServiceModal('${item.asset_id}')" class="btn btn-success btn-sm" style="margin-bottom:5px;">
@@ -1295,120 +1278,120 @@ $is_admin = ($current_user['user_type'] === 'admin');
                     </button>
                 </td>
             `;
-          }
-
-          row.innerHTML = rowHtml;
-          tbody.appendChild(row);
-        });
-
-        // Also hide the Actions header if not Head Office
-        const actionHeader = document.querySelector('#inventoryTable thead tr th:nth-child(17)');
-        if (actionHeader) {
-          actionHeader.style.display = isHeadOffice ? '' : 'none';
-        }
-      }
-
-      function getStatusClass(status) {
-        if (!status) return '';
-        switch (status.toUpperCase()) {
-          case 'ACTIVE':
-            return 'status-active';
-          case 'INACTIVE':
-            return 'status-inactive';
-          case 'OUT OF ORDER':
-            return 'status-out-of-order';
-          case 'MAINTENANCE':
-            return 'status-maintenance';
-          default:
-            return '';
-        }
-      }
-
-      function formatDate(dateString) {
-        if (!dateString) return '';
-        const date = new Date(dateString);
-        return isNaN(date.getTime()) ? dateString : date.toISOString().split('T')[0];
-      }
-
-      function updateStats() {
-        document.getElementById('activeCount').textContent =
-          inventoryData.filter(i => i.status && i.status.toUpperCase() === 'ACTIVE').length;
-        document.getElementById('inactiveCount').textContent =
-          inventoryData.filter(i => i.status && i.status.toUpperCase() === 'INACTIVE').length;
-        document.getElementById('outOfOrderCount').textContent =
-          inventoryData.filter(i => i.status && i.status.toUpperCase() === 'OUT OF ORDER').length;
-        document.getElementById('maintenanceCount').textContent =
-          inventoryData.filter(i => i.status && i.status.toUpperCase() === 'MAINTENANCE').length;
-      }
-
-      function filterTable() {
-        const status = statusFilter.value;
-        const search = searchInput.value.toLowerCase();
-
-        filteredData = inventoryData.filter(item => {
-          const statusMatch = !status ||
-            (item.status && item.status.toUpperCase() === status.toUpperCase());
-
-          const searchMatch = !search ||
-            Object.values(item).some(val =>
-              val && val.toString().toLowerCase().includes(search));
-
-          return statusMatch && searchMatch;
-        });
-
-        renderTable();
-      }
-
-      function exportToCSV() {
-        if (filteredData.length === 0) {
-          alert('No data to export!');
-          return;
         }
 
-        const headers = [
-          'Asset ID', 'Asset Name', 'Category', 'Brand', 'Model',
-          'Serial Number', 'Status', 'Location', 'Assigned To',
-          'Department', 'Purchase Date', 'Purchase Price',
-          'Warranty Expiry', 'Last Maintenance', 'Priority', 'Notes'
-        ];
+        row.innerHTML = rowHtml;
+        tbody.appendChild(row);
+      });
 
-        const csvRows = [
-          headers.join(','),
-          ...filteredData.map(item => [
-            item.asset_id,
-            item.asset_name,
-            item.category,
-            item.brand,
-            item.model,
-            item.serial_number,
-            item.status,
-            item.location,
-            item.assigned_to,
-            item.department,
-            item.purchase_date,
-            item.purchase_price,
-            item.warranty_expiry,
-            item.last_maintenance,
-            item.priority,
-            item.notes
-          ].map(field => `"${(field || '').toString().replace(/"/g, '""')}"`).join(','))
-        ];
+      // Also hide the Actions header if not Head Office
+      const actionHeader = document.querySelector('#inventoryTable thead tr th:nth-child(17)');
+      if (actionHeader) {
+        actionHeader.style.display = isHeadOffice ? '' : 'none';
+      }
+    }
 
-        const csvContent = csvRows.join('\n');
-        const blob = new Blob([csvContent], {
-          type: 'text/csv;charset=utf-8;'
-        });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'inventory_export_' + new Date().toISOString().slice(0, 10) + '.csv');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    function getStatusClass(status) {
+      if (!status) return '';
+      switch (status.toUpperCase()) {
+        case 'ACTIVE':
+          return 'status-active';
+        case 'INACTIVE':
+          return 'status-inactive';
+        case 'OUT OF ORDER':
+          return 'status-out-of-order';
+        case 'MAINTENANCE':
+          return 'status-maintenance';
+        default:
+          return '';
+      }
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return '';
+      const date = new Date(dateString);
+      return isNaN(date.getTime()) ? dateString : date.toISOString().split('T')[0];
+    }
+
+    function updateStats() {
+      document.getElementById('activeCount').textContent =
+        inventoryData.filter(i => i.status && i.status.toUpperCase() === 'ACTIVE').length;
+      document.getElementById('inactiveCount').textContent =
+        inventoryData.filter(i => i.status && i.status.toUpperCase() === 'INACTIVE').length;
+      document.getElementById('outOfOrderCount').textContent =
+        inventoryData.filter(i => i.status && i.status.toUpperCase() === 'OUT OF ORDER').length;
+      document.getElementById('maintenanceCount').textContent =
+        inventoryData.filter(i => i.status && i.status.toUpperCase() === 'MAINTENANCE').length;
+    }
+
+    function filterTable() {
+      const status = statusFilter.value;
+      const search = searchInput.value.toLowerCase();
+
+      filteredData = inventoryData.filter(item => {
+        const statusMatch = !status ||
+          (item.status && item.status.toUpperCase() === status.toUpperCase());
+
+        const searchMatch = !search ||
+          Object.values(item).some(val =>
+            val && val.toString().toLowerCase().includes(search));
+
+        return statusMatch && searchMatch;
+      });
+
+      renderTable();
+    }
+
+    function exportToCSV() {
+      if (filteredData.length === 0) {
+        alert('No data to export!');
+        return;
       }
 
-      function showAddItemModal() {
-        const modalHtml = `
+      const headers = [
+        'Asset ID', 'Asset Name', 'Category', 'Brand', 'Model',
+        'Serial Number', 'Status', 'Location', 'Assigned To',
+        'Department', 'Purchase Date', 'Purchase Price',
+        'Warranty Expiry', 'Last Maintenance', 'Priority', 'Notes'
+      ];
+
+      const csvRows = [
+        headers.join(','),
+        ...filteredData.map(item => [
+          item.asset_id,
+          item.asset_name,
+          item.category,
+          item.brand,
+          item.model,
+          item.serial_number,
+          item.status,
+          item.location,
+          item.assigned_to,
+          item.department,
+          item.purchase_date,
+          item.purchase_price,
+          item.warranty_expiry,
+          item.last_maintenance,
+          item.priority,
+          item.notes
+        ].map(field => `"${(field || '').toString().replace(/"/g, '""')}"`).join(','))
+      ];
+
+      const csvContent = csvRows.join('\n');
+      const blob = new Blob([csvContent], {
+        type: 'text/csv;charset=utf-8;'
+      });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'inventory_export_' + new Date().toISOString().slice(0, 10) + '.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function showAddItemModal() {
+      const modalHtml = `
         <h2><i class="btn-icon">+</i> Add New Asset</h2>
         <form id="addForm">
           <div>
@@ -1506,67 +1489,67 @@ $is_admin = ($current_user['user_type'] === 'admin');
         </form>
       `;
 
-        showModal(modalHtml);
+      showModal(modalHtml);
 
-        document.getElementById('addForm').addEventListener('submit', async (e) => {
-          e.preventDefault();
+      document.getElementById('addForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-          const priceValue = document.getElementById('price').value.replace(/[^0-9.]/g, '');
+        const priceValue = document.getElementById('price').value.replace(/[^0-9.]/g, '');
 
-          const data = {
-            asset_name: document.getElementById('assetName').value,
-            category: document.getElementById('category').value,
-            brand: document.getElementById('brand').value,
-            model: document.getElementById('model').value,
-            serial_number: document.getElementById('serial').value,
-            status: 'ACTIVE',
-            location: document.getElementById('location').value,
-            assigned_to: document.getElementById('assigned').value || 'Unassigned',
-            department: document.getElementById('department').value,
-            purchase_date: document.getElementById('purchaseDate').value,
-            purchase_price: priceValue,
-            warranty_expiry: document.getElementById('warranty').value,
-            last_maintenance: new Date().toISOString().split('T')[0],
-            priority: document.getElementById('priority').value,
-            notes: document.getElementById('notes').value
-          };
+        const data = {
+          asset_name: document.getElementById('assetName').value,
+          category: document.getElementById('category').value,
+          brand: document.getElementById('brand').value,
+          model: document.getElementById('model').value,
+          serial_number: document.getElementById('serial').value,
+          status: 'ACTIVE',
+          location: document.getElementById('location').value,
+          assigned_to: document.getElementById('assigned').value || 'Unassigned',
+          department: document.getElementById('department').value,
+          purchase_date: document.getElementById('purchaseDate').value,
+          purchase_price: priceValue,
+          warranty_expiry: document.getElementById('warranty').value,
+          last_maintenance: new Date().toISOString().split('T')[0],
+          priority: document.getElementById('priority').value,
+          notes: document.getElementById('notes').value
+        };
 
-          try {
-            const response = await fetch('add_asset.php', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data)
-            });
+        try {
+          const response = await fetch('add_asset.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
 
-            const result = await response.json();
-            if (result.success) {
-              alert('Asset added successfully!');
-              closeModal();
-              loadDataFromDB();
-            } else {
-              alert('Error adding asset: ' + (result.message || 'Unknown error'));
-            }
-          } catch (error) {
-            console.error('Error:', error);
-            alert('Error adding asset. Check console for details.');
+          const result = await response.json();
+          if (result.success) {
+            alert('Asset added successfully!');
+            closeModal();
+            loadDataFromDB();
+          } else {
+            alert('Error adding asset: ' + (result.message || 'Unknown error'));
           }
-        });
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Error adding asset. Check console for details.');
+        }
+      });
+    }
+
+    function showServiceModal() {
+      if (inventoryData.length === 0) {
+        alert('No assets available for servicing');
+        return;
       }
 
-      function showServiceModal() {
-        if (inventoryData.length === 0) {
-          alert('No assets available for servicing');
-          return;
-        }
+      let options = inventoryData
+        .filter(item => ['ACTIVE', 'OUT OF ORDER'].includes(item.status?.toUpperCase()))
+        .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.assigned_to})</option>`)
+        .join('');
 
-        let options = inventoryData
-          .filter(item => ['ACTIVE', 'OUT OF ORDER'].includes(item.status?.toUpperCase()))
-          .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.assigned_to})</option>`)
-          .join('');
-
-        const modalHtml = `
+      const modalHtml = `
         <h2><i class="btn-icon">🔧</i> Send Asset for Servicing</h2>
         
         <div>
@@ -1607,60 +1590,60 @@ $is_admin = ($current_user['user_type'] === 'admin');
         </div>
       `;
 
-        showModal(modalHtml);
+      showModal(modalHtml);
+    }
+
+    async function submitService() {
+      const assetId = document.getElementById('serviceAsset').value;
+      const serviceType = document.getElementById('serviceType').value;
+      const serviceBy = document.getElementById('serviceBy').value;
+      const serviceNotes = document.getElementById('serviceNotes').value;
+
+      if (!assetId) {
+        alert('Please select an asset to service');
+        return;
       }
 
-      async function submitService() {
-        const assetId = document.getElementById('serviceAsset').value;
-        const serviceType = document.getElementById('serviceType').value;
-        const serviceBy = document.getElementById('serviceBy').value;
-        const serviceNotes = document.getElementById('serviceNotes').value;
-
-        if (!assetId) {
-          alert('Please select an asset to service');
-          return;
-        }
-
-        if (!serviceBy) {
-          alert('Please enter technician name');
-          return;
-        }
-
-        try {
-          const response = await fetch('update_status.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              asset_id: assetId,
-              status: 'MAINTENANCE',
-              service_type: serviceType,
-              service_notes: serviceNotes,
-              service_by: serviceBy,
-              last_maintenance: new Date().toISOString().split('T')[0]
-            })
-          });
-
-          const result = await response.json();
-          if (result.success) {
-            alert('Asset sent for servicing successfully!');
-            closeModal();
-            loadDataFromDB();
-          } else {
-            alert('Error updating asset: ' + (result.message || 'Unknown error'));
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('Error sending for service. Check console for details.');
-        }
+      if (!serviceBy) {
+        alert('Please enter technician name');
+        return;
       }
 
-      function showCompleteServiceModal(assetId) {
-        const asset = inventoryData.find(item => item.asset_id === assetId);
-        if (!asset) return;
+      try {
+        const response = await fetch('update_status.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            asset_id: assetId,
+            status: 'MAINTENANCE',
+            service_type: serviceType,
+            service_notes: serviceNotes,
+            service_by: serviceBy,
+            last_maintenance: new Date().toISOString().split('T')[0]
+          })
+        });
 
-        const modalHtml = `
+        const result = await response.json();
+        if (result.success) {
+          alert('Asset sent for servicing successfully!');
+          closeModal();
+          loadDataFromDB();
+        } else {
+          alert('Error updating asset: ' + (result.message || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error sending for service. Check console for details.');
+      }
+    }
+
+    function showCompleteServiceModal(assetId) {
+      const asset = inventoryData.find(item => item.asset_id === assetId);
+      if (!asset) return;
+
+      const modalHtml = `
         <h2><i class="btn-icon">✓</i> Complete Service for ${assetId}</h2>
         <div class="info-box">
           <strong>Asset:</strong> ${asset.asset_name || 'N/A'}<br>
@@ -1682,49 +1665,49 @@ $is_admin = ($current_user['user_type'] === 'admin');
         </div>
       `;
 
-        showModal(modalHtml);
+      showModal(modalHtml);
+    }
+
+    async function completeService(assetId) {
+      const completionNotes = document.getElementById('completionNotes').value;
+
+      try {
+        const response = await fetch('complete_service.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            asset_id: assetId,
+            completion_notes: completionNotes
+          })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          alert('Service completed successfully! Asset status set to ACTIVE.');
+          closeModal();
+          loadDataFromDB();
+        } else {
+          alert('Error completing service: ' + (result.message || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error completing service. Check console for details.');
+      }
+    }
+
+    function showRemoveModal() {
+      if (inventoryData.length === 0) {
+        alert('No assets available to remove');
+        return;
       }
 
-      async function completeService(assetId) {
-        const completionNotes = document.getElementById('completionNotes').value;
+      let options = inventoryData
+        .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.status})</option>`)
+        .join('');
 
-        try {
-          const response = await fetch('complete_service.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              asset_id: assetId,
-              completion_notes: completionNotes
-            })
-          });
-
-          const result = await response.json();
-          if (result.success) {
-            alert('Service completed successfully! Asset status set to ACTIVE.');
-            closeModal();
-            loadDataFromDB();
-          } else {
-            alert('Error completing service: ' + (result.message || 'Unknown error'));
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('Error completing service. Check console for details.');
-        }
-      }
-
-      function showRemoveModal() {
-        if (inventoryData.length === 0) {
-          alert('No assets available to remove');
-          return;
-        }
-
-        let options = inventoryData
-          .map(item => `<option value="${item.asset_id}">${item.asset_id} - ${item.asset_name} (${item.status})</option>`)
-          .join('');
-
-        const modalHtml = `
+      const modalHtml = `
         <h2><i class="btn-icon">🗑️</i> Remove Asset from Inventory</h2>
         <div class="warning-box">
           <strong>Note:</strong> All removal requests require approval from the admin.
@@ -1769,56 +1752,56 @@ $is_admin = ($current_user['user_type'] === 'admin');
         </div>
       `;
 
-        showModal(modalHtml);
+      showModal(modalHtml);
+    }
+
+    async function submitRemove() {
+      const assetId = document.getElementById('removeAsset').value;
+      const removeReason = document.getElementById('removeReason').value;
+      const removeNotes = document.getElementById('removeNotes').value;
+
+      if (!assetId) {
+        alert('Please select an asset to remove');
+        return;
       }
 
-      async function submitRemove() {
-        const assetId = document.getElementById('removeAsset').value;
-        const removeReason = document.getElementById('removeReason').value;
-        const removeNotes = document.getElementById('removeNotes').value;
-
-        if (!assetId) {
-          alert('Please select an asset to remove');
-          return;
-        }
-
-        if (!confirm('Are you sure you want to request removal of this asset?')) {
-          return;
-        }
-
-        try {
-          const response = await fetch('delete_asset.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              asset_id: assetId,
-              remove_reason: removeReason,
-              remove_notes: removeNotes
-            })
-          });
-
-          const result = await response.json();
-          if (result.success) {
-            alert('Asset removed successfully!');
-            closeModal();
-            loadDataFromDB();
-          } else {
-            alert('Error removing asset: ' + (result.message || 'Unknown error'));
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('Error removing asset. Check console for details.');
-        }
+      if (!confirm('Are you sure you want to request removal of this asset?')) {
+        return;
       }
 
-      function showServiceHistory(assetId) {
-        fetch(`get_service_history.php?asset_id=${assetId}`)
-          .then(response => response.json())
-          .then(history => {
-            const asset = inventoryData.find(item => item.asset_id === assetId);
-            const modalHtml = `
+      try {
+        const response = await fetch('delete_asset.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            asset_id: assetId,
+            remove_reason: removeReason,
+            remove_notes: removeNotes
+          })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          alert('Asset removed successfully!');
+          closeModal();
+          loadDataFromDB();
+        } else {
+          alert('Error removing asset: ' + (result.message || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error removing asset. Check console for details.');
+      }
+    }
+
+    function showServiceHistory(assetId) {
+      fetch(`get_service_history.php?asset_id=${assetId}`)
+        .then(response => response.json())
+        .then(history => {
+          const asset = inventoryData.find(item => item.asset_id === assetId);
+          const modalHtml = `
                 <h2><i class="btn-icon">📜</i> Service History for ${assetId}</h2>
                 <div class="info-box">
                     <strong>Asset:</strong> ${asset?.asset_name || 'N/A'}<br>
@@ -1860,16 +1843,16 @@ $is_admin = ($current_user['user_type'] === 'admin');
                 </div>
             `;
 
-            showModal(modalHtml);
-          })
-          .catch(error => {
-            console.error('Error loading service history:', error);
-            alert('Error loading service history');
-          });
-      }
+          showModal(modalHtml);
+        })
+        .catch(error => {
+          console.error('Error loading service history:', error);
+          alert('Error loading service history');
+        });
+    }
 
-      function showAllServiceHistory() {
-        const modalHtml = `
+    function showAllServiceHistory() {
+      const modalHtml = `
     <h2><i class="btn-icon">📜</i> Complete Service History</h2>
     
     <div class="filter-group" style="margin-bottom: 20px;">
@@ -1895,38 +1878,38 @@ $is_admin = ($current_user['user_type'] === 'admin');
     </div>
   `;
 
-        showModal(modalHtml);
-        // Load Head Office data immediately
-        loadServiceHistory();
+      showModal(modalHtml);
+      // Load Head Office data immediately
+      loadServiceHistory();
+    }
+
+    function loadServiceHistory() {
+  const factoryFilter = document.getElementById('historyFactoryFilter');
+  const factory = factoryFilter ? factoryFilter.value : 'head_office';
+
+  let url = 'get_service_history.php';
+  if (factory !== 'all') {
+    url += `?factory=${factory}`;
+  }
+
+  showLoading(true);
+  console.log('Fetching service history from:', url); // Debug log
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      return response.json();
+    })
+    .then(history => {
+      console.log('Received history data:', history); // Debug log
+      
+      let historyHtml;
+      const recordCount = Array.isArray(history) ? history.length : 0;
 
-      function loadServiceHistory() {
-        const factoryFilter = document.getElementById('historyFactoryFilter');
-        const factory = factoryFilter ? factoryFilter.value : 'head_office';
-
-        let url = 'get_service_history.php';
-        if (factory !== 'all') {
-          url += `?factory=${factory}`;
-        }
-
-        showLoading(true);
-        console.log('Fetching service history from:', url); // Debug log
-
-        fetch(url)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then(history => {
-            console.log('Received history data:', history); // Debug log
-
-            let historyHtml;
-            const recordCount = Array.isArray(history) ? history.length : 0;
-
-            if (recordCount > 0) {
-              historyHtml = `
+      if (recordCount > 0) {
+        historyHtml = `
           <div class="info-box">
             Showing ${recordCount} service records for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}
           </div>
@@ -1959,8 +1942,8 @@ $is_admin = ($current_user['user_type'] === 'admin');
             </tbody>
           </table>
         `;
-            } else {
-              historyHtml = `
+      } else {
+        historyHtml = `
           <div class="info-box">
             No service history records found for ${factory === 'head_office' ? 'Head Office' : factory.toUpperCase()}.
             <br><br>
@@ -1972,29 +1955,29 @@ $is_admin = ($current_user['user_type'] === 'admin');
             </ul>
           </div>
         `;
-            }
+      }
 
-            document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
-            showLoading(false);
-          })
-          .catch(error => {
-            console.error('Error loading service history:', error);
-            document.getElementById('serviceHistoryContent').innerHTML = `
+      document.getElementById('serviceHistoryContent').innerHTML = historyHtml;
+      showLoading(false);
+    })
+    .catch(error => {
+      console.error('Error loading service history:', error);
+      document.getElementById('serviceHistoryContent').innerHTML = `
         <div class="error">
           <h3>Error Loading Service History</h3>
           <p>${error.message || 'Unknown error occurred'}</p>
           <p>Please check the console for more details.</p>
         </div>
       `;
-            showLoading(false);
-          });
-      }
-      async function viewAllUsers() {
-        try {
-          const response = await fetch('get_users.php');
-          const users = await response.json();
+      showLoading(false);
+    });
+}
+    async function viewAllUsers() {
+      try {
+        const response = await fetch('get_users.php');
+        const users = await response.json();
 
-          let html = `
+        let html = `
           <table>
             <thead>
               <tr>
@@ -2025,124 +2008,124 @@ $is_admin = ($current_user['user_type'] === 'admin');
           </table>
         `;
 
-          userListContainer.innerHTML = html;
-          userFormContainer.style.display = 'none';
-          userListContainer.style.display = 'block';
-        } catch (error) {
-          console.error('Error loading users:', error);
-          userListContainer.innerHTML = '<p>Error loading users. Please try again.</p>';
-        }
+        userListContainer.innerHTML = html;
+        userFormContainer.style.display = 'none';
+        userListContainer.style.display = 'block';
+      } catch (error) {
+        console.error('Error loading users:', error);
+        userListContainer.innerHTML = '<p>Error loading users. Please try again.</p>';
       }
+    }
 
-      async function editUser(userId) {
+    async function editUser(userId) {
+      try {
+        const response = await fetch(`get_user.php?id=${userId}`);
+        const user = await response.json();
+
+        document.getElementById('userId').value = user.id;
+        document.getElementById('name').value = user.name;
+        document.getElementById('username').value = user.username;
+        document.getElementById('password').value = '';
+        document.getElementById('employeeId').value = user.employee_id;
+        document.getElementById('userType').value = user.user_type;
+        document.getElementById('factory').value = user.factory;
+
+        userFormContainer.style.display = 'block';
+        userListContainer.style.display = 'none';
+      } catch (error) {
+        console.error('Error loading user:', error);
+        alert('Error loading user data');
+      }
+    }
+
+    async function deleteUser(userId) {
+      if (confirm('Are you sure you want to delete this user?')) {
         try {
-          const response = await fetch(`get_user.php?id=${userId}`);
-          const user = await response.json();
-
-          document.getElementById('userId').value = user.id;
-          document.getElementById('name').value = user.name;
-          document.getElementById('username').value = user.username;
-          document.getElementById('password').value = '';
-          document.getElementById('employeeId').value = user.employee_id;
-          document.getElementById('userType').value = user.user_type;
-          document.getElementById('factory').value = user.factory;
-
-          userFormContainer.style.display = 'block';
-          userListContainer.style.display = 'none';
-        } catch (error) {
-          console.error('Error loading user:', error);
-          alert('Error loading user data');
-        }
-      }
-
-      async function deleteUser(userId) {
-        if (confirm('Are you sure you want to delete this user?')) {
-          try {
-            const response = await fetch(`delete_user.php?id=${userId}`, {
-              method: 'DELETE'
-            });
-
-            const result = await response.json();
-            if (result.success) {
-              alert('User deleted successfully!');
-              viewAllUsers();
-            } else {
-              alert('Error deleting user: ' + (result.message || 'Unknown error'));
-            }
-          } catch (error) {
-            console.error('Error:', error);
-            alert('Error deleting user. Check console for details.');
-          }
-        }
-      }
-
-      async function handleUserFormSubmit(e) {
-        e.preventDefault();
-
-        const userId = document.getElementById('userId').value;
-        const userData = {
-          name: document.getElementById('name').value,
-          username: document.getElementById('username').value,
-          password: document.getElementById('password').value,
-          employee_id: document.getElementById('employeeId').value,
-          user_type: document.getElementById('userType').value,
-          factory: document.getElementById('factory').value
-        };
-
-        try {
-          const url = userId ? `update_user.php?id=${userId}` : 'create_user.php';
-          const method = userId ? 'PUT' : 'POST';
-
-          const response = await fetch(url, {
-            method: method,
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
+          const response = await fetch(`delete_user.php?id=${userId}`, {
+            method: 'DELETE'
           });
 
           const result = await response.json();
           if (result.success) {
-            alert(`User ${userId ? 'updated' : 'created'} successfully!`);
+            alert('User deleted successfully!');
             viewAllUsers();
           } else {
-            alert(`Error ${userId ? 'updating' : 'creating'} user: ` + (result.message || 'Unknown error'));
+            alert('Error deleting user: ' + (result.message || 'Unknown error'));
           }
         } catch (error) {
           console.error('Error:', error);
-          alert(`Error ${userId ? 'updating' : 'creating'} user. Check console for details.`);
+          alert('Error deleting user. Check console for details.');
         }
       }
+    }
 
-      function showLoading(show) {
-        const loading = document.getElementById('loading');
-        if (show) {
-          if (!loading) {
-            const div = document.createElement('div');
-            div.id = 'loading';
-            div.style.position = 'fixed';
-            div.style.top = '0';
-            div.style.left = '0';
-            div.style.width = '100%';
-            div.style.height = '100%';
-            div.style.backgroundColor = 'rgba(0,0,0,0.5)';
-            div.style.display = 'flex';
-            div.style.justifyContent = 'center';
-            div.style.alignItems = 'center';
-            div.style.zIndex = '9999';
-            div.innerHTML = `
+    async function handleUserFormSubmit(e) {
+      e.preventDefault();
+
+      const userId = document.getElementById('userId').value;
+      const userData = {
+        name: document.getElementById('name').value,
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value,
+        employee_id: document.getElementById('employeeId').value,
+        user_type: document.getElementById('userType').value,
+        factory: document.getElementById('factory').value
+      };
+
+      try {
+        const url = userId ? `update_user.php?id=${userId}` : 'create_user.php';
+        const method = userId ? 'PUT' : 'POST';
+
+        const response = await fetch(url, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          alert(`User ${userId ? 'updated' : 'created'} successfully!`);
+          viewAllUsers();
+        } else {
+          alert(`Error ${userId ? 'updating' : 'creating'} user: ` + (result.message || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert(`Error ${userId ? 'updating' : 'creating'} user. Check console for details.`);
+      }
+    }
+
+    function showLoading(show) {
+      const loading = document.getElementById('loading');
+      if (show) {
+        if (!loading) {
+          const div = document.createElement('div');
+          div.id = 'loading';
+          div.style.position = 'fixed';
+          div.style.top = '0';
+          div.style.left = '0';
+          div.style.width = '100%';
+          div.style.height = '100%';
+          div.style.backgroundColor = 'rgba(0,0,0,0.5)';
+          div.style.display = 'flex';
+          div.style.justifyContent = 'center';
+          div.style.alignItems = 'center';
+          div.style.zIndex = '9999';
+          div.innerHTML = `
             <div style="background: white; padding: 20px; border-radius: 5px; display: flex; align-items: center; gap: 10px;">
               <div class="loading-spinner"></div>
               <span>Loading...</span>
             </div>
           `;
-            document.body.appendChild(div);
-          }
-        } else {
-          if (loading) loading.remove();
+          document.body.appendChild(div);
         }
+      } else {
+        if (loading) loading.remove();
       }
-    </script>
+    }
+  </script>
 </body>
 
-</html>
+</html> 
