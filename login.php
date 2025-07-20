@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $location = $_POST['location'];
 
     try {
-        // First check for superadmin credentials
-        if ($username === 'superadmin' && $password === '1234' && $location === 'head office') {
+        // Check for superadmin credentials
+        if (($username === 'superadmin' || $username === 'superadmin2') && $password === '1234' && $location === 'head office') {
             $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND factory = ?");
             $stmt->execute([$username, $location]);
             $user = $stmt->fetch();
