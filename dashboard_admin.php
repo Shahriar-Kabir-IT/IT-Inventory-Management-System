@@ -627,7 +627,7 @@ tr:hover {
     <div class="header">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <div>
-          <h1>IT Asset Inventory Management</h1>
+          <h1>                     IT Asset Inventory</h1>
           <p>Ananta Companies Head</p>
         </div>
         <div style="color: white; text-align: right; padding: 10px;">
@@ -666,9 +666,8 @@ tr:hover {
         <select id="factoryFilter">
           <option value="all">Head Office</option>
           <option value="agl">AGL</option>
-          <option value="ajl">AJL</option>
+          <option value="ajl">AJL & PWPL</option>
           <option value="abm">ABM</option>
-          <option value="pwpl">PWPL</option>
         </select>
       </div>
 
@@ -735,9 +734,8 @@ tr:hover {
         <select id="deletedFactoryFilter">
           <option value="head_office">Head Office</option>
           <option value="agl">AGL</option>
-          <option value="ajl">AJL</option>
+          <option value="ajl">AJL & PWPL</option>
           <option value="abm">ABM</option>
-          <option value="pwpl">PWPL</option>
         </select>
       </div>
 
@@ -1129,9 +1127,8 @@ tr:hover {
           <select id="historyFactoryFilter" onchange="loadServiceHistory()">
             <option value="head_office">Head Office</option>
             <option value="agl">AGL</option>
-            <option value="ajl">AJL</option>
+            <option value="ajl">AJL & PWPL</option>
             <option value="abm">ABM</option>
-            <option value="pwpl">PWPL</option>
             <option value="all">All Factories</option>
           </select>
         </div>

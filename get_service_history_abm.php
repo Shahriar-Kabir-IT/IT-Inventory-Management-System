@@ -5,7 +5,7 @@ require_once 'db_functions.php';
 try {
     if (isset($_GET['asset_id'])) {
         $assetId = $_GET['asset_id'];
-        $stmt = $pdo->prepare("SELECT * FROM service_history_ajl WHERE asset_id = ? ORDER BY service_date DESC");
+        $stmt = $pdo->prepare("SELECT * FROM service_history_abm WHERE asset_id = ? ORDER BY service_date DESC");
         $stmt->execute([$assetId]);
         $history = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } else {

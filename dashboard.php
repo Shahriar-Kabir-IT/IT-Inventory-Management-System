@@ -620,7 +620,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <div>
           <h1>IT Asset Inventory Management</h1>
-          <p>Ananta Companies Head</p>
+          <p>Ananta Companies Head Office</p>
         </div>
         <div style="color: white; text-align: right; padding: 10px;">
           <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
@@ -1936,7 +1936,7 @@ $is_admin = ($current_user['user_type'] === 'admin');
                   <td>${record.service_by || 'N/A'}</td>
                   <td>${record.status || 'N/A'}</td>
                   <td>${formatDate(record.completion_date) || 'N/A'}</td>
-                  <td>${record.service_notes || ''}</td>
+                  <td>${record.service_notes || ''}${record.completion_notes ? '<br><br>Completion Notes: ' + record.completion_notes : ''}</td>
                 </tr>
               `).join('')}
             </tbody>

@@ -1,471 +1,677 @@
 asset_id,asset_name,category ,brand,model,serial_number,status,location,assigned_to,department ,purchase_date,purchase_price ,warranty_expiry,last_maintenance,priority,notes
-ABMIT-001,Dell i3-4120,File server PC,Dell,N/A,N/A,ACTIVE,Server Room ABM,For File sharing & Storage,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-002,LENOVO I5*64 7TH,Attendance PC,Lenovo,N/A,N/A,ACTIVE,Server Room ABM,For Attendance Machine ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-003,Mikrotik Router,Routing Device,Mikrotik,CCR 1009 -7G,N/A,ACTIVE,Server Room ABM,Core CCR ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-004,Mikrotik Router,Routing Device,Mikrotik,RB  951Ui-2HnD,N/A,ACTIVE,Server Room ABM,Local CCR ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-005,Online UPS,Online UPS,N/A,N/A,N/A,ACTIVE,Server Room ABM,For Electricity Backup for Server Room,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-006,Online UPS,Online UPS,N/A,N/A,N/A,ACTIVE,Server Room ABM,Backup Online UPS,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-007,Online UPS,Online UPS,N/A,N/A,N/A,ACTIVE,CAD Room ABM,Backup Online UPS,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-008,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,5th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-009,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,5th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-010,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-011,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,INACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-012,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-013,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-014,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-015,16 Port network Switch,Network Switch,16 Port network Switch,N/A,N/A,ACTIVE,3rd floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-016,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,3rd floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-017,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,3rd floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-018,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,2nd floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-019,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,1st floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-020,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,1st floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-021,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,Ground Floor ,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-022,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,Ground Floor ,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-023,24 Port network Switch,Network Switch,24 Port network Switch,N/A,N/A,ACTIVE,Ground Floor ,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-024,8 Port network Switch,Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,2nd floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-025,8 Port network Switch,Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,1st floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-026,NVR,CCTV,Dahua,N/A,N/A,ACTIVE,Server Room ABM,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-027,NVR,CCTV,Dahua,N/A,N/A,ACTIVE,Server Room ABM,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-028,NVR,CCTV,Dahua,N/A,N/A,ACTIVE,Server Room ABM,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-029,NVR ( Police),CCTV,Vsense,N/A,N/A,ACTIVE,Server Room ABM,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-030,DVR,CCTV,Dahua,N/A,N/A,ACTIVE,Server Room ABM,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-031,IP Camera,CCTV,Vsense,N/A,N/A,ACTIVE,Main Gate Left side,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-032,IP Camera,CCTV,Vsense,N/A,N/A,ACTIVE,Main Gate Right side,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-033,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th floor store front desk,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-034,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd floor store,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-035,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd floor south side  iron,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-036,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd Floor Metal Checking,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-037,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Inspection Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-038,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-G.F Security Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-039,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-3rd floor bartek area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-040,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-4th floor bartek area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-041,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd Floor Packing Area 01,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-042,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th floor bartek area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-043,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-1st Floor CTN Store,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-044,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Rejection-2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-045,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th floor 2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-046,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Cutting Area 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-047,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Fair Price Shop Area2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-048,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Fair Price Shop Area1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-049,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-1st floor 2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-050,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Cutting Area 4,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-051,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-3rd Floor CAD Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-052,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Cutting Area 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-053,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Cutting Fusing Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-054,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Fabric Inspection,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-055,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Load_Unload Inside,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-056,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-G.F Pump Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-057,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Wash Delivery,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-058,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-North West Corner,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-059,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Generator Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-060,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-3rd Gate Outside,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-061,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM South Side Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-062,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-1st Fl Front of Packing,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-063,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-1st Fl Packing Area2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-064,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-3rd Floor Special Section,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-065,IP Camera,CCTV,Vsense,N/A,N/A,ACTIVE,ABM-Main Gate-3 Inside,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-066,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Main Gate Outside1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-067,IP Camera,CCTV,Vsense,N/A,N/A,ACTIVE,ABM-Main Gate Inside,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-068,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Main Gate Outside2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-069,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-South West Corner,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-070,IP Camera,CCTV,Vsense,N/A,N/A,ACTIVE,ABM-Building Outside Roof View2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-071,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-North East Corner,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-072,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th floor training room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-073,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th Floor Work Study ,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-074,IP Camera,CCTV,Vsense,N/A,N/A,ACTIVE,ABM-Building Outside Roof View1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-075,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-4th Floor West Side,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-076,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th Floor Idle Machine are,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-077,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th Floor Sample Section,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-078,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-5th Floor 4th gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-079,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-4th Floor West Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-080,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Medical,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-081,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-G.F Day Care Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-082,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-G.F Jute Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-083,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-1st Floor Spot Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-084,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Cutting Area 03,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-085,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-3rd Floor 3rd Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-086,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd Floor Spot Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-087,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd Floor 3rd Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-088,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Front of Generator Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-089,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-4th Floor Office Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-090,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd Floor Packing Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-091,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-2nd Floor Iron Side,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-092,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Fabric Store,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-093,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Cutting Desk Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-094,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-1st Fl Packing Area1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-095,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Load_Unload Outside,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-096,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-1st Floor Metal Checking,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-097,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Old Building Outside,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-098,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Staff Dinning,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-099,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Rejection,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-100,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM-Wash Load Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-101,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM Roof-5,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-102,IP Camera,CCTV,HI Video,N/A,N/A,ACTIVE,ABM Roof-4,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-103,IP Camera,CCTV,HI Video,N/A,N/A,ACTIVE,ABM Roof-3,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-104,IP Camera,CCTV,HI Video,N/A,N/A,ACTIVE,ABM Roof-2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-105,IP Camera,CCTV,HI Video,N/A,N/A,ACTIVE,ABM Roof-1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-106,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM 2nd floor finish goods 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-107,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM 2nd floor finish goods 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-108,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM 1st floor finish goods 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-109,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM 1st floor finish goods 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-110,IP Camera,CCTV,HI Video,N/A,N/A,ACTIVE,ABM Outside Load Unload 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-111,IP Camera,CCTV,HI Video,N/A,N/A,ACTIVE,ABM Outside Load Unload 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-112,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM Roof Solar Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-113,IP Camera,CCTV,Dahua,N/A,N/A,ACTIVE,ABM Security Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-114,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-3rd Floor 2nd Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-115,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-2nd Floor 4th Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-116,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-5th floor Canteen,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-117,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-4th Floor 1st Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-118,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-2nd Floor Desk Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-119,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-4th Floor 3rd Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-120,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-1st floor 4th gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-121,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-3rd Floor 1st Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-122,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-4th Floor 3rd Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-123,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-4th Floor 1st Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-124,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-Roof Top New Building,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-125,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-4th Floor Admin Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-126,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-5th Floor 4th Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-127,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-Accessories store,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-128,DVR CAMERA,CCTV,DVR CAMERA,N/A,N/A,ACTIVE,ABM-4th Floor 4th Gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-129,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,ACTIVE,Ground Floor  1st gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-130,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,Ground Floor  2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-131,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,Ground Floor  3rd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-132,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,1st floor 1st gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-133,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,ACTIVE,1st floor 2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-134,Attendence Machine,Attendance Machine,uFace800Plus,N/A,N/A,ACTIVE,1st floor 3rd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-135,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,2nd floor 1st gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-136,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,ACTIVE,2nd floor 2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-137,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,ACTIVE,2nd floor 3rd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-138,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,ACTIVE,3rd floor 1st gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-139,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,3rd floor 2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-140,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,ACTIVE,3rd floor 3rd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-141,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,3rd floor  4th gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-142,Attendence Machine,Attendance Machine,uFace800,N/A,N/A,ACTIVE,3rd floor Cad gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-143,Attendence Machine,Attendance Machine,uFace800,N/A,N/A,ACTIVE,3rd floor Eylet special,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-144,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,4th floor 1st gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-145,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,ACTIVE,4th floor 2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-146,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,4th floor 3rd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-147,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,4th floor 4th gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-148,Attendence Machine,Attendance Machine,uFace800,N/A,N/A,ACTIVE,4th floor 1st gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-149,Attendence Machine,Attendance Machine,uFace800,N/A,N/A,ACTIVE,4th floor Bartek Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-150,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,5th floor 1st gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-151,Attendence Machine,Attendance Machine,uFace902plus,N/A,N/A,ACTIVE,5th floor 2nd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-152,Attendence Machine,Attendance Machine,uFace800 ID,N/A,N/A,INACTIVE,5th floor 3rd gate,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-153,WIFI Router,Network Device,Asus,N/A,N/A,ACTIVE,Ground Floor,Cutting (Ground floor),ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-154,WIFI Router,Network Device,Asus,N/A,N/A,ACTIVE,Ground Floor,Utility(Ground floor),ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-155,WIFI Router,Network Device,Asus,N/A,N/A,ACTIVE,1st Floor,Tema ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-156,WIFI Router,Network Device,Asus,N/A,N/A,ACTIVE,3rd Floor,Li&Fung,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-157,WIFI Router,Network Device,Asus,N/A,N/A,ACTIVE,4th Floor,Bestseller new inspection room,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-158,WIFI Router,Network Device,Asus,N/A,N/A,ACTIVE,5th Floor,GM (Monir Sir),ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-159,WIFI Router,Network Device,Tp-Link,N/A,N/A,ACTIVE,1st Floor,Office Room,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-160,WIFI Router,Network Device,Tp-Link,N/A,N/A,ACTIVE,5th Floor,Conference Room,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-161,Access Point,Network Device,Ruijie,N/A,N/A,ACTIVE,1st Floor,Workstudy,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-162,Access Point,Network Device,Ruijie,N/A,N/A,INACTIVE,4th Floor,Backup,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-163,Access Point,Network Device,Ruijie,N/A,N/A,INACTIVE,5th Floor,Backup,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-164,Access Point,Network Device,Ruijie,N/A,N/A,INACTIVE,6th Floor,Backup,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-165,Printer,Printer,HP LAJER JET 1510A,HP LAJER JET 1510A,N/A,ACTIVE,Ground Floor,Wash,Wash,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-166,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,Ground Floor,Cutting,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-167,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,Ground Floor,Febric,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-168,Printer,Printer,HP LAJERJET P1102,HP LAJERJET P1102,N/A,ACTIVE,Ground Floor,Utility,Utility,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-169,Printer,Printer,HP LASER JET M-404DN,HP LASER JET M-404DN,N/A,ACTIVE,1st Floor,Bestseller,Bestseller,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-170,Printer,Printer,HP LASER JET M-402DN,HP LASER JET M-402DN,N/A,ACTIVE,1st Floor,Tema,Tema,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-171,Printer,Printer,Brother HL2365DW,Brother HL2365DW,N/A,ACTIVE,1st Floor,Li&Fung,Li&Fung,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-172,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,1st Floor,H&M,H&M,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-173,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,1st Floor,Quality,Quality,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-174,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,2nd floor,Finishing,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-175,Printer,Printer,HP LASER JET M-404DN,HP LASER JET M-404DN,N/A,ACTIVE,2nd floor,Finishing,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-176,Printer,Printer,Brother HL2365DW,Brother HL2365DW,N/A,ACTIVE,2nd floor,Store,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-177,Printer,Printer,HP LAJERJET P1102,HP LAJERJET P1102,N/A,ACTIVE,3rd Floor,CAD,CAD,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-178,Printer,Color Printer,HP SMART TANK 515,HP SMART TANK 515,N/A,ACTIVE,3rd Floor,Production (GM),Production (GM),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-179,Printer,Printer,Brother HL2365DW,Brother HL2365DW,N/A,ACTIVE,4th Floor,Administration,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-180,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,4th Floor,Account,Account,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-181,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,4th Floor,Office Room,Office Room,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-182,Printer,Color Printer,CANON IP 2772,CANON IP 2772,N/A,ACTIVE,4th Floor,HR,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-183,Printer,Color Printer,BROTHER MFC -J2330DW,BROTHER MFC -J2330DW,N/A,ACTIVE,4th Floor,Office Room,Office Room,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-184,Printer,Color Printer,CANON IP 2772,CANON IP 2772,N/A,ACTIVE,5th Floor,Workstudy,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-185,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,ACTIVE,5th Floor,Workstudy,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-186,Printer,Printer,Brother HL2365DW,Brother HL2365DW,N/A,ACTIVE,5th Floor,Store,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-187,Printer,POS Printer,POS Printer,POS Printer,N/A,ACTIVE,5th Floor,Fair Price Shop,Fair Price Shop,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-188,Printer,Printer,HP LASER JET M-402DN,HP LASER JET M-402DN,N/A,ACTIVE,5th Floor,Production ,Production ,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-189,Printer,Printer,HP LASER JET M 401DN,HP LASER JET M 401DN,N/A,INACTIVE,N/A,Backup,Backup,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-190,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,INACTIVE,N/A,Backup,Backup,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-191,Printer,Printer,Brother HL-6200DW,Brother HL-6200DW,N/A,INACTIVE,N/A,Backup,Backup,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-192,Printer,Printer,Brother HL2365DW,Brother HL2365DW,N/A,INACTIVE,N/A,Backup,Backup,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-193,Printer,Zebra Printer,ZEBRA ZT 230,ZEBRA ZT 230,N/A,ACTIVE,Ground Floor,Cutting,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-194,Printer,Zebra Printer,ZEBRA-420,ZEBRA-420,N/A,ACTIVE,2nd floor,Finishing,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-195,Printer,Zebra Printer,ZEBRA-421,ZEBRA-421,N/A,ACTIVE,2nd floor,Finishing,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-196,Printer,Zebra Printer,ZEBRA ZT 230,ZEBRA ZT 230,N/A,ACTIVE,2nd floor,Finishing,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-197,TV,TV,SoGood,N/A,N/A,ACTIVE,3rd Floor,Production GM Sir,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-198,TV,TV,Sony,N/A,N/A,INACTIVE,5th Floor,Backup,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-199,TV,TV,Sony,N/A,N/A,INACTIVE,5th Floor,Backup,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-200,TV,TV,Sony,N/A,N/A,INACTIVE,5th Floor,Backup,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-201,TV,TV,Haier,N/A,N/A,ACTIVE,4th Floor,Conference Room,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-202,TV,TV,Haier,N/A,N/A,ACTIVE,Ground Floor,Security Point,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-203,TV,TV,Haier,N/A,N/A,ACTIVE,5th Floor,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-204,TV,TV,Osaka,N/A,N/A,ACTIVE,Grounf Floor,Fabric Store,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-205,TV,TV,Vezio,N/A,N/A,ACTIVE,4th Floor,Conference Room,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-206,TV,TV,N/A,N/A,N/A,ACTIVE,Ground Floor,Day care,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-207,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Samiul,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-208,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,saiful,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-209,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,sajjad,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-210,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Junayed,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-211,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rakib,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-212,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Workstudy TV,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-213,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Gobindo,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-214,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Gobindo,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-215,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sohel,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-216,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rana Hamid,IT(BGMEA),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-217,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Jasim,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-218,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Mehedi,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-219,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sadik,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-220,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sohel,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-221,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Dipon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-222,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Jahangir,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-223,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Al-amin,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-224,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Torikul,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-225,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Moazzem,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-226,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Barek,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-227,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rony,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-228,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Mahmud,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-229,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rasel,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-230,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Debasis,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-231,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rasedul Haque,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-232,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sahin,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-233,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rahim,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-234,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,CAD Room,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-235,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Silpi,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-236,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Hafizur,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-237,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Soniya,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-238,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,yeasin,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-239,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Helal,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-240,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Raju,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-241,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Asad,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-242,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Asad,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-243,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Saidul,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-244,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Saidul,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-245,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Firoz,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-246,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sorif,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-247,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sorif,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-248,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Anis,QA,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-249,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sajjad,Qms,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-250,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Yunus,Quality,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-251,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Nur Islam,Maintainance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-252,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Ilias,NQC,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-253,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Juwel,NQC,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-254,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Mainul,LI & FUNG,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-255,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Sohag,TEMA,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-256,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Nizam,BESTSELLER,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-257,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Monir,Medical,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-258,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Anis,Security,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-259,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Johirul,Wash,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-260,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rakib,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-261,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Mamun,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-262,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Kamal,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-263,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Simul,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-264,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Pranto,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-265,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Shakil,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-266,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Jahangir,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-267,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Harun,Account,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-268,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Harun,Account,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-269,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Ripon,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-270,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Ansari,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-271,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Aminur,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-272,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rokon,Audit,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-273,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Israfil,Audit,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-274,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Owashiqur,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-275,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Momota,Welfare,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-276,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Al-amin,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-277,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Tajul,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-278,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rana Hamid,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-279,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Rana Hamid,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-280,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Office Room Common PC,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-281,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Office Color Printer,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-282,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Mehedi,Fair Price Shop,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-283,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Milon Sir ,Administration (AGM),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-284,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Shahin,Utility,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-285,650VA,UPS,UPS,650VA,N/A,ACTIVE,N/A,Milon Sir -> CCTV,Administrtation(AGM),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-286,ACER core i5 Laptop,Laptop,Acer,Acer,N/A,ACTIVE,N/A,Production GM Sir,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-287,HP core i5 Laptop,Laptop,HP,HP,N/A,ACTIVE,N/A,Quality GM Sir,Quality,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-288,HP core i3 Laptop,Laptop,HP,HP,N/A,ACTIVE,N/A,Tanveer,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-289,ACER core i5 Laptop,Laptop,Acer,Acer,N/A,ACTIVE,N/A,IT Support,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-290,Dell i3 Laptop,Laptop,Dell,Dell,N/A,ACTIVE,N/A,IT Support,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-291,Compaq Celeron Laptop,Laptop,Compaq,Compaq,N/A,ACTIVE,N/A,Sohel ,QMS,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-292,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Samiul,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-293,ACER core i5 ,Desktop,ACER core i5 ,N/A,N/A,ACTIVE,N/A,saiful,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-294,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,sajjad,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-295,Lenovo Thinkcare,Desktop,Lenovo Thinkcare,N/A,N/A,ACTIVE,N/A,Junayed,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-296,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Rakib,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-297,HP-PRODESK I5*64 7TH,Desktop,HP-PRODESK I5*64 7TH,N/A,N/A,ACTIVE,N/A,Gobindo,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-298,HP-PRODESK I5*64 7TH,Desktop,HP-PRODESK I5*64 7TH,N/A,N/A,ACTIVE,N/A,Gobindo,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-299,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Sohel,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-300,ACER core i5 ,Desktop,ACER core i5 ,N/A,N/A,ACTIVE,N/A,Rana Hamid,IT(BGMEA),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-301,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Jasim,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-302,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Mehedi,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-303,PACE I3*64 ,Desktop,PACE I3*64 ,N/A,N/A,ACTIVE,N/A,Sadik,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-304,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Sohel,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-305,PACE I3*64 ,Desktop,PACE I3*64 ,N/A,N/A,ACTIVE,N/A,Dipon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-306,ACER core i5 ,Desktop,ACER core i5 ,N/A,N/A,ACTIVE,N/A,Jahangir,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-307,ACER core i5 ,Desktop,ACER core i5 ,N/A,N/A,ACTIVE,N/A,Al-amin,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-308,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Torikul,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-309,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Moazzem,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-310,PACE I3*64 3TH,Desktop,PACE I3*64 3TH,N/A,N/A,ACTIVE,N/A,Barek,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-311,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Rony,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-312,ASUS I5*64 4TH,Desktop,ASUS I5*64 4TH,N/A,N/A,ACTIVE,N/A,Mahmud,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-313,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Rasel,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-314,ASROCK I3*64 2ND,Desktop,ASROCK I3*64 2ND,N/A,N/A,ACTIVE,N/A,Debasis,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-315,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Rasedul Haque,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-316,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Sahin,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-317,HP I5*64 8TH,Desktop,HP I5*64 8TH,N/A,N/A,ACTIVE,N/A,Rahim,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-318,ASUS I5*32 4TH,Desktop,ASUS I5*32 4TH,N/A,N/A,ACTIVE,N/A,CAD Room,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-319,ASUS I5*32 4TH,Desktop,ASUS I5*32 4TH,N/A,N/A,ACTIVE,N/A,Silpi,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-320,ASUS I5*32 4TH,Desktop,ASUS I5*32 4TH,N/A,N/A,ACTIVE,N/A,Hafizur,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-321,ASUS I5*32 4TH,Desktop,ASUS I5*32 4TH,N/A,N/A,ACTIVE,N/A,Soniya,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-322,HP I3*32 8TH,Desktop,HP I3*32 8TH,N/A,N/A,ACTIVE,N/A,yeasin,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-323,"ACER,I5*64 8TH",Desktop,"ACER,I5*64 8TH",N/A,N/A,ACTIVE,N/A,Helal,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-324,THINKCENTRE I5*64 8TH,Desktop,THINKCENTRE I5*64 8TH,N/A,N/A,ACTIVE,N/A,Raju,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-325,DELL I5*64 4TH,Desktop,DELL I5*64 4TH,N/A,N/A,ACTIVE,N/A,Asad,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-326,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Saidul,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-327,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Firoz,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-328,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Sorif,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-329,HP I5*64 10TH,Desktop,HP I5*64 10TH,N/A,N/A,ACTIVE,N/A,Anis,QA,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-330,HP I3*64 4TH,Desktop,HP I3*64 4TH,N/A,N/A,ACTIVE,N/A,Sajjad,Qms,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-331,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Yunus,Quality,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-332,PACE I3*64,Desktop,PACE I3*64,N/A,N/A,ACTIVE,N/A,Nur Islam,Maintainance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-333,DELL I5*64 4TH,Desktop,DELL I5*64 4TH,N/A,N/A,ACTIVE,N/A,Ilias,NQC,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-334,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Juwel,NQC,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-335,ACER i5*64 12th,Desktop,ACER i5*64 12th,N/A,N/A,ACTIVE,N/A,Mainul,LI & FUNG,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-336,ACER I5*64 12th,Desktop,ACER I5*64 12th,N/A,N/A,ACTIVE,N/A,Sohag,TEMA,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-337,ACER I5*64 12th,Desktop,ACER I5*64 12th,N/A,N/A,ACTIVE,N/A,Nizam,BESTSELLER,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-338,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Monir,Medical,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-339,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Anis,Security,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-340,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Johirul,Wash,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-341,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Rakib,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-342,DELL I3*65 4TH,Desktop,DELL I3*65 4TH,N/A,N/A,ACTIVE,N/A,Mamun,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-343,THINKCENTRE(MINI) I5*64 12TH,Desktop,THINKCENTRE(MINI) I5*64 12TH,N/A,N/A,ACTIVE,N/A,Kamal,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-344,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Simul,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-345,LENOVO I5*64 8TH,Desktop,LENOVO I5*64 8TH,N/A,N/A,ACTIVE,N/A,Pranto,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-346,HP I5*64*7TH,Desktop,HP I5*64*7TH,N/A,N/A,ACTIVE,N/A,Shakil,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-347,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Jahangir,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-348,HP I5*64 7TH,Desktop,HP I5*64 7TH,N/A,N/A,ACTIVE,N/A,Harun,Account,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-349,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Ripon,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-350,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Ansari,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-351,DELL I5*64 4TH,Desktop,DELL I5*64 4TH,N/A,N/A,ACTIVE,N/A,Aminur,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-352,HP I5*7TH,Desktop,HP I5*7TH,N/A,N/A,ACTIVE,N/A,Rokon,Audit,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-353,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Israfil,Audit,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-354,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Owashiqur,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-355,PACE I3*64*3TH,Desktop,PACE I3*64*3TH,N/A,N/A,ACTIVE,N/A,Momota,Welfare,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-356,LENOVO I5*64 12TH,Desktop,LENOVO I5*64 12TH,N/A,N/A,ACTIVE,N/A,Al-amin,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-357,ACER I5*64 12TH,Desktop,ACER I5*64 12TH,N/A,N/A,ACTIVE,N/A,Tajul,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-358,HP I5*64 10TH,Desktop,HP I5*64 10TH,N/A,N/A,ACTIVE,N/A,Rana Hamid,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-359,LENOVO I5*64 12TH,Desktop,LENOVO I5*64 12TH,N/A,N/A,ACTIVE,N/A,Office Room Common PC,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-360,LENOVO I5*64 12TH,Desktop,LENOVO I5*64 12TH,N/A,N/A,ACTIVE,N/A,Mehedi,Fair Price Shop,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-361,ATECH I3*64 2ND,Desktop,ATECH I3*64 2ND,N/A,N/A,ACTIVE,N/A,Shahin,Utility,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-362,THINKCENTRE(MINI) I5*64 12TH,Desktop,THINKCENTRE(MINI) I5*64 12TH,N/A,N/A,ACTIVE,N/A,Milon Sir ,Administration (AGM),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-363,DELL I3*64 4TH,Desktop,DELL I3*64 4TH,N/A,N/A,ACTIVE,N/A,Milon Sir ,Administration (AGM),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-364,DELL WINDOWS SERVER 2012 I3*64 4TH,Desktop,DELL WINDOWS SERVER 2012 I3*64 4TH,N/A,N/A,ACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-365,LENOVO I5*64 7TH,Desktop,LENOVO I5*64 7TH,N/A,N/A,ACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-366,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Samiul,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-367,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,saiful,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-368,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,sajjad,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-369,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Junayed,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-370,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Rakib,Workstudy,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-371,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Gobindo,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-372,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Gobindo,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-373,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Sohel,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-374,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Rana Hamid,IT(BGMEA),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-375,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Jasim,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-376,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Mehedi,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-377,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Sadik,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-378,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Sohel,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-379,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Dipon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-380,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Jahangir,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-381,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Al-amin,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-382,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Torikul,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-383,19'',Monitor,Samsung ,N/A,N/A,ACTIVE,N/A,Moazzem,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-384,19'',Monitor,Samsung ,N/A,N/A,ACTIVE,N/A,Barek,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-385,22'',Monitor,HP,N/A,N/A,ACTIVE,N/A,Rony,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-386,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Mahmud,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-387,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Rasel,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-388,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Debasis,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-389,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Rasedul Haque,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-390,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Sahin,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-391,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Rahim,Store,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-392,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,CAD Room,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-393,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Silpi,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-394,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Hafizur,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-395,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Soniya,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-396,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,yeasin,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-397,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Helal,Cad,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-398,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Raju,Production,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-399,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Asad,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-400,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Saidul,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-401,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Firoz,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-402,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Sorif,Finishing,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-403,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Anis,QA,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-404,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Sajjad,Qms,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-405,19'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Yunus,Quality,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-406,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Nur Islam,Maintainance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-407,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Ilias,NQC,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-408,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Juwel,NQC,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-409,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Mainul,LI & FUNG,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-410,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Sohag,TEMA,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-411,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Nizam,BESTSELLER,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-412,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Monir,Medical,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-413,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Anis,Security,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-414,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Johirul,Wash,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-415,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Rakib,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-416,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Mamun,Cutting,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-417,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Kamal,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-418,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Simul,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-419,22'',Monitor,HP,N/A,N/A,ACTIVE,N/A,Pranto,Febric,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-420,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Shakil,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-421,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Jahangir,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-422,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Harun,Account,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-423,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Ripon,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-424,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Ansari,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-425,19'',Monitor,Samsung ,N/A,N/A,ACTIVE,N/A,Aminur,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-426,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Rokon,Audit,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-427,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Israfil,Audit,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-428,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Owashiqur,Administration,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-429,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Momota,Welfare,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-430,22'',Monitor,MI,N/A,N/A,ACTIVE,N/A,Al-amin,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-431,22'',Monitor,HP,N/A,N/A,ACTIVE,N/A,Tajul,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-432,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Rana Hamid,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-433,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Office Room Common PC,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-434,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Mehedi,Fair Price Shop,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-435,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Shahin,Utility,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-436,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Milon Sir ,Administration (AGM),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-437,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Milon Sir ,Administration (AGM),N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-438,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-439,22'',Monitor,LG,N/A,N/A,ACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-440,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-441,22'',Monitor,Dell,N/A,N/A,ACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-442,22'',Monitor,LG,N/A,N/A,INACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-443,22'',Monitor,LG,N/A,N/A,INACTIVE,N/A,Server Room,IT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-444,EPSON V39 II,Scanner,EPSON V39 II,N/A,N/A,ACTIVE,1st Floor,Shohag,Tema,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-445,EPSON V39 II,Scanner,EPSON V39 II,N/A,N/A,ACTIVE,1st Floor,Moinul,Li&Fung,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-446,EPSON V39 II,Scanner,EPSON V39 II,N/A,N/A,ACTIVE,1st Floor,Juwel,H&M,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-447,EPSON V39 II,Scanner,EPSON V39 II,N/A,N/A,ACTIVE,4th Floor,Jahangir,HR,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-448,EPSON V39 II,Scanner,EPSON V39 II,N/A,N/A,ACTIVE,4th Floor,Rana Hamid,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-449,EPSON V39 II,Scanner,EPSON V39 II,N/A,N/A,ACTIVE,4th Floor,Common,Office Room Common desk,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-450,Toshiba 3028A,Photocopy Machine,Toshiba 3028A,N/A,N/A,ACTIVE,4th Floor,Common,Office Room,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-451,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,5th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-452,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-453,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,INACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-454,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,4th floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-455,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,2nd floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-456,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,1st floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-457,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,1st floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-458,8 Port network Switch,POE Network Switch,8 Port network Switch,N/A,N/A,ACTIVE,1st floor,For network ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-459,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,5th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-460,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,5th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-461,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,5th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-462,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,4th floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-463,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,4th floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-464,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,3rd Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-465,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,2nd floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-466,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,2nd floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-467,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,1st floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-468,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,1st floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-469,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,Ground Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
-ABMIT-470,Cabinet,Safenet,Cabinet,N/A,N/A,ACTIVE,Ground Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-001,Dell PowerEdge R730,Server,Dell,Dell PowerEdge R730,N/A,ACTIVE,Server Room H.O,Anti Virus Eset ,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-002,Dell PowerEdge R730,Server,Dell,Dell PowerEdge R730,N/A,ACTIVE,Server Room H.O,Backup Mail,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-003,Dell PowerEdge R730,Server,Dell,Dell PowerEdge R730,N/A,ACTIVE,Server Room H.O,DC,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-004,Dell PowerEdge R730,Server,Dell,Dell PowerEdge R730,N/A,ACTIVE,Server Room H.O,ERP Application,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-005,Dell PowerEdge R730,Server,Dell,Dell PowerEdge R730,N/A,ACTIVE,Server Room H.O,Inventory,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-006,Dell PowerEdge R730,Server,Dell,Dell PowerEdge R730,N/A,ACTIVE,Server Room H.O,ADC,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-007,Dell PowerEdge R730,Server,Dell,Dell PowerEdge R730,N/A,ACTIVE,Server Room H.O,ERP VM,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-008,Dell PowerEdge R740,Server,Dell,Dell PowerEdge R740,N/A,ACTIVE,Server Room H.O,Mail Server,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-009,Dell PowerEdge R740,Server,Dell,Dell PowerEdge R740,N/A,ACTIVE,Server Room H.O,ERP,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-010,Dell PowerEdge R740,Server,Dell,Dell PowerEdge R740,N/A,ACTIVE,Server Room H.O,Oracle Data Guard,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-011,Dell PowerEdge R740,Server,Dell,Dell PowerEdge R740,N/A,ACTIVE,Server Room H.O,RAC Node-1,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-012,Dell PowerEdge R740,Server,Dell,Dell PowerEdge R740,N/A,ACTIVE,Server Room H.O,RAC Node-2,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-013,Dell PowerEdge R720,Server,Dell,Dell PowerEdge R720,N/A,ACTIVE,Server Room H.O,Old HRM,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-014,Dell PowerEdge T300,Server,Dell,Dell PowerEdge T300,N/A,ACTIVE,Server Room H.O,E-Assesment for HR,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-015,Dell PowerEdge T300,Server,Dell,Dell PowerEdge T300,N/A,ACTIVE,Server Room H.O,Uttara Common Share,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-016,Dell PowerEdge R760,Server,Dell,Dell PowerEdge R760,N/A,ACTIVE,Server Room H.O,Commercial Data,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-017,Dell PowerEdge R710,Server,Dell,Dell PowerEdge R710,N/A,ACTIVE,Server Room H.O,Network Monitoring System,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-018,DELL EMC Storage ,Server,Dell,DELL EMC Storage ,N/A,ACTIVE,Server Room H.O,ERP Storage,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-019,Dell PowerEdge R750,Server,Dell,Dell PowerEdge R750,N/A,ACTIVE,Server Room H.O,ERP New,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-020,QSAN ,Server,QSAN ,QSAN ,N/A,ACTIVE,Server Room H.O,NAS Storage,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-021,Thecus,Server,Thecus,Thecus,N/A,ACTIVE,Server Room H.O,Server for several dept.,ICT,N/A,N/A,N/A,N/A,High,N/A
+HOIT-022,Dell PowerEdge R300 ,Server,Dell,Dell PowerEdge R300 ,N/A,OUT OF ORDER,Server Room H.O,Motherboard damaged,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-023,Dell PowerEdge R720,Server,Dell,Dell PowerEdge R720,N/A,OUT OF ORDER,Server Room H.O,Motherboard damaged,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-024,Dell PowerEdge R720,Server,Dell,Dell PowerEdge R720,N/A,OUT OF ORDER,Server Room H.O,Motherboard damaged,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-025,Dell PowerEdge R720,Server,Dell,Dell PowerEdge R720,N/A,OUT OF ORDER,Server Room H.O,Motherboard damaged,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-026,Mikrotik Router,Routing Device,Mikrotik,CCR 2116,N/A,ACTIVE,Server Room H.O,Core CCR ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-027,Mikrotik Router,Routing Device,Mikrotik,CCR 1036,N/A,ACTIVE,Server Room H.O,Local CCR ,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-028,Mikrotik Router,Routing Device,Mikrotik,CCR 2116,N/A,INACTIVE,Server Room H.O,Stock,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-029,Mikrotik Router,Routing Device,Mikrotik,CCR 1009,N/A,INACTIVE,Server Room H.O,Configured fro AJL,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-030,Dahua NVR5464-EI 64 Channel,NVR,Dahua,Dahua NVR5464-EI 64 Channel,9L0D445PAZB35EE,ACTIVE,Server Room H.O,H.O CCTV Storage device,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-031,Fortigate 200F,Firewall,Fortinet,Fortigate 200F,N/A,ACTIVE,Server Room H.O,For security of our network,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-032,Vertiv Liebert-ITA2,Online UPS,Vertiv,Vertiv Liebert-ITA2,N/A,ACTIVE,Server Room H.O,For Electricity Backup for Server Room,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-033,Vertiv Liebert-ITA2,Online UPS,Vertiv,Vertiv Liebert-ITA2,N/A,ACTIVE,Server Room H.O,Backup Online UPS,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-034,Cisco Business 350 ,Network Switch,Cisco,Cisco Business 350 ,N/A,INACTIVE,Server Room H.O,,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-035,Cisco Business 350 ,Network Switch,Cisco,Cisco Business 350 ,N/A,ACTIVE,Server Room H.O,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-036,Level One GTL 2880,Network Switch,Level One,Level One GTL 2880,N/A,ACTIVE,Server Room H.O,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-037,Cisco SAN Switch,Network Switch,Cisco,Cisco SAN Switch,N/A,INACTIVE,Server Room H.O,,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-038,Level One GTL 2861,Network Switch,Level One,Level One GTL 2861,N/A,INACTIVE,Server Room H.O,Some of ports are damaged by thunder,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-039,Level One GTL 2880,Network Switch,Level One,Level One GTL 2880,N/A,ACTIVE,Server Room H.O,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-040,Cisco Business 350 ,Network Switch,Cisco,Cisco Business 350 ,N/A,ACTIVE,Server Room H.O,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-041,24 Port network switch,Network Switch,N/A,24 Port network switch,N/A,ACTIVE,2nd Floor 1st Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-042,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,2nd Floor 1st Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-043,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,2nd Floor 2nd Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-044,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,2nd Floor 2nd Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-045,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,3rd Floor 1st Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-046,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,3rd Floor 2nd Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-047,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,4th Floor 1st Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-048,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,4th Floor 2nd Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-049,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,5th Floor 1st Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-050,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,5th Floor 2nd Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-051,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,6th Floor Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-052,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,7th Floor 1st Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-053,24 Port network switch,Network Switch,N/A,24 Port 2 Switch Per Cabinet,N/A,ACTIVE,7th Floor 2nd Switch Cabinet,For Network distribution,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-054,TP Link LS1008 8-Port 10/100 MBPS,Network Switch,N/A,TP Link LS1008 8-Port 10/100 MBPS,225402H032992,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-055,Barracuda 300,Mail Security Gateway,Barracuda,Barracuda 300,N/A,ACTIVE,Server Room H.O,For mail security,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-056,Barracuda 200,Mail Security Gateway,Barracuda,Barracuda 200,N/A,INACTIVE,Server Room H.O,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-057,HI-IP2A,IP CCTV Camera,Hivideo,HI-IP2A,I212C181AD90DB9E02720B0,ACTIVE,Lift Area Reception,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-058,DH-IPC-HDW1230T1-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230T1-S5,8H0CF4FPAGA6014,ACTIVE,Outside Cam-1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-059,DH-IPC-HDW1230T2-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230T2-S5,AE01FBBPAG6D901,ACTIVE,2nd Floor H.O (HR),N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-060,HI-IP2A,IP CCTV Camera,Hivideo,HI-IP2A,I212C1828B7CD3969408790,ACTIVE,2nd Floor H.O (ICT),N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-061,HI-IP2A,IP CCTV Camera,Hivideo,HI-IP2A,I212C18290DEA89531F45CB,ACTIVE,2nd Floor Admin,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-062,IPC-HDW1220S,IP CCTV Camera,Dahua,IPC-HDW1220S,3H07524PAA00676,ACTIVE,Server Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-063,IPC-HDW1220S,IP CCTV Camera,Dahua,IPC-HDW1220S,3H07524PAA00575,ACTIVE,A.C.C,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-064,HI-IP3H,IP CCTV Camera,Hivideo,HI-IP3H,I21461883B78E7280220FA4,ACTIVE,Prime Bank Staircase,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-065,Vsense 2MP,IP CCTV Camera,Vsense,Vsense 2MP,037a00020063e28f69fd,ACTIVE,2nd Floor AC Outdoor Section,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-066,IPC-HDW1320S,IP CCTV Camera,Dahua,IPC-HDW1320S,3H02071PAA00098,ACTIVE,Commercial Dept. (Export),N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-067,IPC-HFW1320S,IP CCTV Camera,Dahua,IPC-HFW1320S,3J06939PAG00748,ACTIVE,Commercial Dept. (Import),N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-068,HI-IP2A,IP CCTV Camera,Hivideo,HI-IP2A,I212C18321BEDA9940DF816,ACTIVE,Lift Area Commercial,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-069,IPC-HDW1230S,IP CCTV Camera,Dahua,IPC-HDW1230S,4H05D93PAG417A9,ACTIVE,4th Floor Cam-1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-070,IPC-HDW1320S,IP CCTV Camera,Dahua,IPC-HDW1320S,3H02071PAA00092,ACTIVE,4th Floor Cam-2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-071,IPC-HFW1230S-S4,IP CCTV Camera,Dahua,IPC-HFW1230S-S4,6J03758PAG0ECC0,ACTIVE,4th Floor Cam-3,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-072,DH-IPC-HDW1230S-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230S-S5,8C0446EPAG9C49E,ACTIVE,Lift Gate Merchandising,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-073,IPC-HDW1220S,IP CCTV Camera,Dahua,IPC-HDW1220S,3H07524PAA00940,ACTIVE,Merchandising 5th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-074,IPC-B1B20-L,IP CCTV Camera,Dahua,IPC-B1B20-L,4H04188PAG65B9E,ACTIVE,Merchandising 5th Floor-2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-075,DH-IPC-HDW1230S-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230S-S5,8C0446EPAGA9073,ACTIVE,Design Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-076,HI-IP3H,IP CCTV Camera,Hivideo,HI-IP3H,I21461820119607E578C99D,ACTIVE,Lift Area 5th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-077,IPC-HDW1230S,IP CCTV Camera,Dahua,IPC-HDW1230S,5E06414PAGC0C9B,ACTIVE,Lift Area 6th Floor H.O,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-078,HI-IP3H,IP CCTV Camera,Hivideo,HI-IP3H,I214618B1102138DE12BB86,ACTIVE,6th Floor Staircase,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-079,DH-IPC-HDW1230T1-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230T1-S5,8H0CF4FPAG63105,ACTIVE,6th Floor Passage,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-080,Vsense 2MP,IP CCTV Camera,Vsense,Vsense 2MP,037a00020063e27c699f,ACTIVE,Lift Area Accounts,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-081,IPC-HDW1230S,IP CCTV Camera,Dahua,IPC-HDW1230S,4H05D93PAG82F4B,ACTIVE,Accounts Dept.,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-082,IPC-HDW1220S,IP CCTV Camera,Dahua,IPC-HDW1220S,3H07524PAA00511,ACTIVE,Accounts,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-083,Vsense 2MP,IP CCTV Camera,Vsense,Vsense 2MP,037a00020063e268696f,ACTIVE,Supply Chain,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-084,HI-IP2A,IP CCTV Camera,Hivideo,HI-IP2A,I212C183AA1013158AC5E5B,ACTIVE,Reception H.O,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-085,IPC-HDW1230S,IP CCTV Camera,Dahua,IPC-HDW1230S,5F00248PAG71CAA,ACTIVE,Car Parking H.O Cam-2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-086,IPC-HDW1320S,IP CCTV Camera,Dahua,IPC-HDW1320S,3H02071PAA00335,ACTIVE,Car Parking,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-087,IPC-HDW1220S,IP CCTV Camera,Dahua,IPC-HDW1220S,3H07524PAA00842,ACTIVE,Driver Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-088,DH-IPC-HDW1230T1-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230T1-S5,8H0CF4FPAG370C4,ACTIVE,Building Back Side,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-089,IPC-HDW1230S,IP CCTV Camera,Dahua,IPC-HDW1230S,5F00248PAG5E594,ACTIVE,G.F Lift Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-090,IPC-HDW1230S,IP CCTV Camera,Dahua,IPC-HDW1230S,5E06414PAGFBDF0,ACTIVE,Security Point (Parking),N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-091,IPC-HDW1220S,IP CCTV Camera,Dahua,IPC-HDW1220S,3H07524PAA00729,ACTIVE,Lift 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-092,HI-IP3H,IP CCTV Camera,Hivideo,HI-IP3H,I21461803E6FA220D8C3B72,ACTIVE,Lift 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-093,HI-IP2A,IP CCTV Camera,Hivideo,HI-IP2A,I212C18CC9C0DDCA1AE7322,ACTIVE,8th Floor H.O,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-094,IPC-HDW1220S,IP CCTV Camera,Dahua,IPC-HDW1220S,3H07524PAA00506,ACTIVE,Ground Floor Staircase,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-095,IPC-HDW1230S,IP CCTV Camera,Dahua,IPC-HDW1230S,5F00248PAG0FC27,ACTIVE,Outside cam-2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-096,DH-IPC-HDW1230S-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230S-S5,8C0446EPAG25FB1,ACTIVE,Building Back Inside Area,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-097,Vsense 2MP,IP CCTV Camera,Vsense,Vsense 2MP,037a0002004e794774fd,ACTIVE,Building Back Gate Corridor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-098,DH-IPC-HDW1230S-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230S-S5,8C0446EPAG5652B,ACTIVE,Dining,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-099,DH-IPC-HDW1230T1-S5,IP CCTV Camera,Dahua,DH-IPC-HDW1230T1-S5,8G02E35PAGFCC0C,ACTIVE,Roof Top,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-100,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,ACTIVE,2nd Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-101,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,ACTIVE,3rd Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-102,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,ACTIVE,4th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-103,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,ACTIVE,5th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-104,ZktEco Uface 800,Attendance Device,ZktEco,ZktEco Uface 800,N/A,ACTIVE,5th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-105,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,ACTIVE,6th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-106,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,ACTIVE,6th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-107,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,ACTIVE,7th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-108,ZktEco Uface 800,Attendance Device,ZktEco,ZktEco Uface 800,N/A,ACTIVE,7th Floor,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-109,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,INACTIVE,IT Store,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-110,ZktEco Speedface V5L,Attendance Device,ZktEco,ZktEco Speedface V5L,N/A,INACTIVE,IT Store,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-111,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,2nd floor front ,N/A,"Reciption, Admin",N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-112,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,2nd floor back,N/A,"ICT, HR",N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-113,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,3rd floor front,N/A,Commercial Export,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-114,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,3rd floor back,N/A,Commercial Import,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-115,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,4th floor front,N/A,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-116,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,4th floor back,N/A,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-117,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,5th floor front,N/A,Fashion Desiging,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-118,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,5th floor back,N/A,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-119,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,6th floor secretariat,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-120,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,6th floor higher management,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-121,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,7th floor accounts,N/A,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-122,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,7th floor supply chain,N/A,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-123,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,8th floor Lions,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-124,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,Dining Head Office,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-125,Asus N18U,Wireless Router,Asus,Asus N18U,N/A,ACTIVE,Security Point,N/A,Security,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-126,Toto Link,Wireless Router,Toto Link,Toto Link,N/A,ACTIVE,Driver Room,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-127,HP 404 (BW),Printer,HP,HP 404 (BW),N/A,ACTIVE,Admin and Transport,N/A,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-128,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,HR and ICT,N/A,HR and ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-129,Cannon IP2770 (Color USB),Printer,Cannon,Cannon IP2770 (Color USB),N/A,ACTIVE,Ataur Shabuj Desk,Ataur Shabuj,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-130,Cannon IP2770 (Color USB),Printer,Cannon,Cannon IP2770 (Color USB),N/A,ACTIVE,Khoka Desk,Khoka,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-131,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,Kakoly Mam Desk,Kakoly Madam,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-132,Epson L18000 (Color USB),Printer,Epson,Epson L18000 (Color USB),N/A,ACTIVE,Khoka Desk,Khoka,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-133,Brother DCP-L250 DW (BW),Printer,Brother,Brother DCP-L250 DW (BW),N/A,ACTIVE,ICT Section,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-134,HP 404 (BW),Printer,HP,HP 404 (BW),N/A,ACTIVE,Commercial Import Himel's Desk,Himel,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-135,HP 4003 (BW),Printer,HP,HP 4003 (BW),N/A,ACTIVE,Commercial Import Arman's Desk,Arman,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-136,HP 402 (BW),Printer,HP,HP 402 (BW),N/A,ACTIVE,Commercial Export Shabuj's Desk,Shabuj Mia,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-137,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,Commercial Export Shahadat's Desk,Shahadat,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-138,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,Commercial Export Masud's Desk,Masud,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-139,Brother 5210 (BW),Printer,Brother,Brother 5210 (BW),N/A,ACTIVE,Commercial Export Rakibul's Desk,Rakibul,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-140,HP 404 (BW),Printer,HP,HP 404 (BW),N/A,ACTIVE,Commercial Export Humayra's Desk,Humayra,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-141,HP 404 (BW),Printer,HP,HP 404 (BW),N/A,ACTIVE,Commercial Import Parvin's Desk,Parvin,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-142,Brother 5210 (BW),Printer,Brother,Brother 5210 (BW),N/A,ACTIVE,Commercial Import Mahim's Desk,Mahim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-143,Cannon IP2770 (Color USB),Printer,Cannon,Cannon IP2770 (Color USB),N/A,ACTIVE,Commercial Export Sweet's Desk,Sweet,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-144,Cannon IP2770 (Color USB),Printer,Cannon,Cannon IP2770 (Color USB),N/A,ACTIVE,Commercial Import Monir's Desk,Monir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-145,Cannon IP2770 (Color USB),Printer,Cannon,Cannon IP2770 (Color USB),N/A,ACTIVE,Sharif Sir's Desk,Sharif Sir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-146,Cannon IP2770 (Color USB),Printer,Cannon,Cannon IP2770 (Color USB),N/A,ACTIVE,Taher Sir's Desk,Taher Sir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-147,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,4th Floor,HnM Section,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-148,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,4th Floor,HnM Section For Tag Printing,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-149,HP Smart Tank 750 (Color-Network),Printer,HP,HP Smart Tank 750 (Color-Network),N/A,ACTIVE,4th Floor,HnM Section,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-150,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,4th Floor,HnM Section,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-151,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,5th Floor,"Bestseller, Vouge Section",Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-152,Brother MFC-J2330DW (Color),Printer,Brother,Brother MFC-J2330DW (Color),N/A,ACTIVE,6th floor merchandising,"Bestseller, Vouge Section",Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-153,Brother J2330DW (Color),Printer,Brother,Brother J2330DW (Color),N/A,ACTIVE,5th Floor,Fashion designing Dept.,Fashion Desiging,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-154,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,5th Floor Planning and merchandising,Common Black and White printer,Planning and Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-155,Brother T820DW (Color),Printer,Brother,Brother T820DW (Color),N/A,ACTIVE,5th Floor Planning and merchandising,Common color printer,Planning and Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-156,HP LaserJet Pro M404 (BW),Printer,HP,HP LaserJet Pro M404 (BW),N/A,ACTIVE,6th floor administration,Common Black and White Printer,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-157,Brother T820 DW (Color),Printer,Brother,Brother T820 DW (Color),N/A,ACTIVE,6th floor administration,Common Color Printer,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-158,Cannon IP2770 (Color USB),Printer,Cannon,Cannon IP2770 (Color USB),N/A,ACTIVE,6th floor Legal section,Mr. Badhon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-159,HP INK Tank (Color-USB),Printer,HP,HP INK Tank (Color-USB),N/A,ACTIVE,DMD sir Room,DMD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-160,Brother 2365 (BW),Printer,Brother,Brother 2365 (BW),N/A,ACTIVE,Chairman Sir,Chairman Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-161,HP INK Tank (Color-USB),Printer,HP,HP INK Tank (Color-USB),N/A,ACTIVE,Ridwan Sir,Ridwan Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-162,HP INK Tank (Color-USB),Printer,HP,HP INK Tank (Color-USB),N/A,ACTIVE,ED Sir,Ed Sir,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-163,HP 404 (BW),Printer,HP,HP 404 (BW),N/A,ACTIVE,Amin Sir's Desk,Amin Sir,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-164,Cannon Cheque Printer,Printer,Cannon,Cannon Cheque Printer,N/A,ACTIVE,Accounts Cheque printer,Amin Sir,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-165,Brother 5200 (BW),Printer,Brother,Brother 5200 (BW),N/A,ACTIVE,Near Abdur Rahman's Desk,Abdur Rahman,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-166,HP 404 (BW),Printer,HP,HP 404 (BW),N/A,ACTIVE,7th floor Accounts,Common Black and White Printer,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-167,Brother T820 DW (Color),Printer,Brother,Brother T820 DW (Color),N/A,ACTIVE,7th floor Accounts,Common Color Printer,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-168,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,7th floor supply chain,Common Black and White Printer,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-169,Brother J2330DW (Color),Printer,Brother,Brother J2330DW (Color),N/A,ACTIVE,7th floor supply chain,Common Color Printer,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-170,Brother 6200 (BW),Printer,Brother,Brother 6200 (BW),N/A,ACTIVE,Basement,N/A,Security,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-171,"Samsung 55""",TV,Samsung,"Samsung 55""",N/A,ACTIVE,8th floor Lions,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-172,"Xiaomi 45""",TV,Xiaomi,"Xiaomi 45""",N/A,ACTIVE,6th floor waiting room,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-173,"Samsung 65""",TV,Samsung,"Samsung 65""",N/A,ACTIVE,6th floor conf room-2,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-174,"Samsung 65""",TV,Samsung,"Samsung 65""",N/A,ACTIVE,6th Floor conf room-1,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-175,"Samsung 65""",TV,Samsung,"Samsung 65""",N/A,ACTIVE,6th floor Ridwan sir room,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-176,"Samsung 45""",TV,Samsung,"Samsung 45""",N/A,ACTIVE,6th floor DMD sir Room,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-177,"Samsung 45""",TV,Samsung,"Samsung 45""",N/A,ACTIVE,6th floor MD sir Room,N/A,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-178,"Hiar 55""",TV,Hiar,"Hiar 55""",N/A,ACTIVE,5th floor Planning board,N/A,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-179,"Mango 65""",TV,Mango,"Mango 65""",N/A,ACTIVE,5th floor designing studio,N/A,Fashion Desiging,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-180,"Hiar 45""",TV,Hiar,"Hiar 45""",N/A,ACTIVE,2nd Floor Conference Room-2,Conference Room-2,,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-181,"Hiar 45""",TV,Hiar,"Hiar 45""",N/A,ACTIVE,2nd Floor Reception,2nd Floor Reception,,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-182,"Mango 65""",TV,Mango,"Mango 65""",N/A,ACTIVE,ACC CCTV Monitoring TV-1,CCTV Monitoring TV-1,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-183,"Mango 65""",TV,Mango,"Mango 65""",N/A,ACTIVE,ACC CCTV Monitoring TV-2,CCTV Monitoring TV-2,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-184,"Mango 65""",TV,Mango,"Mango 65""",N/A,ACTIVE,ACC CCTV Monitoring TV-3,CCTV Monitoring TV-3,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-185,"Mango 65""",TV,Mango,"Mango 65""",N/A,ACTIVE,ACC CCTV Monitoring TV-4,CCTV Monitoring TV-4,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-186,"Mango 65""",TV,Mango,"Mango 65""",N/A,ACTIVE,ACC CCTV Monitoring TV-5,CCTV Monitoring TV-5,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-187,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Moniya,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-188,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Piash,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-189,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Montacir,Transport,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-190,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Sobuj,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-191,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Reza,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-192,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Jabed,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-193,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Jarif,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-194,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Aman,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-195,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Candidate Test,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-196,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Mohebullah,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-197,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Arko,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-198,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Mounota,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-199,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Aminur,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-200,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Anis,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-201,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Khoka,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-202,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,Kazi Mokammel,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-203,650VA,UPS,N/A,650VA,N/A,ACTIVE,2nd Floor,It Hardware,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-204,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Taher Khan,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-205,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Humyra,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-206,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Mamun,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-207,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Sahadat,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-208,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Sabuj,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-209,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Rasel Sheikh,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-210,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Belal,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-211,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Salim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-212,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Tomal,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-213,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Tabassum,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-214,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Sweet,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-215,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Masud,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-216,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Avishekh,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-217,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Sadek,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-218,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Rakib,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-219,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Ibtesham,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-220,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Sakib,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-221,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Shariful Islam,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-222,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Subrata,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-223,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Anwar,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-224,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Fatema,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-225,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Tahsin,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-226,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Parveen,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-227,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Tanjim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-228,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Sohel,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-229,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Monir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-230,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Himel,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-231,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Arman,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-232,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Sabbir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-233,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Esrat Jahan Mahim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-234,650VA,UPS,N/A,650VA,N/A,ACTIVE,3rd Floor,Common PC,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-235,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Monwar,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-236,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Hasibul Talukder,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-237,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Sumon Sen,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-238,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Shaykat Barua,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-239,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Aslam,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-240,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Silvia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-241,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Asif Al Hasan,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-242,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Shuvo,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-243,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Nabil,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-244,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Sohel,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-245,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Asif Sohel,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-246,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Mehedi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-247,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Nazmul,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-248,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Kalpona,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-249,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Mamun Or Rashid,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-250,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Tanvir,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-251,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Erina,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-252,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Maauj Bin Bodor,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-253,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Pinky,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-254,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Oishik Nokrek,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-255,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Tayibur,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-256,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Kamol,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-257,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Maung,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-258,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Nur,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-259,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Tasir,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-260,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Mahabubul Alam,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-261,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Shayla,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-262,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Manik,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-263,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Shatabdi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-264,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Tabassum Riya,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-265,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Mamia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-266,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Sadia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-267,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Ali Orit,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-268,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Oishi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-269,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Tania,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-270,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Nafiul,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-271,650VA,UPS,N/A,650VA,N/A,ACTIVE,5th Floor,Manoj,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-272,650VA,UPS,N/A,650VA,N/A,ACTIVE,4th Floor,Yasir Arafat Tarek,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-273,1200 VA,UPS,N/A,1200 VA,N/A,ACTIVE,6th Floor,MD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-274,1200 VA,UPS,N/A,1200 VA,N/A,ACTIVE,6th Floor,DMD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-275,1200 VA,UPS,N/A,1200 VA,N/A,ACTIVE,6th Floor,Ridwan Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-276,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,6th Floor,Reaz,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-277,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,6th Floor,Nishan,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-278,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,6th Floor,Alif,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-279,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,6th Floor,Waliul,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-280,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,6th Floor,Badhon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-281,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,6th Floor,Zidan,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-282,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,6th Floor,Shibly,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-283,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Amin Sir,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-284,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Atiq,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-285,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Malek,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-286,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Abdur Rahman,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-287,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Mahbub,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-288,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Monjur,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-289,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Abu Sayeed,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-290,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Mehedi Hasan,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-291,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Jyotirmay,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-292,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Shakil,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-293,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Himel Saha,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-294,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Shishir,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-295,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Rayhan,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-296,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Alkas,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-297,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Foysal Saif,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-298,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Saleh Ahmed,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-299,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,External Audit PC,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-300,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Rizwan,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-301,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Rupok,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-302,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Sheli,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-303,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Manik,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-304,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Abu Baker,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-305,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Farhan,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-306,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Labib ,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-307,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Rokibul,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-308,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Sohel,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-309,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Al Amin,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-310,650 VA,UPS,N/A,650 VA,N/A,ACTIVE,7th Floor,Abu Sadat Emran,FABRIC & ACCE. PROCUREMENT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-311,Prolink 650VA ,UPS,Prolink,Prolink 650VA ,SN: 590201243700482,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-312,Prolink 650VA ,UPS,Prolink,Prolink 650VA ,SN: 590201243700483,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-313,Prolink 650VA ,UPS,Prolink,Prolink 650VA ,SN: 590201243700484,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-314,HP Pavilion Rizen 5,Laptop,HP,HP Pavilion Rizen 5,N/A,ACTIVE,4th Floor H.O,Monwar ,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-315,Lenovo Ideapad Rizen 5,Laptop,Lenovo,Lenovo Ideapad Rizen 5,N/A,ACTIVE,4th Floor H.O,Ruhul,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-316,HP Elitebook Core i5,Laptop,HP,HP Elitebook Core i5,N/A,ACTIVE,4th Floor H.O,Debasree,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-317,Lenovo Ideapad Rizen 5,Laptop,Lenovo,Lenovo Ideapad Rizen 5,N/A,ACTIVE,4th Floor H.O,Asad,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-318,Lenovo Ideapad 320 Core i5,Laptop,Lenovo,Lenovo Ideapad 320 Core i5,N/A,ACTIVE,4th Floor H.O,Sany,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-319,HP Pavilion Rizen 5,Laptop,HP,HP Pavilion Rizen 5,N/A,ACTIVE,4th Floor H.O,Shaheen,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-320,Lenovo Ideapad 320 Core i5,Laptop,Lenovo,Lenovo Ideapad 320 Core i5,N/A,ACTIVE,4th Floor H.O,Mamun,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-321,HP Elitebook Core i5,Laptop,HP,HP Elitebook Core i5,N/A,ACTIVE,4th Floor H.O,Asif Sohel,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-322,Lenovo Ideapad 320 Core i5,Laptop,Lenovo,Lenovo Ideapad 320 Core i5,N/A,ACTIVE,4th Floor H.O,Razib,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-323,Asus Sonicmaster Core i5,Laptop,Asus,Asus Sonicmaster Core i5,N/A,ACTIVE,4th Floor H.O,Polash,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-324,Lenovo Ideapad Rizen 5,Laptop,Lenovo,Lenovo Ideapad Rizen 5,N/A,ACTIVE,5th Floor H.O,Shibly,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-325,HP Pavilion Rizen 5,Laptop,HP,HP Pavilion Rizen 5,N/A,ACTIVE,5th Floor H.O,Ikram Apu,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-326,HP Elitebook 745 G6,Laptop,Lenovo,HP Elitebook 745 G6,N/A,ACTIVE,5th Floor H.O,Manoj,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-327,HP Elitebook Core i5,Laptop,HP,HP Elitebook Core i5,N/A,ACTIVE,5th Floor H.O,Safayete,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-328,Lenovo Ideapad 320 Core i5,Laptop,Lenovo,Lenovo Ideapad 320 Core i5,N/A,ACTIVE,2nd Floor H.O,Kakoly Mam,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-329,HP Elitebook Core i5,Laptop,HP,HP Elitebook Core i5,N/A,ACTIVE,2nd Floor H.O,Mesba Sir,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-330,HP Elitebook Core i5,Laptop,HP,HP Elitebook Core i5,N/A,ACTIVE,2nd Floor H.O,Kazi Mokammel,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-331,HP Pavilion Rizen 5,Laptop,HP,HP Pavilion Rizen 5,N/A,ACTIVE,2nd Floor H.O,Dehan,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-332,HP Elitebook Core i7,Laptop,HP,HP Elitebook Core i7,N/A,ACTIVE,3rd Floor H.O,Arif Sir,Compliance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-333,Asus Sonicmaster Core i5,Laptop,Asus,Asus Sonicmaster Core i5,N/A,ACTIVE,5th Floor H.O,Ataur Sir,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-334,HP Pavillion,Laptop,HP,HP Pavillion,N/A,ACTIVE,5th Floor H.O,Arif,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-335,Asus Sonicmaster Core i5,Laptop,Asus,Asus Sonicmaster Core i5,N/A,ACTIVE,5th Floor H.O,Aminur Rahman,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-336,HP Elitebook Core i5,Laptop,HP,HP Elitebook Core i5,N/A,ACTIVE,5th Floor H.O,Bilkis,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-337,Lenovo Ideapad 320 Core i5,Laptop,Lenovo,Lenovo Ideapad 320 Core i5,N/A,ACTIVE,5th Floor H.O,Zahid,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-338,Lenovo Ideapad 320 Core i5,Laptop,Lenovo,Lenovo Ideapad 320 Core i5,N/A,ACTIVE,5th Floor H.O,Eva,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-339,HP Elitebook Corei7,Laptop,HP,HP Elitebook Corei7,N/A,ACTIVE,6th Floor H.O,DMD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-340,HP Elitebook Corei7,Laptop,HP,HP Elitebook Corei7,N/A,ACTIVE,6th Floor H.O,ED Sir,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-341,HP Elitebook 745 G6,Laptop,HP,HP Elitebook 745 G6,N/A,ACTIVE,4th Floor,Irin,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-342,HP Elitebook 745 G6,Laptop,HP,HP Elitebook 745 G6,N/A,ACTIVE,5th Floor,Kazi Belal,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-343,HP Elitebook 745 G6,Laptop,HP,HP Elitebook 745 G6,N/A,ACTIVE,4th Floor,Tanvir Haider,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-344,Lenovo Ideapad 320,Laptop,Lenovo,Lenovo Ideapad 320,N/A,ACTIVE,5th Floor,Nayeem,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-345,HP Elitebook 745 G6,Laptop,HP,HP Elitebook 745 G6,N/A,ACTIVE,4th Floor,Afzal,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-346,Lenovo Ideapad Core i5,Laptop,Lenovo,Lenovo Ideapad Core i5,N/A,ACTIVE,6th Floor H.O,Gias Sir,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-347,HP Prodesk 400,Desktop,HP,HP Prodesk 400,N/A,ACTIVE,Reciption,Moniya,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-348,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Admin,Piash,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-349,HP Prodesk 400,Desktop,HP,HP Prodesk 400,N/A,ACTIVE,Transport,Montacir,Transport,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-350,Lenovo Thinkcenter,Desktop,Lenovo,Lenovo Thinkcenter,N/A,ACTIVE,Sabuj,Sabuj,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-351,HP Prodesk 400,Desktop,HP,HP Prodesk 400,N/A,ACTIVE,Rezaul,Rezaul,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-352,Lenovo Thinkcenter,Desktop,Lenovo,Lenovo Thinkcenter,N/A,ACTIVE,Jarif,Jarif,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-353,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Javed,Javed,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-354,HP Prodesk 400,Desktop,HP,HP Prodesk 400,N/A,ACTIVE,Aman,Aman,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-355,Lenovo 3 in One PC,Desktop,Lenovo,Lenovo 3 in One PC,N/A,ACTIVE,Candidate Test PC,Candidate Test,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-356,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Omar,Omar,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-357,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Khoka,Khoka,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-358,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Arko,Arko,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-359,Lenovo Thinkcenter,Desktop,Lenovo,Lenovo Thinkcenter,N/A,ACTIVE,Mounota,Mounota,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-360,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Mohebullah,Mohebullah,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-361,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Aminur,Aminur,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-362,Lenovo Thinkcenter,Desktop,Lenovo,Lenovo Thinkcenter,N/A,ACTIVE,Hardwere test PC,Hardwere Test,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-363,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,Anis,Anis,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-364,Lenovo Thinkcenter,Desktop,Lenovo,Lenovo Thinkcenter,N/A,ACTIVE,ACC Reporting PC-1,Acc Reporting,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-365,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,ACC Reporting PC-2,Acc Reporting,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-366,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,ACC Monitoring PC-1,Acc Monitoring,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-367,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,ACC Monitoring PC-2,Acc Monitoring,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-368,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,ACC Monitoring PC-3,Acc Monitoring,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-369,HP Prodesk 450,Desktop,HP,HP Prodesk 450,N/A,ACTIVE,ACC Monitoring PC-4,Acc Monitoring,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-370,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Taher Khan,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-371,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,3rd floor ,Humyra,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-372,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Mamun,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-373,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,3rd floor ,Sahadat,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-374,Asus Desktop core i5,Desktop,Asus,Asus Desktop core i5,N/A,ACTIVE,3rd floor ,Sabuj,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-375,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Rasel Sheikh,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-376,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Belal,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-377,Asus Desktop core i5,Desktop,Asus,Asus Desktop core i5,N/A,ACTIVE,3rd floor ,Salim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-378,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,3rd floor ,Tomal,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-379,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Tabassum,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-380,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Sweet,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-381,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,3rd floor ,Masud,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-382,Asus Desktop core i5,Desktop,Asus,Asus Desktop core i5,N/A,ACTIVE,3rd floor ,Avishekh,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-383,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,3rd floor ,Sadek,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-384,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Rakib,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-385,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,3rd floor ,Ibtesham,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-386,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Sakib,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-387,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,3rd floor ,Shariful Islam,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-388,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Subrata,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-389,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,3rd floor ,Anwar,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-390,Asus Desktop core i5,Desktop,Asus,Asus Desktop core i5,N/A,ACTIVE,3rd floor ,Fatema,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-391,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,3rd floor ,Tahsin,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-392,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Parveen,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-393,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,3rd floor ,Tanjim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-394,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Sohel,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-395,Asus Desktop core i5,Desktop,Asus,Asus Desktop core i5,N/A,ACTIVE,3rd floor ,Monir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-396,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Himel,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-397,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,3rd floor ,Arman,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-398,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Sabbir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-399,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Firoz,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-400,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Saiful,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-401,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,3rd floor ,Fahad,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-402,Clone PC Core i3,Desktop,Clone,Clone PC Core i3,N/A,ACTIVE,3rd floor ,Common PC,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-403,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,3rd floor ,Esrat Jahan Mahim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-404,Lenovo Thinkcenter Core i5,Desktop,Lenovo,Lenovo Thinkcenter Core i5,N/A,ACTIVE,4th Floor,Monwar,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-405,Lenovo Thinkcenter Core i5,Desktop,Lenovo,Lenovo Thinkcenter Core i5,N/A,ACTIVE,4th Floor,Hasibul Talukder,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-406,Lenovo Thinkcenter Core i5,Desktop,Lenovo,Lenovo Thinkcenter Core i5,N/A,ACTIVE,5th Floor ,Sumon Sen,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-407,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor ,Shaykat Barua,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-408,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,4th Floor,Aslam,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-409,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor ,Silvia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-410,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor ,Asif Al Hasan,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-411,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor ,Shuvo,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-412,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Nabil,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-413,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Sohel,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-414,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Mehedi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-415,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,4th Floor,Nazmul,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-416,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Kalpona,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-417,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,4th Floor,Mamun Or Rashid,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-418,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor,Tanvir ,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-419,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Erina,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-420,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Maauj Bin Bodor,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-421,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,5th Floor,Pinky,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-422,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,5th Floor,Oishik Nokrek,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-423,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor,Tayibur,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-424,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Kamol,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-425,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,5th Floor ,Maung,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-426,Lenovo Thinkcenter Core i5,Desktop,Lenovo,Lenovo Thinkcenter Core i5,N/A,ACTIVE,5th Floor ,Nur,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-427,Dell Optiplex 3020 Core i3,Desktop,Dell,Dell Optiplex 3020 Core i3,N/A,ACTIVE,5th Floor ,Tasir,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-428,Dell Optiplex 7020 Core i3,Desktop,Dell,Dell Optiplex 7020 Core i3,N/A,ACTIVE,4th Floor,Mahabubul Alam,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-429,Asus Desktop core i5,Desktop,Asus,Asus Desktop core i5,N/A,ACTIVE,4th Floor,Shayla,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-430,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Manik,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-431,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor ,Shatabdi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-432,Lenovo Thinkcenter Core i5,Desktop,Lenovo,Lenovo Thinkcenter Core i5,N/A,ACTIVE,4th Floor,Tabassum Riya,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-433,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Mamia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-434,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,4th Floor,Sadia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-435,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,4th Floor,Ali Orit,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-436,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,4th Floor,Oishi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-437,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,4th Floor,Tania,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-438,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Nafiul,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-439,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,4th Floor,Yasir Arafat Tarek,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-440,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor ,Golam Mostofa,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-441,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,5th Floor ,Tithi ,Fashion Designing,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-442,Acer Core i5,Desktop,Acer,Acer Core i5,N/A,ACTIVE,5th Floor ,Nishi,Fashion Designing,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-443,Lenovo Thinkcenter Core i5,Desktop,Lenovo,Lenovo Thinkcenter Core i5,N/A,ACTIVE,6th Floor,Reaz,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-444,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,6th Floor,Nishan,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-445,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,6th Floor,Alif,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-446,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,6th Floor,Badhon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-447,Asus Desktop core i5,Desktop,Asus,Asus Desktop core i5,N/A,ACTIVE,6th Floor,Zidan,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-448,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,6th Floor,Shibly,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-449,HP Prodesk Core i5,Desktop,HP,HP Prodesk Core i5,N/A,ACTIVE,6th Floor,Waliul,Share Market Consultant,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-450,Lenovo Thinkcenter Core i7,Desktop,Lenovo,Lenovo Thinkcenter Core i7,N/A,ACTIVE,6th Floor,Ridwan Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-451,HP Prodesk Core i7,Desktop,HP,HP Prodesk Core i7,N/A,ACTIVE,6th Floor,MD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-452,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,6th Floor,CCTV Monitoring MD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-453,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,6th Floor,CCTV Monitoring ED Sir,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-454,Lenovo Thinkcenter core i5,Desktop,Asus,Lenovo Thinkcenter core i5,N/A,ACTIVE,7th Floor,Amin Sir,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-455,Asus Vivo Mini PC Core i5,Desktop,Asus,Asus Vivo Mini PC Core i5,N/A,ACTIVE,7th Floor,Atiq,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-456,Dell Optiplex 7020 Core i5,Desktop,Asus,Dell Optiplex 7020 Core i5,N/A,ACTIVE,7th Floor,Malek,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-457,Lenovo Thinkcenter core i5,Desktop,Asus,Lenovo Thinkcenter core i5,N/A,ACTIVE,7th Floor,Abdur Rahman,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-458,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Mahbub,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-459,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Monjur,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-460,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Abu Sayeed,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-461,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Mehedi Hasan,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-462,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Jyotirmay,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-463,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Shakil,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-464,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Himel Saha,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-465,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Shishir,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-466,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Rayhan,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-467,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Alkas,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-468,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Foysal Saif,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-469,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Saleh Ahmed,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-470,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,External Audit PC,,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-471,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Rizwan,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-472,Dell Optiplex 3020 Core i3,Desktop,Asus,Dell Optiplex 3020 Core i3,N/A,ACTIVE,7th Floor,Rupok,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-473,Acer Core i5,Desktop,Asus,Acer Core i5,N/A,ACTIVE,7th Floor,Sheli,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-474,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Manik,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-475,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Abu Baker,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-476,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Farhan,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-477,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Labib ,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-478,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Rokibul,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-479,Dell Optiplex 3020 Core i3,Desktop,Asus,Dell Optiplex 3020 Core i3,N/A,ACTIVE,7th Floor,Sohel,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-480,HP Prodesk Core i5,Desktop,Asus,HP Prodesk Core i5,N/A,ACTIVE,7th Floor,Al Amin,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-481,Dell Optiplex 3020 Core i3,Desktop,Asus,Dell Optiplex 3020 Core i3,N/A,ACTIVE,7th Floor,Abu Sadat Emran,FABRIC & ACCE. PROCUREMENT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-482,HP Elitedesk 800 G3 (Mini PC),Desktop,HP,HP Elitedesk 800 G3 (Mini PC),8CG82980DV,ACTIVE,2nd Floor,HR Scan Project,HR,26/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-483,HP Elitedesk 800 G3 (Mini PC),Desktop,HP,HP Elitedesk 800 G3 (Mini PC),8CG8247CWK,ACTIVE,2nd Floor,HR Scan Project,HR,26/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-484,HP Elitedesk 800 G3 (Mini PC),Desktop,HP,HP Elitedesk 800 G3 (Mini PC),8CG80442C0,ACTIVE,2nd Floor,HR Scan Project,HR,26/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-485,"21""",Monitor,HP,"21""",N/A,ACTIVE,Moniya,Reciption,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-486,"21""",Monitor,LG,"21""",N/A,ACTIVE,Piash,Admin,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-487,"21""",Monitor,HP,"21""",N/A,ACTIVE,Montacir,Transport,Transport,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-488,"21""",Monitor,ASUS,"21""",N/A,ACTIVE,Sabuj,Sabuj,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-489,"21""",Monitor,HP,"21""",N/A,ACTIVE,Rezaul,Rezaul,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-490,"21""",Monitor,DELL,"21""",N/A,ACTIVE,Jarif,Jarif,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-491,"21""",Monitor,ASUS,"21""",N/A,ACTIVE,Javed,Javed,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-492,"21""",Monitor,ASUS,"21""",N/A,ACTIVE,Aman,Aman,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-493,"24""",Monitor,HP,"24""",N/A,ACTIVE,Kakoly Mam,Kakoly Mam,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-494,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,Mesba Sir,Mesba Sir,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-495,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,Omar,Omar,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-496,"21""",Monitor,Xiaomi,"21""",N/A,ACTIVE,Khoka,Khoka,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-497,"21""",Monitor,Xiaomi,"21""",N/A,ACTIVE,Arko,Arko,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-498,"21""",Monitor,HP,"21""",N/A,ACTIVE,Mounota,Mounota,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-499,"21""",Monitor,HP,"21""",N/A,ACTIVE,Mohebullah,Mohebullah,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-500,"24""",Monitor,HP,"24""",N/A,ACTIVE,Aminur,Aminur,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-501,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,Anis,Anis,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-502,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,Kazi Mokammel,Kazi Mokammel,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-503,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,Dehan,Dehan,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-504,"24""",Monitor,LG,"21""",N/A,ACTIVE,IT Hardware Desk,It Hardware,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-505,"21""",Monitor,DELL,"21""",N/A,ACTIVE,Server Room,Server Room,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-506,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,ACC Reporting PC-1,Acc Reporting,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-507,"21""",Monitor,DELL,"21""",N/A,ACTIVE,ACC Reporting PC-2,Acc Reporting,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-508,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,3rd floor ,Taher Khan,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-509,"21""",Monitor,HP,"21""",N/A,ACTIVE,3rd floor ,Humyra,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-510,"21""",Monitor,Dell,"21""",N/A,ACTIVE,3rd floor ,Mamun,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-511,"21""",Monitor,Dell,"21""",N/A,ACTIVE,3rd floor ,Sahadat,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-512,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Sabuj,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-513,"21""",Monitor,HP,"21""",N/A,ACTIVE,3rd floor ,Rasel Sheikh,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-514,"21""",Monitor,Dell,"21""",N/A,ACTIVE,3rd floor ,Belal,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-515,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Salim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-516,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Tomal,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-517,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Tabassum,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-518,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Sweet,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-519,"21""",Monitor,Asus,"21""",N/A,ACTIVE,3rd floor ,Masud,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-520,"21""",Monitor,LG,"21""",N/A,ACTIVE,3rd floor ,Avishekh,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-521,"21""",Monitor,HP,"21""",N/A,ACTIVE,3rd floor ,Sadek,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-522,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Rakib,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-523,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Ibtesham,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-524,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Sakib,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-525,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,3rd floor ,Shariful Islam,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-526,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Subrata,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-527,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Anwar,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-528,"21""",Monitor,Asus,"21""",N/A,ACTIVE,3rd floor ,Fatema,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-529,"21""",Monitor,LG,"21""",N/A,ACTIVE,3rd floor ,Tahsin,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-530,"21""",Monitor,HP,"21""",N/A,ACTIVE,3rd floor ,Parveen,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-531,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Tanjim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-532,"21""",Monitor,HP,"21""",N/A,ACTIVE,3rd floor ,Sohel,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-533,"21""",Monitor,LG,"21""",N/A,ACTIVE,3rd floor ,Monir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-534,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Himel,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-535,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Arman,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-536,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Sabbir,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-537,"21""",Monitor,DELL,"21""",N/A,ACTIVE,3rd floor ,Firoz,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-538,"21""",Monitor,LG,"21""",N/A,ACTIVE,3rd floor ,Saiful,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-539,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,3rd floor ,Fahad,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-540,"18""",Monitor,DELL,"18""",N/A,ACTIVE,3rd floor ,Common PC,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-541,"21""",Monitor,LG,"21""",N/A,ACTIVE,3rd floor ,Esrat Jahan Mahim,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-542,"Xiaomi 27""",Monitor,Xiaomi,"Xiaomi 27""",N/A,ACTIVE,4th Floor,Monwar,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-543,"Xiaomi 24""",Monitor,Xiaomi,"Xiaomi 24""",N/A,ACTIVE,5th Floor ,Manoj,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-544,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Razib,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-545,"LG 24""",Monitor,LG,"LG 24""",N/A,ACTIVE,4th Floor,Shaheen,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-546,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Asad,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-547,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Hasibul Talukder,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-548,"21""",Monitor,HP,"21""",N/A,ACTIVE,5th Floor ,Sumon Sen,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-549,"21""",Monitor,DELL,"21""",N/A,ACTIVE,5th Floor ,Shaykat Barua,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-550,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Aslam,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-551,"21""",Monitor,HP,"21""",N/A,ACTIVE,5th Floor ,Silvia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-552,"21""",Monitor,LG,"21""",N/A,ACTIVE,5th Floor ,Asif Al Hasan,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-553,"21""",Monitor,LG,"21""",N/A,ACTIVE,5th Floor ,Shuvo,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-554,"21""",Monitor,LG,"21""",N/A,ACTIVE,4th Floor,Mamun,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-555,"21""",Monitor,LG,"21""",N/A,ACTIVE,4th Floor,Nabil,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-556,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Sohel,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-557,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Mehedi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-558,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Polash,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-559,"21""",Monitor,LG,"21""",N/A,ACTIVE,4th Floor,Nazmul,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-560,"21""",Monitor,LG,"21""",N/A,ACTIVE,4th Floor,Kalpona,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-561,"21""",Monitor,DELL,"21""",N/A,ACTIVE,4th Floor,Mamun Or Rashid,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-562,"21""",Monitor,DELL,"21""",N/A,ACTIVE,5th Floor,Tanvir,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-563,"21""",Monitor,LG,"21""",N/A,ACTIVE,4th Floor,Erina,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-564,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Maauj Bin Bodor,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-565,"21""",Monitor,LG,"21""",N/A,ACTIVE,5th Floor,Pinky,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-566,"21""",Monitor,DELL,"21""",N/A,ACTIVE,5th Floor,Oishik Nokrek,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-567,"21""",Monitor,DELL,"21""",N/A,ACTIVE,5th Floor ,Tayibur,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-568,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Kamol,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-569,"21""",Monitor,LG,"21""",N/A,ACTIVE,5th Floor ,Maung,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-570,"21""",Monitor,HP,"21""",N/A,ACTIVE,5th Floor ,Nur,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-571,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,5th Floor ,Ikrum Apu,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-572,"21""",Monitor,DELL,"21""",N/A,ACTIVE,5th Floor ,Tasir,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-573,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Mahabubul Alam,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-574,"21""",Monitor,DELL,"21""",N/A,ACTIVE,4th Floor,Shayla,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-575,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Manik,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-576,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Shatabdi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-577,"21""",Monitor,DELL,"21""",N/A,ACTIVE,4th Floor,Tabassum Riya,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-578,"21""",Monitor,HP,"21""",N/A,ACTIVE,4th Floor,Mamia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-579,"21""",Monitor,DELL,"21""",N/A,ACTIVE,4th Floor,Sadia,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-580,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Ali Orit,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-581,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Oishi,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-582,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Tania,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-583,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Nafiul,Merchandising,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-584,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,4th Floor,Yasir Arafat Tarek,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-585,"24"" Xiaomi",Monitor,Xiaomi,"24"" Xiaomi",N/A,ACTIVE,5th Floor ,Ataur Sir,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-586,"HP 21""",Monitor,HP,"HP 21""",N/A,ACTIVE,5th Floor ,Arif,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-587,"HP 21""",Monitor,HP,"HP 21""",N/A,ACTIVE,5th Floor ,Aminur Rahman,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-588,"HP 21""",Monitor,HP,"HP 21""",N/A,ACTIVE,5th Floor ,Eva,Fashion Designing,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-589,"21""",Monitor,HP,"21""",N/A,ACTIVE,5th Floor ,Golam Mostofa,Planning,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-590,"HP 21""",Monitor,HP,"HP 21""",N/A,ACTIVE,5th Floor ,Tithi ,Fashion Designing,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-591,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,5th Floor ,Nishi,Fashion Designing,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-592,"21""",Monitor,DELL,"21""",N/A,ACTIVE,5th Floor ,Foysal,Fashion Designing,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-593,"Samsung 27""",Monitor,Samsung,"Samsung 27""",N/A,ACTIVE,6th Floor,MD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-594,"Samsung 27""",Monitor,Samsung,"Samsung 27""",N/A,ACTIVE,6th Floor,Chairman Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-595,"Xiaomi 24""",Monitor,Xiaomi,"Xiaomi 24""",N/A,ACTIVE,6th Floor,DMD Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-596,"24""",Monitor,Xiaomi,"24""",N/A,ACTIVE,6th Floor,Ridwan Sir,Higher Management,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-597,"21""",Monitor,HP,"21""",N/A,ACTIVE,6th Floor,Reaz,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-598,"21""",Monitor,HP,"21""",N/A,ACTIVE,6th Floor,Nishan,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-599,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,6th Floor,Alif,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-600,"HP 21""",Monitor,HP,"HP 21""",N/A,ACTIVE,6th Floor,Waliul,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-601,"21""",Monitor,HP,"21""",N/A,ACTIVE,6th Floor,Badhon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-602,"Asus 21""",Monitor,Asus,"Asus 21""",N/A,ACTIVE,6th Floor,Zidan,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-603,"21""",Monitor,HP,"21""",N/A,ACTIVE,6th Floor,Shibly,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-604,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,Amin Sir,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-605,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Atiq,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-606,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Malek,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-607,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Abdur Rahman,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-608,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,Mahbub,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-609,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,Monjur,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-610,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,Abu Sayeed,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-611,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Mehedi Hasan,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-612,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Jyotirmay,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-613,"21""",Monitor,LG,"21""",N/A,ACTIVE,7th Floor,Shakil,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-614,"21""",Monitor,LG,"21""",N/A,ACTIVE,7th Floor,Himel Saha,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-615,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,Shishir,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-616,"21""",Monitor,LG,"21""",N/A,ACTIVE,7th Floor,Rayhan,Finance,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-617,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,7th Floor,Alkas,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-618,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,7th Floor,Foysal Saif,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-619,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Saleh Ahmed,Internal Audit,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-620,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,External Audit PC,,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-621,"Xiaomi 24""",Monitor,Xiaomi,"Xiaomi 24""",N/A,ACTIVE,7th Floor,Rizwan,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-622,"21""",Monitor,Asus,"21""",N/A,ACTIVE,7th Floor,Rupok,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-623,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,Sheli,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-624,"21""",Monitor,Xiaomi,"21""",N/A,ACTIVE,7th Floor,Manik,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-625,"21""",Monitor,LG,"21""",N/A,ACTIVE,7th Floor,Abu Baker,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-626,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Farhan,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-627,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Labib ,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-628,"21""",Monitor,HP,"21""",N/A,ACTIVE,7th Floor,Rokibul,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-629,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Sohel,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-630,"21""",Monitor,DELL,"21""",N/A,ACTIVE,7th Floor,Al Amin,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-631,"LG 21""",Monitor,LG,"LG 21""",N/A,ACTIVE,7th Floor,Abu Sadat Emran,FABRIC & ACCE. PROCUREMENT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-632,"21""",Monitor,HP,"21""",N/A,ACTIVE,Basement,Security Point,Security,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-633,"HIKVISION DS-D5024F2-BP2 23.8""",Monitor,Hikvision,"HIKVISION DS-D5024F2-BP2 23.8""",FR6002645,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-634,"HIKVISION DS-D5024F2-BP2 23.8""",Monitor,Hikvision,"HIKVISION DS-D5024F2-BP2 23.8""",FR7605682,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-635,"HIKVISION DS-D5024F2-BP2 23.8""",Monitor,Hikvision,"HIKVISION DS-D5024F2-BP2 23.8""",FS3896168,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-636,Epson V39,Scanner,Epson,Epson V39,N/A,ACTIVE,2nd Floor,Admin Desk,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-637,HP Deskjet Legal paper Scanner,Scanner,HP,HP Deskjet Legal paper Scanner,N/A,ACTIVE,2nd Floor,HR Intern Desk,HR,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-638,Epson V39,Scanner,Epson,Epson V39,N/A,ACTIVE,2nd Floor,Khoka Desk,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-639,Brother ADS-4300N,Scanner,Brother,Brother ADS-4300N,N/A,ACTIVE,3rd floor ,Commercial doc Scan purpose,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-640,Epson V39,Scanner,Epson,Epson V39,N/A,ACTIVE,6th Floor,Nishan,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-641,Brother ADS-4300N,Scanner,Brother,Brother ADS-4300N,N/A,ACTIVE,6th Floor,Badhon,Administration,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-642,Brother ADS-4300N,Scanner,Brother,Brother ADS-4300N,N/A,ACTIVE,7th Floor,Accounts Doc scan purpose,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-643,HP Scanjet Pro 2600 f1 Scanner,Scanner,HP,HP Scanjet Pro 2600 f1 Scanner,CN48HAP145,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-644,HP Scanjet Pro 2600 f1 Scanner,Scanner,HP,HP Scanjet Pro 2600 f1 Scanner,CN48MAP004,ACTIVE,2nd Floor,HR Scan Project,HR,23/07/2025,N/A,N/A,N/A,N/A,N/A
+HOIT-645,TOSHIBA e-STUDIO3018A ,Photocopier,Toshiba,TOSHIBA e-STUDIO3018A ,N/A,ACTIVE,3rd floor ,Commercial Export-1,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-646,TOSHIBA e-STUDIO3018A ,Photocopier,Toshiba,TOSHIBA e-STUDIO3018A ,N/A,ACTIVE,3rd floor ,Commercial Export-2,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-647,TOSHIBA e-STUDIO3018A ,Photocopier,Toshiba,TOSHIBA e-STUDIO3018A ,N/A,ACTIVE,3rd floor ,Commercial Import,Commercial,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-648,TOSHIBA e-STUDIO2809A,Photocopier,Toshiba,TOSHIBA e-STUDIO2809A,N/A,ACTIVE,7th Floor,For Supply Chain,Accounts,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-649,TOSHIBA e-STUDIO3118A ,Photocopier,Toshiba,TOSHIBA e-STUDIO3118A ,N/A,ACTIVE,7th Floor,For Accounts,Supply Chain,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-650,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,2nd Floor,Reciption and Admin,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-651,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,2nd Floor,HR and ICT,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-652,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,3rd floor ,Commercial Export,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-653,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,3rd floor ,Commercial Import,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-654,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,4th Floor,Front side,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-655,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,4th Floor,Back Side,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-656,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,5th Floor ,Designing Studio,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-657,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,5th Floor ,Planning and Merchandising,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-658,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,6th Floor,Secreteriate,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-659,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,6th Floor,Higher management,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-660,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,7th Floor,Accounts,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-661,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,7th Floor,Supply Chain,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-662,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,8th Floor,Lions Office MD Mam,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-663,Ruijie RG-AP840-L,Acces Point,Ruijie,Ruijie RG-AP840-L,N/A,ACTIVE,Roof Top,Dining,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-664,4 Port D-Link,PoE Switch,D-Link,4 Port D-Link,N/A,ACTIVE,2nd Floor Cabinet 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-665,8 Port Tenda,PoE Switch,Tenda,8 Port Tenda,N/A,ACTIVE,2nd Floor Cabinet 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-666,8 Port Tenda,PoE Switch,Tenda,8 Port Tenda,N/A,ACTIVE,2nd Floor Cabinet 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-667,8 Port Tenda,PoE Switch,Tenda,8 Port Tenda,N/A,ACTIVE,2nd Floor Cabinet 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-668,4 Port D-Link,PoE Switch,D-Link,4 Port D-Link,N/A,ACTIVE,3rd Floor Cabinet 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-669,4 Port D-Link,PoE Switch,D-Link,4 Port D-Link,N/A,ACTIVE,3rd Floor Cabinet 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-670,4 Port D-Link,PoE Switch,D-Link,4 Port D-Link,N/A,ACTIVE,4th Floor Cabinet 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-671,4 Port D-Link,PoE Switch,D-Link,4 Port D-Link,N/A,ACTIVE,4th Floor Cabinet 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-672,4 Port D-Link,PoE Switch,D-Link,4 Port D-Link,N/A,ACTIVE,5th Floor Cabinet 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-673,4 Port D-Link,PoE Switch,D-Link,4 Port D-Link,N/A,ACTIVE,5th Floor Cabinet 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-674,8 Port Tenda,PoE Switch,Tenda,8 Port Tenda,N/A,ACTIVE,6th Floor Cabinet,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-675,8 Port Tenda,PoE Switch,Tenda,8 Port Tenda,N/A,ACTIVE,7th Floor Cabinet 1,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A
+HOIT-676,8 Port Tenda,PoE Switch,Tenda,8 Port Tenda,N/A,ACTIVE,7th Floor Cabinet 2,N/A,ICT,N/A,N/A,N/A,N/A,N/A,N/A

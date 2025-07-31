@@ -604,34 +604,38 @@ try {
     setInterval(updateNotificationCount, 30000);
 
     // Original functions remain unchanged below this point
-    async function loadDataFromDB() {
-      try {
-        showLoading(true);
-        const response = await fetch('get_assets_ajl.php');
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data.error) {
-          throw new Error(data.error);
-        }
-        
-        inventoryData = data;
-        filteredData = [...inventoryData];
-        renderTable();
-        updateStats();
-        
-        console.log('Data loaded successfully:', inventoryData);
-      } catch (error) {
-        console.error('Error loading data:', error);
-        alert('Error loading data. Please check console for details.');
-      } finally {
-        showLoading(false);
-      }
+async function loadDataFromDB() {
+  try {
+    showLoading(true);
+    const response = await fetch('get_assets_ajl.php');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+    
+    const data = await response.json();
+    
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    
+    // Sort data in descending order by asset_id
+    inventoryData = data.sort((a, b) => {
+      return b.asset_id.localeCompare(a.asset_id);
+    });
+    
+    filteredData = [...inventoryData];
+    renderTable();
+    updateStats();
+    
+    console.log('Data loaded successfully:', inventoryData);
+  } catch (error) {
+    console.error('Error loading data:', error);
+    alert('Error loading data. Please check console for details.');
+  } finally {
+    showLoading(false);
+  }
+}
 
     function renderTable() {
       const tbody = document.getElementById('inventoryBody');
