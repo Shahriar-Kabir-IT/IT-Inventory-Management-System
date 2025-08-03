@@ -72,77 +72,150 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - IT Asset Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Roboto', sans-serif;
+            background-color: #1192e9ff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            color: var(--dark-color);
         }
+        
         .login-container {
-            background: white;
-            padding: 30px;
+            background-color: white;
             border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 350px;
-        }
-        .login-container h2 {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 40px;
             text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            animation: fadeIn 0.5s ease-in-out;
         }
-        .form-group {
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo {
+            margin-bottom: 30px;
+        }
+        
+        .logo img {
+            height: 60px;
             margin-bottom: 15px;
         }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
+        
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 25px;
+            font-weight: 700;
+            margin-top: 10px;
         }
-        .form-group input, .form-group select {
+        
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .input-group input, .input-group select {
             width: 100%;
-            padding: 10px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .message {
+            margin-top: 20px;
+            padding: 10px;
             border-radius: 5px;
             font-size: 14px;
         }
-        .btn-login {
-            width: 100%;
-            padding: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 10px;
-        }
+        
         .error {
-            color: #dc3545;
-            text-align: center;
-            margin-bottom: 15px;
+            background-color: #ffebee;
+            color: var(--accent-color);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #7f8c8d;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>IT Asset Management</h2>
+        <div class="logo">
+            <img src="logo.png" alt="Company Logo">
+            <h1>Ananta IT Asset Management</h1>
+        </div>
+        
         <?php if (isset($error)): ?>
-            <div class="error"><?php echo htmlspecialchars($error); ?></div>
+            <div class="message error"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
+        
         <form method="POST">
-            <div class="form-group">
+            <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
             </div>
-            <div class="form-group">
+            
+            <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <div class="form-group">
+            
+            <div class="input-group">
                 <label for="location">Location</label>
                 <select id="location" name="location" required>
                     <option value="">Select Location</option>
@@ -153,8 +226,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <option value="head office">Head Office</option>
                 </select>
             </div>
-            <button type="submit" class="btn-login">Login</button>
+            
+            <button type="submit" class="btn">Login</button>
         </form>
+        
+        <div class="footer">
+            &copy; <?php echo date('Y'); ?>Developed and Managed By ANANTA ICT TEAM
+        </div>
     </div>
 </body>
 </html>
