@@ -1,0 +1,22 @@
+[
+  {
+    "id": "TC001",
+    "title": "add_new_asset_successfully",
+    "description": "Test the /add_asset.php POST endpoint to verify that a new asset can be added successfully with valid asset_name, location, and category fields."
+  },
+  {
+    "id": "TC002",
+    "title": "submit_approval_request_agl",
+    "description": "Test the /request_approval_agl.php POST endpoint to ensure an approval request can be submitted for asset actions (ADD, SERVICE, DELETE) with valid action_type, requested_by, factory, and asset_name."
+  },
+  {
+    "id": "TC003",
+    "title": "process_approval_request",
+    "description": "Test the /process_approval.php POST endpoint to verify that an approval request can be processed correctly by approving or rejecting it with valid approval_id, action, and approver."
+  },
+  {
+    "id": "TC004",
+    "title": "retrieve_all_assets_head_office",
+    "description": "Test the /get_assets.php GET endpoint to confirm that it returns a list of all assets from the Head Office inventory with correct data format and status code 200."
+  }
+]

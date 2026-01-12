@@ -26,346 +26,369 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IT Asset Inventory Management</title>
   <style>
+    :root {
+      --primary-color: #4e73df;
+      --secondary-color: #858796;
+      --success-color: #1cc88a;
+      --info-color: #36b9cc;
+      --warning-color: #f6c23e;
+      --danger-color: #e74a3b;
+      --dark-color: #5a5c69;
+      --light-color: #f8f9fc;
+      --border-color: #e3e6f0;
+      --text-color: #5a5c69;
+      --heading-color: #2c3e50;
+      --bg-color: #f8f9fc;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
 
     body {
-      background: #f8fafc;
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
-      padding: 20px;
-      font-size: 14px;
-      color: #334155;
+      font-size: 0.9rem;
     }
 
     .container {
-      max-width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      width: 100%;
       margin: 0 auto;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
     }
 
     .header {
-      background: #1e293b;
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
       color: white;
-      padding: 18px 24px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 20;
+    }
+
+    .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      min-width: 240px;
     }
 
     .header h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 4px;
+      font-size: 1.35rem;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      line-height: 1.2;
     }
 
-    .header p {
-      font-size: 0.875rem;
-      opacity: 0.9;
-      color: #cbd5e1;
+    .header .brand p {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      font-weight: 400;
+      margin: 3px 0 0;
     }
 
     .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
       text-align: right;
+      gap: 2px;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.85rem;
+      line-height: 1.2;
     }
 
-    .user-info p {
-      margin-bottom: 2px;
-      font-size: 0.875rem;
+    .user-info p { margin: 0; }
+    .user-info a { color: rgba(255, 255, 255, 0.95); text-decoration: underline; text-underline-offset: 2px; }
+    .user-info a:hover { color: #fff; }
+
+    .stats {
+      padding: 20px 30px;
+      background: var(--light-color);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .user-info a {
-      color: #93c5fd;
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
+    .stat-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .user-info a:hover {
-      color: #60a5fa;
-      text-decoration: underline;
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-card:nth-child(1) { border-left-color: var(--success-color); }
+    .stat-card:nth-child(2) { border-left-color: var(--warning-color); }
+    .stat-card:nth-child(3) { border-left-color: var(--danger-color); }
+    .stat-card:nth-child(4) { border-left-color: var(--info-color); }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+      color: var(--heading-color);
+    }
+
+    .stat-label {
+      color: var(--secondary-color);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .controls {
-      padding: 12px 20px;
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
+      padding: 20px 30px;
+      background: white;
+      border-bottom: 1px solid var(--border-color);
       display: flex;
-      gap: 12px;
+      gap: 15px;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: flex-start;
     }
 
     .btn {
-      padding: 8px 16px;
+      padding: 10px 16px;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      font-size: 0.875rem;
+      font-weight: 600;
+      font-size: 0.9rem;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .btn-primary {
-      background: #3b82f6;
-      color: white;
-    }
-
-    .btn-success {
-      background: #10b981;
-      color: white;
-    }
-
-    .btn-danger {
-      background: #ef4444;
-      color: white;
-    }
-
-    .btn-warning {
-      background: #f59e0b;
-      color: white;
-    }
-
-    .btn-info {
-      background: #06b6d4;
-      color: white;
-    }
-
-    .btn-secondary {
-      background: #64748b;
-      color: white;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .btn:hover {
-      opacity: 0.9;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      opacity: 0.95;
     }
 
     .btn:active {
-      transform: translateY(1px);
+      transform: translateY(0);
     }
+
+    .btn-primary { background: var(--primary-color); color: white; }
+    .btn-success { background: var(--success-color); color: white; }
+    .btn-danger { background: var(--danger-color); color: white; }
+    .btn-warning { background: var(--warning-color); color: white; }
+    .btn-info { background: var(--info-color); color: white; }
+    .btn-secondary { background: var(--secondary-color); color: white; }
 
     .filter-group {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       align-items: center;
+      font-size: 0.9rem;
+      background: #f1f3f9;
+      padding: 5px 10px;
+      border-radius: 6px;
     }
 
     .filter-group label {
-      font-size: 0.875rem;
-      color: #475569;
-      font-weight: 500;
+      font-weight: 600;
+      color: var(--dark-color);
     }
 
     .filter-group select,
     .filter-group input {
-      padding: 6px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-size: 0.875rem;
+      padding: 8px 12px;
+      border: 1px solid #d1d3e2;
+      border-radius: 4px;
+      font-size: 0.9rem;
       min-width: 150px;
       background: white;
-      color: #334155;
     }
 
-    .filter-group select:focus,
-    .filter-group input:focus {
+    .filter-group input:focus, .filter-group select:focus {
       outline: none;
-      border-color: #93c5fd;
-      box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(78, 115, 223, 0.2);
     }
 
     .table-container {
-      overflow-x: auto;
-      max-height: 70vh;
-      position: relative;
+      flex: 1;
+      overflow: auto;
+      padding: 0 30px 20px 30px;
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       background: white;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
     }
 
     th {
-      background: #f1f5f9;
-      padding: 10px 12px;
+      background: #f1f3f9;
+      padding: 15px 12px;
       text-align: left;
-      font-weight: 600;
-      color: #475569;
-      border-bottom: 1px solid #e2e8f0;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 10;
     }
 
     td {
-      padding: 10px 12px;
-      border-bottom: 1px solid #f1f5f9;
-      color: #475569;
+      padding: 12px 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: #555;
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
     }
 
     tr:hover {
-      background-color: #f8fafc;
+      background-color: #fafbfc;
     }
 
     .status {
-      padding: 4px 8px;
-      border-radius: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
       font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: inline-block;
-    }
-
-    .status-active {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .status-inactive {
-      background: #fef9c3;
-      color: #854d0e;
-    }
-
-    .status-out-of-order {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .status-maintenance {
-      background: #e0f2fe;
-      color: #075985;
-    }
-
-    .priority-high {
-      color: #ef4444;
-      font-weight: 600;
-    }
-
-    .priority-medium {
-      color: #f59e0b;
-      font-weight: 600;
-    }
-
-    .priority-low {
-      color: #10b981;
-      font-weight: 600;
-    }
-
-    .stats {
-      padding: 16px 20px;
-      background: #f8fafc;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .stat-card {
-      background: white;
-      padding: 16px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 1px solid #e2e8f0;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .stat-number {
-      font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 4px;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+      min-width: 80px;
     }
 
-    .stat-label {
-      color: #64748b;
-      font-size: 0.875rem;
-    }
+    .status-active { background: #e6fffa; color: #047481; border: 1px solid #b2f5ea; }
+    .status-inactive { background: #fffaf0; color: #9c4221; border: 1px solid #fbd38d; }
+    .status-out-of-order { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+    .status-maintenance { background: #ebf8ff; color: #2c5282; border: 1px solid #bee3f8; }
 
-    /* Modal styles */
+    .priority-high { color: var(--danger-color); font-weight: 700; }
+    .priority-medium { color: var(--warning-color); font-weight: 700; }
+    .priority-low { color: var(--success-color); font-weight: 700; }
+
+    /* Modal Styles */
     #modal {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(2px);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      backdrop-filter: blur(2px);
     }
 
     .modal-content {
       background: white;
-      padding: 24px;
-      border-radius: 8px;
+      padding: 30px;
+      border-radius: 10px;
       width: 90%;
       max-width: 800px;
-      max-height: 90vh;
+      max-height: 85vh;
       overflow-y: auto;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
     }
 
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #aaa;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--danger-color); }
+
     .modal-content h2 {
-      font-size: 1.25rem;
-      margin-bottom: 16px;
-      color: #1e293b;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: var(--heading-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 600;
     }
 
     .modal-content label {
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 8px;
       display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: #475569;
-      font-size: 0.875rem;
     }
 
     .modal-content input,
     .modal-content select,
     .modal-content textarea {
       width: 100%;
-      padding: 8px 12px;
-      border: 1px solid #cbd5e1;
+      padding: 12px;
+      border: 1px solid var(--border-color);
       border-radius: 6px;
-      margin-bottom: 16px;
-      font-size: 0.875rem;
-      background: white;
-      color: #334155;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
     }
 
     .modal-content input:focus,
     .modal-content select:focus,
     .modal-content textarea:focus {
+      border-color: var(--primary-color);
       outline: none;
-      border-color: #93c5fd;
-      box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
     }
-
+    
     .modal-content textarea {
       height: 100px;
       resize: vertical;
@@ -374,40 +397,46 @@ try {
     .button-group {
       display: flex;
       justify-content: flex-end;
-      gap: 8px;
-      margin-top: 20px;
+      gap: 15px;
+      margin-top: 10px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
     }
 
-    .modal-content button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-      font-size: 0.875rem;
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
+    
+    .notification-badge {
+      position: relative;
+      display: inline-block;
     }
 
-    .warning-box {
-      background: #fef2f2;
-      padding: 12px;
-      border-radius: 6px;
-      border-left: 4px solid #ef4444;
-      margin: 16px 0;
-      color: #991b1b;
-      font-size: 0.875rem;
+    .notification-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background-color: var(--danger-color);
+      color: white;
+      border-radius: 50%;
+      padding: 2px 5px;
+      font-size: 0.75rem;
+      min-width: 18px;
+      text-align: center;
     }
-
-    .info-box {
-      background: #ecfdf5;
-      padding: 12px;
-      border-radius: 6px;
-      border-left: 4px solid #10b981;
-      margin: 16px 0;
-      color: #065f46;
-      font-size: 0.875rem;
-    }
-
+    
     .history-table {
       width: 100%;
       border-collapse: collapse;
@@ -427,89 +456,7 @@ try {
       font-weight: 600;
       color: #475569;
     }
-
-    .history-table tr:nth-child(even) {
-      background-color: #f8fafc;
-    }
-
-    .approval-notice {
-      background-color: #ecfdf5;
-      padding: 10px;
-      border-radius: 6px;
-      margin-bottom: 16px;
-      text-align: center;
-      font-size: 0.875rem;
-      border-left: 4px solid #10b981;
-    }
-
-    .notification-badge {
-      position: relative;
-      display: inline-block;
-    }
-
-    .notification-count {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      background-color: #ef4444;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 5px;
-      font-size: 0.75rem;
-      min-width: 18px;
-      text-align: center;
-    }
-
-    /* Search in modals */
-    .modal-search {
-      margin-bottom: 16px;
-      position: relative;
-    }
-
-    .modal-search input {
-      width: 100%;
-      padding: 8px 12px 8px 32px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-size: 0.875rem;
-      background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364758b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E") no-repeat 10px center;
-    }
-
-    .modal-search input:focus {
-      outline: none;
-      border-color: #93c5fd;
-      box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
-    }
-
-    /* Asset select in modals */
-    .asset-select-container {
-      margin-bottom: 16px;
-    }
-
-    .asset-select {
-      width: 100%;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      max-height: 200px;
-      overflow-y: auto;
-      background: white;
-    }
-
-    .asset-select option {
-      padding: 8px 12px;
-      border-bottom: 1px solid #f1f5f9;
-      cursor: pointer;
-    }
-
-    .asset-select option:hover {
-      background-color: #f8fafc;
-    }
-
-    .asset-select option:checked {
-      background-color: #3b82f6;
-      color: white;
-    }
-
+    
     /* Loading indicator */
     #loading {
       position: fixed;
@@ -543,113 +490,16 @@ try {
       }
     }
 
-    /* Improved search results */
-    .search-results {
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      max-height: 200px;
-      overflow-y: auto;
-      background: white;
-      margin-bottom: 16px;
-    }
-
-    .search-result-item {
-      padding: 10px 12px;
-      border-bottom: 1px solid #f1f5f9;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .search-result-item:hover {
-      background-color: #f8fafc;
-    }
-
-    .search-result-item.selected {
-      background-color: #3b82f6;
-      color: white;
-    }
-
-    .search-result-item .asset-id {
-      font-weight: 600;
-    }
-
-    .search-result-item .asset-details {
-      font-size: 0.75rem;
-      color: #64748b;
-      margin-top: 2px;
-    }
-
-    .search-result-item.selected .asset-details {
-      color: #e2e8f0;
-    }
-
-    .no-results {
-      padding: 10px 12px;
-      color: #64748b;
-      font-style: italic;
-    }
-
     @media (max-width: 768px) {
-      .controls {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .filter-group {
-        width: 100%;
-      }
-
-      .filter-group select,
-      .filter-group input {
-        width: 100%;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .user-info {
-        text-align: left;
-        width: 100%;
-      }
-
-      .logout-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 12px;
-        background: linear-gradient(135deg, #3b82f6, #2563eb);
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        border: none;
-        cursor: pointer;
-      }
-
-      .logout-btn:hover {
-        background: linear-gradient(135deg, #2563eb, #1d4ed8);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transform: translateY(-1px);
-      }
-
-      .logout-btn:active {
-        transform: translateY(0);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      }
-
-      .logout-icon {
-        display: flex;
-        align-items: center;
-      }
-
-      .logout-text {
-        font-size: 0.875rem;
-      }
+      .header { padding: 15px; }
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .user-info { align-items: flex-start; text-align: left; width: 100%; }
+      .controls { flex-direction: column; align-items: stretch; gap: 10px; padding: 15px; }
+      .filter-group { justify-content: space-between; }
+      .btn { width: 100%; justify-content: center; }
+      .stats { grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; }
+      .table-container { padding: 0 15px; }
+      th, td { padding: 8px 4px; font-size: 11px; }
     }
   </style>
 </head>
@@ -657,29 +507,31 @@ try {
 <body>
   <div class="container">
     <div class="header">
-      <div>
-        <h1>IT Asset Inventory Management</h1>
-        <p>ABM Fashion Limited</p>
-      </div>
-      <div class="user-info">
-        <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
-        <p><?php echo strtoupper($current_user['factory']); ?> - <?php echo ucfirst($current_user['user_type']); ?></p>
-        <div style="margin-top: 5px;">
-          <a href="logout.php" class="logout-btn">
-            <span class="logout-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                <polyline points="16 17 21 12 16 7"></polyline>
-                <line x1="21" y1="12" x2="9" y2="12"></line>
-              </svg>
-            </span>
-            <span class="logout-text">Logout</span>
-          </a>
+      <div class="header-inner">
+        <div class="brand">
+          <h1>IT Asset Inventory Management</h1>
+          <p>ABM Fashion Limited</p>
         </div>
-        <div style="margin-top: 5px;">
-          <a href="#" onclick="showNotifications()">
-            <span class="notification-badge">🔔 <span id="notificationCount" class="notification-count">0</span></span>
-          </a>
+        <div class="user-info">
+          <p>Welcome, <?php echo htmlspecialchars($current_user['name'] ?? 'User'); ?></p>
+          <p><?php echo strtoupper($current_user['factory'] ?? ''); ?> - <?php echo ucfirst($current_user['user_type'] ?? ''); ?></p>
+          <div style="margin-top: 5px;">
+            <a href="logout.php" class="logout-btn">
+              <span class="logout-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+              </span>
+              <span class="logout-text">Logout</span>
+            </a>
+          </div>
+          <div style="margin-top: 5px;">
+            <a href="#" onclick="showNotifications()">
+              <span class="notification-badge">🔔 <span id="notificationCount" class="notification-count">0</span></span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -790,6 +642,8 @@ try {
   <script>
     let inventoryData = [];
     let filteredData = [];
+    let currentPage = 1;
+    const rowsPerPage = 10;
 
     // DOM Elements
     const addItemBtn = document.getElementById('addItemBtn');
@@ -838,6 +692,7 @@ try {
           let html = `
             <div id="modal">
               <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
                 <h2>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
@@ -943,10 +798,15 @@ try {
 
       if (filteredData.length === 0) {
         tbody.innerHTML = '<tr><td colspan="17" style="text-align:center;">No assets found</td></tr>';
+        updatePaginationControls();
         return;
       }
 
-      filteredData.forEach(item => {
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = Math.min(startIndex + rowsPerPage, filteredData.length);
+      const dataToRender = filteredData.slice(startIndex, endIndex);
+
+      dataToRender.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${item.asset_id || 'N/A'}</td>
@@ -978,6 +838,44 @@ try {
         `;
         tbody.appendChild(row);
       });
+
+      updatePaginationControls();
+    }
+
+    function updatePaginationControls() {
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      const paginationContainer = document.getElementById('paginationControls');
+
+      if (!paginationContainer) {
+        const container = document.createElement('div');
+        container.id = 'paginationControls';
+        container.className = 'pagination-controls';
+        container.style.display = 'flex';
+        container.style.justifyContent = 'center';
+        container.style.alignItems = 'center';
+        container.style.marginTop = '20px';
+        container.style.gap = '15px';
+        document.querySelector('.table-container').after(container);
+        
+        updatePaginationControls(); // Re-run to populate
+        return;
+      }
+
+      paginationContainer.innerHTML = `
+        <button onclick="changePage(-1)" class="btn btn-secondary" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+        <span>Page ${currentPage} of ${totalPages || 1} (${filteredData.length} items)</span>
+        <button onclick="changePage(1)" class="btn btn-secondary" ${currentPage === totalPages || totalPages === 0 ? 'disabled' : ''}>Next</button>
+      `;
+    }
+
+    function changePage(delta) {
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      const newPage = currentPage + delta;
+
+      if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderTable();
+      }
     }
 
     function getStatusClass(status) {
@@ -1028,6 +926,7 @@ try {
         return statusMatch && searchMatch;
       });
 
+      currentPage = 1;
       renderTable();
     }
 
@@ -1083,6 +982,7 @@ try {
       const modalHtml = `
       <div id="modal">
         <div class="modal-content">
+          <span class="modal-close" onclick="closeModal()">&times;</span>
           <h2>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -1247,6 +1147,7 @@ try {
       const modalHtml = `
       <div id="modal">
         <div class="modal-content">
+          <span class="modal-close" onclick="closeModal()">&times;</span>
           <h2>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -1422,6 +1323,7 @@ try {
       const modalHtml = `
       <div id="modal">
         <div class="modal-content">
+          <span class="modal-close" onclick="closeModal()">&times;</span>
           <h2>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -1664,6 +1566,7 @@ try {
           const modalHtml = `
             <div id="modal">
                 <div class="modal-content">
+                    <span class="modal-close" onclick="closeModal()">&times;</span>
                     <h2>
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>

@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #1192e9ff;
+            background-color: #0773bbff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         .login-container {
-            background-color: white;
+            background-color: #ffffffff;;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 400px;
@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         .logo h1 {
             color: var(--primary-color);
-            font-size: 25px;
+            font-size: 22px;
             font-weight: 700;
             margin-top: 10px;
         }
@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-container">
         <div class="logo">
-            <img src="logo.png" alt="Company Logo">
+            <img src="com.png" alt="Company Logo">
             <h1>Ananta IT Asset Management</h1>
         </div>
         

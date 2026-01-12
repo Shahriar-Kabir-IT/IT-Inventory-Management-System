@@ -146,7 +146,7 @@ function processApproval($approvalId, $approver, $action = 'APPROVE') {
         }
     } catch (PDOException $e) {
         error_log("Error processing approval: " . $e->getMessage());
-        return ['success' => false, 'message' => 'Database error'];
+        return ['success' => false, 'message' => 'Database error: ' . $e->getMessage()];
     }
 }
 
@@ -159,10 +159,22 @@ function executeApprovedAction($actionType, $actionDetails, $assetId, $factory) 
             $actionDetails = json_decode($actionDetails, true);
         }
 
+        // Validate factory
+        if (empty($factory)) {
+            throw new Exception("Factory is not specified");
+        }
+
         // Determine table names based on factory
-        $assetsTable = "assets_".strtolower($factory);
-        $serviceHistoryTable = "service_history_".strtolower($factory);
-        $deletedAssetsTable = "deleted_assets_".strtolower($factory);
+        $factory = strtolower($factory);
+        if ($factory === 'head office' || $factory === 'head_office') {
+            $assetsTable = 'assets';
+            $serviceHistoryTable = 'service_history';
+            $deletedAssetsTable = 'deleted_assets';
+        } else {
+            $assetsTable = "assets_" . $factory;
+            $serviceHistoryTable = "service_history_" . $factory;
+            $deletedAssetsTable = "deleted_assets_" . $factory;
+        }
         
         // Validate tables exist
         $tables = $pdo->query("SHOW TABLES LIKE '$assetsTable'")->fetchAll();
@@ -172,6 +184,37 @@ function executeApprovedAction($actionType, $actionDetails, $assetId, $factory) 
 
         switch ($actionType) {
             case 'ADD':
+                // Check for duplicate asset_id and regenerate if necessary
+                $checkStmt = $pdo->prepare("SELECT COUNT(*) FROM $assetsTable WHERE asset_id = ?");
+                $checkStmt->execute([$assetId]);
+                if ($checkStmt->fetchColumn() > 0) {
+                    // Try to parse prefix and number
+                    if (preg_match('/^([A-Z]+)-(\d+)$/', $assetId, $matches)) {
+                        $prefix = $matches[1];
+                        $number = $matches[2];
+                        $padLen = strlen($number);
+                        
+                        // Find max ID with this prefix
+                        $stmt = $pdo->prepare("SELECT asset_id FROM $assetsTable WHERE asset_id LIKE ?");
+                        $stmt->execute([$prefix . '-%']);
+                        $existingIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                        
+                        $maxVal = 0;
+                        foreach ($existingIds as $eid) {
+                            if (preg_match('/^' . preg_quote($prefix, '/') . '-(\d+)$/', $eid, $m)) {
+                                $val = (int)$m[1];
+                                if ($val > $maxVal) $maxVal = $val;
+                            }
+                        }
+                        
+                        $newVal = $maxVal + 1;
+                        $assetId = $prefix . '-' . str_pad($newVal, $padLen, '0', STR_PAD_LEFT);
+                    } else {
+                        // Fallback: append timestamp
+                        $assetId = $assetId . '-' . time();
+                    }
+                }
+
                 // Insert new asset
                 $stmt = $pdo->prepare("INSERT INTO $assetsTable 
                                       (asset_id, asset_name, category, brand, model, serial_number, status, 
@@ -192,7 +235,7 @@ function executeApprovedAction($actionType, $actionDetails, $assetId, $factory) 
                     $actionDetails['purchase_date'],
                     $actionDetails['purchase_price'],
                     $actionDetails['warranty_expiry'],
-                    $actionDetails['last_maintenance'] ?? date('Y-m-d'),
+                    !empty($actionDetails['last_maintenance']) ? $actionDetails['last_maintenance'] : date('Y-m-d'),
                     $actionDetails['priority'] ?? 'Medium',
                     $actionDetails['notes'] ?? ''
                 ]);
@@ -276,6 +319,6 @@ function executeApprovedAction($actionType, $actionDetails, $assetId, $factory) 
         return ['success' => true];
     } catch (PDOException $e) {
         error_log("Error executing approved action: " . $e->getMessage());
-        return ['success' => false, 'message' => 'Database error'];
+        return ['success' => false, 'message' => 'Database error: ' . $e->getMessage()];
     }
 }

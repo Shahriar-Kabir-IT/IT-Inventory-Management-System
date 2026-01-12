@@ -25,230 +25,300 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IT Asset Inventory Management</title>
   <style>
+    :root {
+      --primary-color: #4e73df;
+      --secondary-color: #858796;
+      --success-color: #1cc88a;
+      --info-color: #36b9cc;
+      --warning-color: #f6c23e;
+      --danger-color: #e74a3b;
+      --dark-color: #5a5c69;
+      --light-color: #f8f9fc;
+      --border-color: #e3e6f0;
+      --text-color: #5a5c69;
+      --heading-color: #2c3e50;
+      --bg-color: #f8f9fc;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5f5;
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
-      padding: 20px;
-      font-size: 16px;
+      font-size: 0.9rem;
     }
 
     .container {
-      max-width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      width: 100%;
       margin: 0 auto;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
     }
 
     .header {
-      background: #2c3e50;
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
       color: white;
-      padding: 20px;
-      text-align: center;
+      padding: 20px 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 20;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      min-width: 240px;
     }
 
     .header h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      font-weight: 500;
+      font-size: 1.35rem;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      line-height: 1.2;
     }
 
-    .header p {
-      font-size: 1rem;
-      opacity: 0.9;
+    .header .brand p {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      font-weight: 400;
+      margin: 3px 0 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      gap: 2px;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.85rem;
+      line-height: 1.2;
+    }
+
+    .user-info p { margin: 0; }
+    .user-info a { color: rgba(255, 255, 255, 0.95); text-decoration: underline; text-underline-offset: 2px; }
+    .user-info a:hover { color: #fff; }
+
+    .stats {
+      padding: 20px 30px;
+      background: var(--light-color);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stat-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-card:nth-child(1) { border-left-color: var(--success-color); }
+    .stat-card:nth-child(2) { border-left-color: var(--warning-color); }
+    .stat-card:nth-child(3) { border-left-color: var(--danger-color); }
+    .stat-card:nth-child(4) { border-left-color: var(--info-color); }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+      color: var(--heading-color);
+    }
+
+    .stat-label {
+      color: var(--secondary-color);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .controls {
-      padding: 15px 20px;
-      background: #f8f9fa;
-      border-bottom: 1px solid #e9ecef;
+      padding: 20px 30px;
+      background: white;
+      border-bottom: 1px solid var(--border-color);
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: flex-start;
     }
 
     .btn {
-      padding: 10px 20px;
+      padding: 10px 16px;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 15px;
-    }
-
-    .btn-primary {
-      background: #667eea;
-      color: white;
-    }
-
-    .btn-success {
-      background: #28a745;
-      color: white;
-    }
-
-    .btn-danger {
-      background: #dc3545;
-      color: white;
-    }
-
-    .btn-warning {
-      background: #ffc107;
-      color: black;
-    }
-
-    .btn-info {
-      background: #17a2b8;
-      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .btn:hover {
-      opacity: 0.9;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      opacity: 0.95;
     }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary { background: var(--primary-color); color: white; }
+    .btn-success { background: var(--success-color); color: white; }
+    .btn-danger { background: var(--danger-color); color: white; }
+    .btn-warning { background: var(--warning-color); color: white; }
+    .btn-info { background: var(--info-color); color: white; }
+    .btn-secondary { background: var(--secondary-color); color: white; }
 
     .filter-group {
       display: flex;
       gap: 10px;
       align-items: center;
+      font-size: 0.9rem;
+      background: #f1f3f9;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .filter-group label {
+      font-weight: 600;
+      color: var(--dark-color);
     }
 
     .filter-group select,
     .filter-group input {
       padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 15px;
+      border: 1px solid #d1d3e2;
+      border-radius: 4px;
+      font-size: 0.9rem;
       min-width: 150px;
+      background: white;
+    }
+
+    .filter-group input:focus, .filter-group select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(78, 115, 223, 0.2);
     }
 
     .table-container {
-      overflow-x: auto;
-      max-height: 70vh;
-      position: relative;
+      flex: 1;
+      overflow: auto;
+      padding: 0 30px 20px 30px;
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       background: white;
-      font-size: 15px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
     }
 
     th {
-      background: #f8f9fa;
-      padding: 12px 8px;
+      background: #f1f3f9;
+      padding: 15px 12px;
       text-align: left;
-      font-weight: 600;
-      color: #495057;
-      border-bottom: 2px solid #dee2e6;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 10;
     }
 
     td {
-      padding: 12px 8px;
-      border-bottom: 1px solid #f1f3f4;
+      padding: 12px 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: #555;
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
     }
 
     tr:hover {
-      background-color: #f8f9ff;
+      background-color: #fafbfc;
     }
 
     .status {
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 0.75rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .status-active {
-      background: #d4edda;
-      color: #155724;
-    }
-
-    .status-inactive {
-      background: #fff3cd;
-      color: #856404;
-    }
-
-    .status-out-of-order {
-      background: #f8d7da;
-      color: #721c24;
-    }
-
-    .status-maintenance {
-      background: #d1ecf1;
-      color: #0c5460;
-    }
-
-    .priority-high {
-      color: #dc3545;
-      font-weight: bold;
-    }
-
-    .priority-medium {
-      color: #ffc107;
-      font-weight: bold;
-    }
-
-    .priority-low {
-      color: #28a745;
-      font-weight: bold;
-    }
-
-    .stats {
-      padding: 15px 20px;
-      background: #f8f9fa;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-
-    .stat-card {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
+      display: inline-block;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
+      min-width: 80px;
     }
 
-    .stat-card:hover {
-      transform: translateY(-3px);
-    }
+    .status-active { background: #e6fffa; color: #047481; border: 1px solid #b2f5ea; }
+    .status-inactive { background: #fffaf0; color: #9c4221; border: 1px solid #fbd38d; }
+    .status-out-of-order { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+    .status-maintenance { background: #ebf8ff; color: #2c5282; border: 1px solid #bee3f8; }
 
-    .stat-number {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+    .priority-high { color: var(--danger-color); font-weight: 700; }
+    .priority-medium { color: var(--warning-color); font-weight: 700; }
+    .priority-low { color: var(--success-color); font-weight: 700; }
 
-    .stat-label {
-      color: #6c757d;
-      font-size: 15px;
-    }
-
-    /* Modal styles */
+    /* Modal Styles */
     #modal {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(2px);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -257,43 +327,67 @@ try {
 
     .modal-content {
       background: white;
-      padding: 25px;
-      border-radius: 8px;
+      padding: 30px;
+      border-radius: 10px;
       width: 90%;
       max-width: 800px;
-      max-height: 90vh;
+      max-height: 85vh;
       overflow-y: auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
     }
 
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #aaa;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--danger-color); }
+
     .modal-content h2 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      color: #2c3e50;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: var(--heading-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .modal-content label {
-      display: block;
-      margin-bottom: 8px;
       font-weight: 600;
-      color: #495057;
-      font-size: 15px;
+      color: var(--text-color);
+      margin-bottom: 8px;
+      display: block;
     }
 
     .modal-content input,
     .modal-content select,
     .modal-content textarea {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      font-size: 15px;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
     }
 
+    .modal-content input:focus,
+    .modal-content select:focus,
+    .modal-content textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+    
     .modal-content textarea {
       height: 100px;
       resize: vertical;
@@ -302,71 +396,38 @@ try {
     .button-group {
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 15px;
+      margin-top: 10px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
     }
-
+    
     .modal-content button {
       padding: 10px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s;
-      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s;
+      font-size: 0.9rem;
     }
 
-    .warning-box {
-      background: #f8d7da;
-      padding: 15px;
-      border-radius: 5px;
-      border-left: 4px solid #dc3545;
-      margin: 15px 0;
-      color: #721c24;
-      font-size: 15px;
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
     }
-
-    .info-box {
-      background: #e2f3f8;
-      padding: 15px;
-      border-radius: 5px;
-      border-left: 4px solid #17a2b8;
-      margin: 15px 0;
-      color: #0c5460;
-      font-size: 15px;
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
     }
-
-    .history-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 15px 0;
-      font-size: 15px;
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
     }
-
-    .history-table th, 
-    .history-table td {
-      padding: 10px;
-      border: 1px solid #ddd;
-      text-align: left;
+    ::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
     }
-
-    .history-table th {
-      background-color: #f8f9fa;
-    }
-
-    .history-table tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-
-    .approval-notice {
-      background-color: #d4edda;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      text-align: center;
-      font-size: 15px;
-    }
-
+    
     .notification-badge {
       position: relative;
       display: inline-block;
@@ -374,29 +435,91 @@ try {
 
     .notification-count {
       position: absolute;
-      top: -8px;
-      right: -8px;
-      background-color: #dc3545;
+      top: -6px;
+      right: -6px;
+      background-color: var(--danger-color);
       color: white;
       border-radius: 50%;
-      padding: 3px 6px;
-      font-size: 12px;
+      padding: 2px 5px;
+      font-size: 0.75rem;
+      min-width: 18px;
+      text-align: center;
+    }
+    
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.875rem;
+    }
+
+    .history-table th,
+    .history-table td {
+      padding: 10px;
+      border: 1px solid #e2e8f0;
+      text-align: left;
+    }
+
+    .history-table th {
+      background-color: #f1f5f9;
+      font-weight: 600;
+      color: #475569;
+    }
+    
+    .approval-notice {
+      background-color: #d4edda;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    /* Loading indicator */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loading-spinner {
+      border: 4px solid #f1f5f9;
+      border-top: 4px solid #3b82f6;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     @media (max-width: 768px) {
-      .controls {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .filter-group {
-        width: 100%;
-      }
-      
-      .filter-group select,
-      .filter-group input {
-        width: 100%;
-      }
+      .header { padding: 15px; }
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .user-info { align-items: flex-start; text-align: left; width: 100%; }
+      .controls { flex-direction: column; align-items: stretch; gap: 10px; padding: 15px; }
+      .filter-group { justify-content: space-between; }
+      .btn { width: 100%; justify-content: center; }
+      .stats { grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; }
+      .table-container { padding: 0 15px; }
+      th, td { padding: 8px 4px; font-size: 11px; }
     }
   </style>
 </head>
@@ -404,17 +527,17 @@ try {
 <body>
   <div class="container">
     <div class="header">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <div>
+      <div class="header-inner">
+        <div class="brand">
           <h1>IT Asset Inventory Management</h1>
           <p>Ananta Jeanswear Limited</p>
         </div>
-        <div class="user-info" style="color: white; text-align: right; padding: 10px;">
-          <p>Welcome, <?php echo htmlspecialchars($current_user['name']); ?></p>
-          <p><?php echo strtoupper($current_user['factory']); ?> - <?php echo ucfirst($current_user['user_type']); ?></p>
-          <a href="logout.php" style="color: white; text-decoration: underline;">Logout</a>
+        <div class="user-info">
+          <p>Welcome, <?php echo htmlspecialchars($current_user['name'] ?? 'User'); ?></p>
+          <p><?php echo strtoupper($current_user['factory'] ?? ''); ?> - <?php echo ucfirst($current_user['user_type'] ?? ''); ?></p>
+          <a href="logout.php">Logout</a>
           <div style="margin-top: 5px;">
-            <a href="#" onclick="showNotifications()" style="color: white; text-decoration: underline;">
+            <a href="#" onclick="showNotifications()">
               <span class="notification-badge">🔔 <span id="notificationCount" class="notification-count">0</span></span>
             </a>
           </div>
@@ -495,6 +618,8 @@ try {
   <script>
     let inventoryData = [];
     let filteredData = [];
+    let currentPage = 1;
+    const rowsPerPage = 10;
 
     // DOM Elements
     const addItemBtn = document.getElementById('addItemBtn');
@@ -543,6 +668,7 @@ try {
           let html = `
             <div id="modal">
               <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
                 <h2>🔔 Notifications</h2>
                 
                 ${notifications.length > 0 ? `
@@ -643,10 +769,15 @@ async function loadDataFromDB() {
       
       if (filteredData.length === 0) {
         tbody.innerHTML = '<tr><td colspan="17" style="text-align:center;">No assets found</td></tr>';
+        updatePaginationControls();
         return;
       }
 
-      filteredData.forEach(item => {
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = Math.min(startIndex + rowsPerPage, filteredData.length);
+      const dataToRender = filteredData.slice(startIndex, endIndex);
+
+      dataToRender.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${item.asset_id || 'N/A'}</td>
@@ -678,6 +809,44 @@ async function loadDataFromDB() {
         `;
         tbody.appendChild(row);
       });
+
+      updatePaginationControls();
+    }
+
+    function updatePaginationControls() {
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      const paginationContainer = document.getElementById('paginationControls');
+      
+      if (!paginationContainer) {
+        const container = document.createElement('div');
+        container.id = 'paginationControls';
+        container.className = 'pagination-controls';
+        container.style.display = 'flex';
+        container.style.justifyContent = 'center';
+        container.style.alignItems = 'center';
+        container.style.marginTop = '20px';
+        container.style.gap = '15px';
+        document.querySelector('.table-container').after(container);
+        
+        updatePaginationControls(); // Re-run to populate
+        return;
+      }
+      
+      paginationContainer.innerHTML = `
+        <button onclick="changePage(-1)" class="btn btn-secondary" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+        <span>Page ${currentPage} of ${totalPages || 1} (${filteredData.length} items)</span>
+        <button onclick="changePage(1)" class="btn btn-secondary" ${currentPage === totalPages || totalPages === 0 ? 'disabled' : ''}>Next</button>
+      `;
+    }
+
+    function changePage(delta) {
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      const newPage = currentPage + delta;
+      
+      if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderTable();
+      }
     }
 
     function getStatusClass(status) {
@@ -723,6 +892,7 @@ async function loadDataFromDB() {
         return statusMatch && searchMatch;
       });
       
+      currentPage = 1; // Reset to first page
       renderTable();
     }
 
@@ -776,6 +946,7 @@ async function loadDataFromDB() {
       const modalHtml = `
       <div id="modal">
         <div class="modal-content">
+          <span class="modal-close" onclick="closeModal()">&times;</span>
           <h2>➕ Add New Asset</h2>
           <div class="approval-notice">
             <strong>Note:</strong> All additions require approval from the admin.
@@ -937,6 +1108,7 @@ async function loadDataFromDB() {
       const modalHtml = `
       <div id="modal">
         <div class="modal-content">
+          <span class="modal-close" onclick="closeModal()">&times;</span>
           <h2>🔧 Send Asset for Servicing</h2>
           <div class="approval-notice">
             <strong>Note:</strong> All service requests require approval from the admin.
@@ -1040,6 +1212,7 @@ async function loadDataFromDB() {
       const modalHtml = `
       <div id="modal">
         <div class="modal-content">
+          <span class="modal-close" onclick="closeModal()">&times;</span>
           <h2>✔ Complete Service for ${assetId}</h2>
           <div class="approval-notice">
             <strong>Note:</strong> Service completion requires approval from the admin.
@@ -1112,6 +1285,7 @@ async function loadDataFromDB() {
       const modalHtml = `
       <div id="modal">
         <div class="modal-content">
+          <span class="modal-close" onclick="closeModal()">&times;</span>
           <h2>🗑️ Remove Asset from Inventory</h2>
           <div class="approval-notice">
             <strong>Note:</strong> All removal requests require approval from the admin.
